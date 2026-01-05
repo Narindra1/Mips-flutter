@@ -1,6 +1,3 @@
-# Mahafaka
+# MIPS
 
 An utlimate ads and utility app
-# mips
-# mips
-# mips
