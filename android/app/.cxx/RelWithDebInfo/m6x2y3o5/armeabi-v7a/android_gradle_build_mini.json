@@ -1,0 +1,20 @@
+{
+  "buildFiles": [
+    "/home/maminirina/dev/flutter/packages/flutter_tools/gradle/src/main/groovy/CMakeLists.txt"
+  ],
+  "cleanCommandsComponents": [
+    [
+      "/usr/bin/ninja",
+      "-C",
+      "/home/maminirina/Documents/FlutterMahafaka/mahafaka/android/app/.cxx/RelWithDebInfo/m6x2y3o5/armeabi-v7a",
+      "clean"
+    ]
+  ],
+  "buildTargetsCommandComponents": [
+    "/usr/bin/ninja",
+    "-C",
+    "/home/maminirina/Documents/FlutterMahafaka/mahafaka/android/app/.cxx/RelWithDebInfo/m6x2y3o5/armeabi-v7a",
+    "{LIST_OF_TARGETS_TO_BUILD}"
+  ],
+  "libraries": {}
+}

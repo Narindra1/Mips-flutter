@@ -1,0 +1,2 @@
+/home/maminirina/Documents/FlutterMips/mips/android/app/.cxx/Debug/666t412y/x86/CMakeFiles/edit_cache.dir
+/home/maminirina/Documents/FlutterMips/mips/android/app/.cxx/Debug/666t412y/x86/CMakeFiles/rebuild_cache.dir

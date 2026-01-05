@@ -1,0 +1,45 @@
+{
+  "en": [
+    "app_name",
+    "app_version",
+    "mips_unit",
+    "ariary_unit",
+    "setting_langue_fr",
+    "setting_langue_en",
+    "setting_langue_ko",
+    "setting_langue_zh"
+  ],
+
+  "ko": [
+    "app_name",
+    "app_version",
+    "mips_unit",
+    "ariary_unit",
+    "setting_langue_fr",
+    "setting_langue_en",
+    "setting_langue_ko",
+    "setting_langue_zh"
+  ],
+
+  "zh": [
+    "app_name",
+    "app_version",
+    "mips_unit",
+    "ariary_unit",
+    "setting_langue_fr",
+    "setting_langue_en",
+    "setting_langue_ko",
+    "setting_langue_zh"
+  ],
+
+  "mg": [
+    "app_name",
+    "app_version",
+    "mips_unit",
+    "ariary_unit",
+    "setting_langue_fr",
+    "setting_langue_en",
+    "setting_langue_ko",
+    "setting_langue_zh"
+  ]
+}

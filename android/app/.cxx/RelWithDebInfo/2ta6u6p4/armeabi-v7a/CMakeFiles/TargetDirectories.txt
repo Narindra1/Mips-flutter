@@ -1,0 +1,2 @@
+/home/maminirina/Documents/FlutterMips/mips/android/app/.cxx/RelWithDebInfo/2ta6u6p4/armeabi-v7a/CMakeFiles/edit_cache.dir
+/home/maminirina/Documents/FlutterMips/mips/android/app/.cxx/RelWithDebInfo/2ta6u6p4/armeabi-v7a/CMakeFiles/rebuild_cache.dir

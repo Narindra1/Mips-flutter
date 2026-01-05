@@ -1,0 +1,2 @@
+/home/maminirina/Documents/FlutterMahafaka/mahafaka/android/app/.cxx/RelWithDebInfo/m6x2y3o5/armeabi-v7a/CMakeFiles/edit_cache.dir
+/home/maminirina/Documents/FlutterMahafaka/mahafaka/android/app/.cxx/RelWithDebInfo/m6x2y3o5/armeabi-v7a/CMakeFiles/rebuild_cache.dir

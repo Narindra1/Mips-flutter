@@ -1,0 +1,121 @@
+import 'package:MIPS/common/constants/constant.dart';
+import 'package:MIPS/common/utils/app_utils.dart';
+import 'package:MIPS/presentation/bloc/app_bloc.dart';
+import 'package:MIPS/presentation/configurations/extension_for_localization.dart';
+import 'package:flutter/material.dart';
+
+class HistoryMips extends StatelessWidget {
+  const HistoryMips({
+    super.key,
+    required this.appState,
+    required this.index,
+  });
+  final AppState appState;
+  final int index;
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      margin: EdgeInsets.symmetric(vertical: 1),
+      decoration: BoxDecoration(
+          // color: Colors.amber,
+          borderRadius: BorderRadius.circular(mediumPadding),
+          border: Border.all(color: Colors.grey.shade200, width: 2)),
+      child: ListTile(
+        titleTextStyle: Theme.of(context).textTheme.titleSmall,
+        subtitleTextStyle: Theme.of(context)
+            .textTheme
+            .bodySmall
+            ?.copyWith(color: Colors.grey.shade600),
+        isThreeLine: true,
+        title: Row(
+          children: [
+            Expanded(
+                child: Text(
+              matchTransactionType(
+                  context, appState.transactionHistory[index].type),
+              style: Theme.of(context).textTheme.titleSmall,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 2,
+            )),
+            Container(
+              padding: const EdgeInsets.all(smallPadding),
+              decoration: BoxDecoration(
+                  color: !appState.transactionHistory[index].isIncome
+                      ? Colors.red.shade400
+                      : Colors.green,
+                  borderRadius: BorderRadius.circular(mediumPadding)),
+              child: Row(
+                children: [
+                  Image.asset(
+                    width: 24,
+                    height: 24,
+                    mipsCoin,
+                    fit: BoxFit.cover,
+                  ),
+                  const SizedBox(width: smallPadding),
+                  Text(
+                    "${appState.transactionHistory[index].isIncome ? "+" : "-"}${appState.transactionHistory[index].montantFaka}",
+                    style: const TextStyle(color: Colors.white),
+                  ),
+                ],
+              ),
+            )
+          ],
+        ),
+        subtitle: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          children: [
+            Text(
+              appState.transactionHistory[index].message,
+              maxLines: 3,
+              overflow: TextOverflow.ellipsis,
+            ),
+            Row(
+              children: [
+                Expanded(
+                  child: Text(
+                    AppUtils.formatDateReadableWithMonth(
+                        context, appState.transactionHistory[index].date),
+                    style: const TextStyle(fontWeight: FontWeight.bold),
+                  ),
+                ),
+              ],
+            ),
+          ],
+        ),
+      ),
+    );
+  }
+
+  String matchTransactionType(BuildContext context, String type) {
+    String transaction = "";
+    switch (type) {
+      case "CONNEXION_QUOTIDIENNE":
+        transaction = context.appLoc.daily_connection;
+        break;
+      case "CONSULTER_ANNONCE":
+        transaction = context.appLoc.ad_consultation;
+        break;
+      case "DONATION_GRANT":
+        transaction = context.appLoc.first_connection;
+        break;
+      case "PARTICIPER_SONDAGE":
+        transaction = context.appLoc.survey_participation;
+        break;
+      case "PROLONGER_OFFRE":
+        transaction = context.appLoc.announcement_extension;
+        break;
+      case "ACHAT_OFFRE_FAKA":
+        transaction = context.appLoc.using_kara;
+        break;
+      case "USER_TRANSFER":
+        transaction = context.appLoc.kara_transfer;
+        break;
+      default:
+        transaction = "";
+        break;
+    }
+    return transaction;
+  }
+}

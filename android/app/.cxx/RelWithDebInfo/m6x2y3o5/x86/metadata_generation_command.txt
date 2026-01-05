@@ -1,0 +1,20 @@
+                        -H/home/maminirina/dev/flutter/packages/flutter_tools/gradle/src/main/groovy
+-DCMAKE_SYSTEM_NAME=Android
+-DCMAKE_EXPORT_COMPILE_COMMANDS=ON
+-DCMAKE_SYSTEM_VERSION=21
+-DANDROID_PLATFORM=android-21
+-DANDROID_ABI=x86
+-DCMAKE_ANDROID_ARCH_ABI=x86
+-DANDROID_NDK=/home/maminirina/Android/Sdk/ndk/27.0.12077973
+-DCMAKE_ANDROID_NDK=/home/maminirina/Android/Sdk/ndk/27.0.12077973
+-DCMAKE_TOOLCHAIN_FILE=/home/maminirina/Android/Sdk/ndk/27.0.12077973/build/cmake/android.toolchain.cmake
+-DCMAKE_MAKE_PROGRAM=/usr/bin/ninja
+-DCMAKE_LIBRARY_OUTPUT_DIRECTORY=/home/maminirina/Documents/FlutterMahafaka/mahafaka/build/app/intermediates/cxx/RelWithDebInfo/m6x2y3o5/obj/x86
+-DCMAKE_RUNTIME_OUTPUT_DIRECTORY=/home/maminirina/Documents/FlutterMahafaka/mahafaka/build/app/intermediates/cxx/RelWithDebInfo/m6x2y3o5/obj/x86
+-DCMAKE_BUILD_TYPE=RelWithDebInfo
+-B/home/maminirina/Documents/FlutterMahafaka/mahafaka/android/app/.cxx/RelWithDebInfo/m6x2y3o5/x86
+-GNinja
+-Wno-dev
+--no-warn-unused-cli
+                        Build command args: []
+                        Version: 2

@@ -1,0 +1,19 @@
+import 'package:MIPS/domain/contracts/profil_repository.dart';
+import 'package:MIPS/domain/entities/annonce.dart';
+import 'package:MIPS/domain/entities/profil.dart';
+import 'package:MIPS/domain/entities/user.dart';
+
+import '../../../common/common.dart';
+
+class GetAnnoncesUserProfilUsecase {
+  final ProfilRepository profilRepository;
+
+  const GetAnnoncesUserProfilUsecase({
+    required this.profilRepository,
+  });
+
+  Future<Result<Failure, List<Annonce>>> call(
+      int id, int page, String query) async {
+    return profilRepository.getAnnoncesUserProfilById(id, page, query);
+  }
+}
