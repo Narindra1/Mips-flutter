@@ -22,8 +22,8 @@ import 'package:go_router/go_router.dart';
 import 'package:http/http.dart';
 import 'package:ionicons/ionicons.dart';
 
-class KaraPartner extends StatelessWidget {
-  const KaraPartner({
+class KaraPartnerScreen extends StatelessWidget {
+  const KaraPartnerScreen({
     super.key,
     required this.title,
   });
@@ -53,7 +53,7 @@ class KaraPartner extends StatelessWidget {
                   menuItems.add(
                     MenuItem(
                         name: state.provinces[i].nom,
-                        screenTypeRoute: MenuTypeRoute.listBasic,
+                        screenTypeRoute: MenuTypeRoute.listKara,
                         id: state.provinces[i].id,
                         desc: state.provinces[i].description,
                         reference: state.provinces[i].reference,
@@ -67,7 +67,7 @@ class KaraPartner extends StatelessWidget {
                   menuItems.add(
                     MenuItem(
                         name: context.appLoc.login_signup,
-                        screenTypeRoute: MenuTypeRoute.listBasic,
+                        screenTypeRoute: MenuTypeRoute.listKara,
                         id: 0,
                         desc: "",
                         reference: "",
@@ -136,6 +136,7 @@ class KaraPartner extends StatelessWidget {
                           isFavs: subElement[j].isFav,
                           isFree: subElement[j].isFree,
                           reference: subElement[j].reference),
+                      menuItems[i].name,
                     );
                   },
                   iconPath: subElement[j].iconPath));
@@ -172,17 +173,19 @@ class KaraPartner extends StatelessWidget {
                   colorsStringList[i % colorsStringList.length]),
               onClick: () {
                 _navigateScreenRoute(
-                    context,
-                    menuItems[i],
-                    Menu(
-                        annonceSponsor: null,
-                        annoncePartner: null,
-                        id: menuItems[i].id,
-                        title: menuItems[i].name,
-                        menusChildList: [],
-                        isFavs: menuItems[i].isFav,
-                        isFree: menuItems[i].isFree,
-                        reference: menuItems[i].reference));
+                  context,
+                  menuItems[i],
+                  Menu(
+                      annonceSponsor: null,
+                      annoncePartner: null,
+                      id: menuItems[i].id,
+                      title: menuItems[i].name,
+                      menusChildList: [],
+                      isFavs: menuItems[i].isFav,
+                      isFree: menuItems[i].isFree,
+                      reference: menuItems[i].reference),
+                  menuItems[i].name,
+                );
               },
               iconPath: menuItems[i].iconPath);
           if (i == menuItems.length - 1) {
@@ -195,8 +198,9 @@ class KaraPartner extends StatelessWidget {
                 id: menuItems[i].id,
                 isFav: menuItems[i].isFav,
                 isFree: menuItems[i].isFree,
-                color: AppUtils.stringToColor(
-                    colorsStringList[i % colorsStringList.length]),
+                color: secondaryColor,
+                // color: AppUtils.stringToColor(
+                //     colorsStringList[i % colorsStringList.length]),
                 onClick: () {
                   if (context.read<AppBloc>().state.isLogged) {
                     print("S'INSCRIRE MAINTENANT");
@@ -204,7 +208,6 @@ class KaraPartner extends StatelessWidget {
                     //       sondageId: widget.sondage.id,
                     //       optionSelected: selectedOption,
                     //     ));
-
                     AppRouter.go(context, RoutesNames.karaSubscription);
                   } else {
                     MessageDisplayerUtils.showAuthRequiredDialog(
@@ -294,13 +297,16 @@ class KaraPartner extends StatelessWidget {
     );
   }
 
-  void _navigateScreenRoute(
-      BuildContext context, MenuItem menuItem, Menu? screenMenuInfo) {
+  void _navigateScreenRoute(BuildContext context, MenuItem menuItem,
+      Menu? screenMenuInfo, String province) {
     String routeNames;
     switch (menuItem.screenTypeRoute) {
       case MenuTypeRoute.list:
       case MenuTypeRoute.listBasic:
         routeNames = RoutesNames.list;
+        break;
+      case MenuTypeRoute.listKara:
+        routeNames = RoutesNames.karaList;
         break;
       case MenuTypeRoute.menuScroll:
       case MenuTypeRoute.menuNotScroll:
@@ -339,6 +345,14 @@ class KaraPartner extends StatelessWidget {
             isBasicScreenWithoutPremium:
                 menuItem.screenTypeRoute == MenuTypeRoute.listBasic);
         AppRouter.go(context, routeNames, extra: extra);
+      }
+      if ((menuItem.screenTypeRoute == MenuTypeRoute.listKara) &&
+          screenMenuInfo != null) {
+        extra = screenMenuInfo.copyWith(
+            isBasicScreenWithoutPremium:
+                menuItem.screenTypeRoute == MenuTypeRoute.listKara);
+        AppRouter.go(context, routeNames,
+            extra: extra, queryParameters: {"province": province});
       } else if ((menuItem.screenTypeRoute == MenuTypeRoute.menuScroll ||
           menuItem.screenTypeRoute == MenuTypeRoute.menuNotScroll)) {
         AppRouter.go(context, routeNames, queryParameters: {

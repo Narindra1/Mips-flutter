@@ -66,8 +66,13 @@ class ConnectionChangedEvent extends AppEvent {
 class TransfertFakaEvent extends AppEvent {
   final String phoneReceiver;
   final int amount;
+  final String motif;
 
-  TransfertFakaEvent({required this.phoneReceiver, required this.amount});
+  TransfertFakaEvent({
+    required this.phoneReceiver,
+    required this.amount,
+    required this.motif,
+  });
 }
 
 class ForgotPasswordEvent extends AppEvent {

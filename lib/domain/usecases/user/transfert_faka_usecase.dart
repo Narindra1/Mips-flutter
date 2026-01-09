@@ -10,7 +10,8 @@ class TransfertFakaUseCase {
     required this.userRepository,
   });
 
-  Future<Result<Failure, User>> call(String phoneReceiver, int amount) async {
-    return userRepository.transfertFaka(phoneReceiver, amount);
+  Future<Result<Failure, User>> call(
+      String phoneReceiver, int amount, String motif) async {
+    return userRepository.transfertFaka(phoneReceiver, amount, motif);
   }
 }

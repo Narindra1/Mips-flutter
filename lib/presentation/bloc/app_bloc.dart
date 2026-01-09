@@ -292,7 +292,8 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   void _onTransfertFakaEvent(TransfertFakaEvent event, Emitter emit) async {
     emit(state.copyWith(
         statusTranfertFaka: StatusTranfertFaka.transfertInProgress));
-    var result = await transfertFakaUseCase(event.phoneReceiver, event.amount);
+    var result = await transfertFakaUseCase(
+        event.phoneReceiver, event.amount, event.motif);
     if (result.isSuccess()) {
       emit(state.copyWith(
           statusTranfertFaka: StatusTranfertFaka.transfertDone,

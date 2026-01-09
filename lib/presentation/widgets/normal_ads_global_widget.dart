@@ -58,7 +58,7 @@ class NormalAdsGlobalWidget extends StatelessWidget {
     for (int i = 0; i < menuRefColor.length; i++) {
       if (menuRefColor[i].reference == reference) return menuRefColor[i].color;
     }
-    return Color(0xFFFF00FF);
+    return reference == "" ? Colors.transparent : Color(0xFFFF00FF);
   }
 
   @override
@@ -148,7 +148,8 @@ class NormalAdsGlobalWidget extends StatelessWidget {
                                         ),
                                         child: Text(
                                           menuRacineRef! == ""
-                                              ? context.appLoc.ad_modified
+                                              ? ""
+                                              // ? context.appLoc.ad_modified
                                               : menuRacineName!,
                                           style: TextStyle(
                                             fontSize: 10,

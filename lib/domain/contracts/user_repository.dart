@@ -26,7 +26,8 @@ abstract class UserRepository {
 
   Future<Result<Failure, User>> updateUser(User user);
 
-  Future<Result<Failure, User>> transfertFaka(String phoneReceiver, int amount);
+  Future<Result<Failure, User>> transfertFaka(
+      String phoneReceiver, int amount, String motif);
 
   Future<Result<Failure, SuccessResult>> checkPassword(String password);
 

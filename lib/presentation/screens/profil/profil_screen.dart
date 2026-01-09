@@ -198,40 +198,58 @@ class ProfilScreen extends StatelessWidget {
                                                             followState
                                                                 .myFollowings
                                                                 .length;
+                                                        print("UP UP");
+                                                        print(
+                                                            "AUTHOR ID : ${authorID}");
+                                                        print(
+                                                            "FOLLOWINGS : ${followingsCount}");
+                                                        print(
+                                                            "FOLLOWERS : ${followersCount}");
 
-                                                        return appState.isLogged
-                                                            ? Text(
-                                                                // appState.isLogged &&
-                                                                //         isAuthorID
-                                                                //     ? "Vous suivez ${followingsMoreThan1 ? "$followingsCount membres" : "${followingsCount == 0 ? "aucun" : followingsCount} membre"}"
-                                                                //     : "Suivi par ${followersMoreThan1 ? "$followersCount membres" : "${followersCount == 0 ? "aucun" : followersCount} membre"}",
-                                                                appState.isLogged &&
-                                                                        isAuthorID
-                                                                    ? context
-                                                                        .appLoc
-                                                                        .you_follow_count_member(followingsCount
-                                                                            .toString())
-                                                                    : context
-                                                                        .appLoc
-                                                                        .followed_by_count_member(
-                                                                            followersCount.toString()),
-                                                                style: Theme.of(
-                                                                        context)
-                                                                    .textTheme
-                                                                    .bodySmall!
-                                                                    .copyWith(
-                                                                      decoration:
-                                                                          TextDecoration
-                                                                              .underline,
-                                                                      decorationColor: Colors
-                                                                          .grey
-                                                                          .shade600,
-                                                                      decorationThickness:
-                                                                          0.6,
-                                                                      fontWeight:
-                                                                          FontWeight
-                                                                              .w600,
-                                                                    ),
+                                                        return appState
+                                                                    .isLogged &&
+                                                                isAuthorID
+                                                            ? MaterialButton(
+                                                                padding:
+                                                                    EdgeInsets
+                                                                        .zero,
+                                                                onPressed: () {
+                                                                  AppRouter.go(
+                                                                      context,
+                                                                      RoutesNames
+                                                                          .followers);
+                                                                },
+                                                                child: Text(
+                                                                  // appState.isLogged &&
+                                                                  //         isAuthorID
+                                                                  //     ? "Vous suivez ${followingsMoreThan1 ? "$followingsCount membres" : "${followingsCount == 0 ? "aucun" : followingsCount} membre"}"
+                                                                  //     : "Suivi par ${followersMoreThan1 ? "$followersCount membres" : "${followersCount == 0 ? "aucun" : followersCount} membre"}",
+                                                                  appState.isLogged &&
+                                                                          isAuthorID
+                                                                      ? context
+                                                                          .appLoc
+                                                                          .you_follow_count_member(followingsCount
+                                                                              .toString())
+                                                                      : context
+                                                                          .appLoc
+                                                                          .followed_by_count_member(
+                                                                              followersCount.toString()),
+                                                                  style: Theme.of(
+                                                                          context)
+                                                                      .textTheme
+                                                                      .bodySmall!
+                                                                      .copyWith(
+                                                                        decoration:
+                                                                            TextDecoration.underline,
+                                                                        decorationColor: Colors
+                                                                            .grey
+                                                                            .shade600,
+                                                                        decorationThickness:
+                                                                            0.6,
+                                                                        fontWeight:
+                                                                            FontWeight.w600,
+                                                                      ),
+                                                                ),
                                                               )
                                                             : SizedBox();
                                                       },
@@ -477,37 +495,54 @@ class ProfilScreen extends StatelessWidget {
                                                   .myFollowers.length;
                                               int followingsCount = followState
                                                   .myFollowings.length;
+                                              print("DOWN DOWN");
+                                              print("AUTHOR ID : ${authorID}");
+                                              print(
+                                                  "FOLLOWINGS : ${followingsCount}");
+                                              print(
+                                                  "FOLLOWERS : ${followersCount}");
 
-                                              return appState.isLogged
-                                                  ? Text(
-                                                      // isAuthorID && appState.isLogged
-                                                      //     ? "Vous suivez ${followingsMoreThan1 ? "$followingsCount membres" : "${followingsCount == 0 ? "aucun" : followingsCount} membre"}"
-                                                      //     : "Suivi par ${followersMoreThan1 ? "$followersCount membres" : "${followersCount == 0 ? "aucun" : followersCount} membre"}",
-                                                      appState.isLogged &&
-                                                              isAuthorID
-                                                          ? context.appLoc
-                                                              .you_follow_count_member(
-                                                                  followingsCount
-                                                                      .toString())
-                                                          : context.appLoc
-                                                              .followed_by_count_member(
-                                                                  followersCount
-                                                                      .toString()),
-                                                      style: Theme.of(context)
-                                                          .textTheme
-                                                          .bodySmall!
-                                                          .copyWith(
-                                                            decoration:
-                                                                TextDecoration
-                                                                    .underline,
-                                                            decorationColor:
-                                                                Colors.grey
-                                                                    .shade600,
-                                                            decorationThickness:
-                                                                0.6,
-                                                            fontWeight:
-                                                                FontWeight.w600,
-                                                          ),
+                                              return appState.isLogged &&
+                                                      isAuthorID
+                                                  ? MaterialButton(
+                                                      padding: EdgeInsets.zero,
+                                                      onPressed: () {
+                                                        AppRouter.go(
+                                                            context,
+                                                            RoutesNames
+                                                                .followers);
+                                                      },
+                                                      child: Text(
+                                                        // isAuthorID && appState.isLogged
+                                                        //     ? "Vous suivez ${followingsMoreThan1 ? "$followingsCount membres" : "${followingsCount == 0 ? "aucun" : followingsCount} membre"}"
+                                                        //     : "Suivi par ${followersMoreThan1 ? "$followersCount membres" : "${followersCount == 0 ? "aucun" : followersCount} membre"}",
+                                                        appState.isLogged &&
+                                                                isAuthorID
+                                                            ? context.appLoc
+                                                                .you_follow_count_member(
+                                                                    followingsCount
+                                                                        .toString())
+                                                            : context.appLoc
+                                                                .followed_by_count_member(
+                                                                    followersCount
+                                                                        .toString()),
+                                                        style: Theme.of(context)
+                                                            .textTheme
+                                                            .bodySmall!
+                                                            .copyWith(
+                                                              decoration:
+                                                                  TextDecoration
+                                                                      .underline,
+                                                              decorationColor:
+                                                                  Colors.grey
+                                                                      .shade600,
+                                                              decorationThickness:
+                                                                  0.6,
+                                                              fontWeight:
+                                                                  FontWeight
+                                                                      .w600,
+                                                            ),
+                                                      ),
                                                     )
                                                   : SizedBox();
                                             },
@@ -601,19 +636,27 @@ class ProfilScreen extends StatelessWidget {
                                           .textTheme
                                           .titleMedium,
                                     ),
-                                    GestureDetector(
-                                      onTap: () {
-                                        MessageDisplayerUtils
-                                            .showAlertOfHiddenAds(
-                                          context,
-                                          context.appLoc.some_may_be_hidden,
-                                        );
+                                    BlocBuilder<AppBloc, AppState>(
+                                      builder: (context, state) {
+                                        return state.isLogged &&
+                                                (state.user!.id == authorID)
+                                            ? SizedBox()
+                                            : GestureDetector(
+                                                onTap: () {
+                                                  MessageDisplayerUtils
+                                                      .showAlertOfHiddenAds(
+                                                    context,
+                                                    context.appLoc
+                                                        .some_may_be_hidden,
+                                                  );
+                                                },
+                                                child: Icon(
+                                                  Ionicons.help,
+                                                  color: Colors.black,
+                                                  size: 16,
+                                                ),
+                                              );
                                       },
-                                      child: Icon(
-                                        Ionicons.help,
-                                        color: Colors.black,
-                                        size: 16,
-                                      ),
                                     ),
                                   ],
                                 ),

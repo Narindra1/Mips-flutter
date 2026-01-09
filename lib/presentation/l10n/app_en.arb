@@ -8,6 +8,10 @@
       "count": {}
     }
   },
+  "ad_id": "Ad ID",
+  "ad_id_is_required": "Ad ID is required",
+  "add_the_ad_id": "Add the ad ID",
+  "choose_province": "Choose province(s)",
   "read_all": "All read ✓",
   "load_more_messages": "Load more messages",
   "phone_duplicate_error": "Phone number already used",

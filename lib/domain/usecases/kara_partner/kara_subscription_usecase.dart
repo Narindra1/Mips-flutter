@@ -9,7 +9,8 @@ class KaraSubscriptionUsecase {
     required this.karaPartnerRepository,
   });
 
-  Future<Result<Failure, SuccessResult>> call() async {
-    return karaPartnerRepository.karaSubscription();
+  Future<Result<Failure, SuccessResult>> call(
+      List<String> provinces, String slug) async {
+    return karaPartnerRepository.karaSubscription(provinces, slug);
   }
 }

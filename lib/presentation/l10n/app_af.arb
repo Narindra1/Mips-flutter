@@ -22,6 +22,10 @@
       "count": {}
     }
   },
+  "ad_id": "ID ny doka",
+  "ad_id_is_required": "Ilaina ny ID doka",
+  "add_the_ad_id": "Ampio ny ID doka",
+  "choose_province": "Mifidiana faritany",
   "ads_default_title": "MIPS - Super App",
   "toast_disconnected": "Tsy misy connexion amin'izao fotoana izao.",
   "recents_announces": "Filazana vao haingana",

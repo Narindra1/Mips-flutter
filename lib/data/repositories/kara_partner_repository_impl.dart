@@ -4,6 +4,7 @@ import 'package:MIPS/common/result/results.dart';
 import 'package:MIPS/common/utils/app_utils.dart';
 import 'package:MIPS/data/datasources/remote_datasource.dart';
 import 'package:MIPS/domain/contracts/kara_partner_repository.dart';
+import 'package:MIPS/domain/entities/annonce.dart';
 import 'package:MIPS/domain/entities/province.dart';
 
 class KaraPartnerRepositoryImpl implements KaraPartnerRepository {
@@ -29,9 +30,30 @@ class KaraPartnerRepositoryImpl implements KaraPartnerRepository {
   }
 
   @override
-  Future<Result<Failure, SuccessResult>> karaSubscription() async {
+  Future<Result<Failure, List<Annonce>>> fetchKaraAnnoncesByProvince(
+      String province, int page, String query) async {
     try {
-      await remoteDataSource.karaSubscription();
+      List<Annonce> annonces = (await remoteDataSource
+              .fetchKaraAnnoncesByProvince(province, page, query))
+          .map((e) => e.toEntity())
+          .toList();
+      return Success(annonces);
+    } on AppException catch (e) {
+      AppUtils.showDebugLog(runtimeType, e.toString());
+      if (e is NoConnectionException) {
+        return Error(NoConnectionFailure());
+      }
+      return Error(ServerFailure(message: e.message));
+    } on Exception catch (e) {
+      return Error(ServerFailure(message: e.toString()));
+    }
+  }
+
+  @override
+  Future<Result<Failure, SuccessResult>> karaSubscription(
+      List<String> provinces, String slug) async {
+    try {
+      await remoteDataSource.karaSubscription(provinces, slug);
       return const Success(SuccessResult());
     } on AppException catch (e) {
       AppUtils.showDebugLog(runtimeType, e.toString());

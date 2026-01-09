@@ -161,6 +161,30 @@ abstract class AppLocalizations {
   /// **'Annonces en ligne de {name}'**
   String online_ads_from(String name);
 
+  /// No description provided for @ad_id.
+  ///
+  /// In fr, this message translates to:
+  /// **'ID de l\'annonce'**
+  String get ad_id;
+
+  /// No description provided for @ad_id_is_required.
+  ///
+  /// In fr, this message translates to:
+  /// **'ID de l\'annonce est requis'**
+  String get ad_id_is_required;
+
+  /// No description provided for @add_the_ad_id.
+  ///
+  /// In fr, this message translates to:
+  /// **'Ajoutez l\'ID de l\'annonce'**
+  String get add_the_ad_id;
+
+  /// No description provided for @choose_province.
+  ///
+  /// In fr, this message translates to:
+  /// **'Choisissez de(s) province(s)'**
+  String get choose_province;
+
   /// No description provided for @become_kara_partner.
   ///
   /// In fr, this message translates to:

@@ -170,6 +170,25 @@ class AnnonceRepositoryImpl implements AnnonceRepository {
   }
 
   @override
+  Future<Result<Failure, Annonce>> createAnnoncePlainteSuggestion(
+      Annonce annonce, int idTarifOptions) async {
+    try {
+      Annonce result = (await remoteDataSource.createAnnoncePlainteSuggestion(
+              AnnonceModel.fromEntity(annonce), idTarifOptions))
+          .toEntity();
+      return Success(result);
+    } on AppException catch (e) {
+      AppUtils.showDebugLog(runtimeType, e.toString());
+      if (e is NoConnectionException) {
+        return Error(NoConnectionFailure());
+      }
+      return Error(ServerFailure(message: e.message));
+    } on Exception catch (e) {
+      return Error(ServerFailure(message: e.toString()));
+    }
+  }
+
+  @override
   Future<Result<Failure, ImageEntity>> uploadImageAnnonce(
       Uint8List imageByteList,
       String idMenu,

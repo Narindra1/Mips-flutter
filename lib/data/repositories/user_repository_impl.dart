@@ -186,10 +186,11 @@ class UserRepositoryImpl implements UserRepository {
 
   @override
   Future<Result<Failure, User>> transfertFaka(
-      String phoneReceiver, int amount) async {
+      String phoneReceiver, int amount, String motif) async {
     try {
-      var result = (await remoteDataSource.transfertFaka(phoneReceiver, amount))
-          .toEntity();
+      var result =
+          (await remoteDataSource.transfertFaka(phoneReceiver, amount, motif))
+              .toEntity();
       return Success(result);
     } on AppException catch (e) {
       AppUtils.showDebugLog(runtimeType, e.toString());

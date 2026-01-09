@@ -67,6 +67,18 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get ad_id => '广告 ID';
+
+  @override
+  String get ad_id_is_required => '需要广告 ID';
+
+  @override
+  String get add_the_ad_id => '添加广告 ID';
+
+  @override
+  String get choose_province => '选择省份';
+
+  @override
   String get become_kara_partner => '成为 KARA 合作伙伴';
 
   @override

@@ -236,7 +236,7 @@ class DemandePlaintesScreen extends StatelessWidget {
                                                   .isLogged) {
                                                 context
                                                     .read<DemandePubBloc>()
-                                                    .add(SubmitFormEvent(
+                                                    .add(SubmitPlainteFormEvent(
                                                       idAnnonce: "0",
                                                       idMenu: idMenu,
                                                       titleMenu: title,

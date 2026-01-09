@@ -67,6 +67,18 @@ class AppLocalizationsAf extends AppLocalizations {
   }
 
   @override
+  String get ad_id => 'ID ny doka';
+
+  @override
+  String get ad_id_is_required => 'Ilaina ny ID doka';
+
+  @override
+  String get add_the_ad_id => 'Ampio ny ID doka';
+
+  @override
+  String get choose_province => 'Mifidiana faritany';
+
+  @override
   String get become_kara_partner => 'Tonga mpiara-miasa amin\'ny KARA';
 
   @override

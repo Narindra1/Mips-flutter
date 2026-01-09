@@ -12,15 +12,38 @@ import '../../configurations/colors_list.dart';
 import '../../widgets/app_panel_widget.dart';
 import '../base/base_screen.dart';
 
-class TransfertFakaScreen extends StatelessWidget {
-  TransfertFakaScreen({super.key});
+class TransfertFakaScreen extends StatefulWidget {
+  const TransfertFakaScreen({super.key});
 
+  @override
+  State<TransfertFakaScreen> createState() => _TransfertFakaScreenState();
+}
+
+class _TransfertFakaScreenState extends State<TransfertFakaScreen> {
   final TextEditingController idTextController = TextEditingController();
   final TextEditingController amountTextController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+  bool vertical = false;
+  int? _value = 0;
 
   @override
   Widget build(BuildContext context) {
+    List<Widget> motifs = <Widget>[
+      Text(
+        "Ami(e)",
+        style: Theme.of(context).textTheme.titleSmall,
+      ),
+      Text(
+        "Kara Partenaire",
+        style: Theme.of(context).textTheme.titleSmall,
+      ),
+      Text(
+        "MIPS SHOP",
+        style: Theme.of(context).textTheme.titleSmall,
+      ),
+    ];
+    List<String> motifValues = ["Ami(e)", "Kara Partenaire", "MIPS SHOP"];
+
     return BlocProvider.value(
       /// Réinitialise la statue du transfert en NONE
       value: context.read<AppBloc>()..add(InitTranfertScreen()),
@@ -334,6 +357,40 @@ class TransfertFakaScreen extends StatelessWidget {
                             const SizedBox(
                               height: largePadding,
                             ),
+                            Text(
+                              "Motif",
+                              style: Theme.of(context).textTheme.titleMedium,
+                            ),
+                            const SizedBox(
+                              height: mediumPadding,
+                            ),
+                            Wrap(
+                              spacing: 5,
+                              runSpacing: 5,
+                              children: List.generate(
+                                motifs.length,
+                                (index) => ChoiceChip(
+                                  label: motifs[index],
+                                  showCheckmark: false,
+                                  selected: _value == index,
+                                  onSelected: (selected) {
+                                    setState(() {
+                                      _value = selected ? index : _value;
+                                    });
+                                  },
+                                  color: WidgetStateProperty.resolveWith(
+                                    (states) =>
+                                        states.contains(WidgetState.selected)
+                                            ? secondaryColor
+                                            : Colors.white,
+                                  ),
+                                  labelPadding: EdgeInsets.zero,
+                                ),
+                              ),
+                            ),
+                            const SizedBox(
+                              height: largePadding,
+                            ),
                             Align(
                               alignment: Alignment.center,
                               child: SizedBox(
@@ -366,8 +423,9 @@ class TransfertFakaScreen extends StatelessWidget {
                                                               amountTextController
                                                                   .text
                                                                   .replaceAll(
-                                                                      " ",
-                                                                      ""))));
+                                                                      " ", "")),
+                                                          motif: motifValues[
+                                                              _value!]));
                                                 },
                                               );
                                             }

@@ -13,6 +13,7 @@ import 'package:MIPS/domain/contracts/kara_partner_repository.dart';
 import 'package:MIPS/domain/contracts/profil_repository.dart';
 import 'package:MIPS/domain/contracts/reward_repository.dart';
 import 'package:MIPS/domain/domain.dart';
+import 'package:MIPS/domain/usecases/annonces/create_annonce_plainte_suggestion_usecase.dart';
 import 'package:MIPS/domain/usecases/annonces/get_annonce_with_partner_sponsor_usecase.dart';
 import 'package:MIPS/domain/usecases/annonces/get_recents_annonces_usecase.dart';
 import 'package:MIPS/domain/usecases/annonces/get_user_annonces_count_usecase.dart';
@@ -26,6 +27,7 @@ import 'package:MIPS/domain/usecases/follow/get_annonces_followed_users_usecase.
 import 'package:MIPS/domain/usecases/follow/get_followers_usecase.dart';
 import 'package:MIPS/domain/usecases/follow/get_following_usecase.dart';
 import 'package:MIPS/domain/usecases/follow/unfollow_user_usecase.dart';
+import 'package:MIPS/domain/usecases/kara_partner/get_kara_list_by_province_usecase.dart';
 import 'package:MIPS/domain/usecases/kara_partner/get_kara_province_list_usecase.dart';
 import 'package:MIPS/domain/usecases/kara_partner/kara_subscription_usecase.dart';
 import 'package:MIPS/domain/usecases/profil/get_annonces_user_profil_count_usecase.dart';
@@ -107,6 +109,8 @@ Future<void> init() async {
       () => GetScreenByIDRouteUseCase(screenRepository: getIt()));
   getIt.registerLazySingleton<CreateAnnonceUseCase>(
       () => CreateAnnonceUseCase(annonceRepository: getIt()));
+  getIt.registerLazySingleton<CreateAnnoncePlainteSuggestionUsecase>(
+      () => CreateAnnoncePlainteSuggestionUsecase(annonceRepository: getIt()));
   getIt.registerLazySingleton<DeleteAnnonceUseCase>(
       () => DeleteAnnonceUseCase(annonceRepository: getIt()));
   getIt.registerLazySingleton<GetAllAnnoncesByIdScreenUseCase>(
@@ -232,6 +236,8 @@ Future<void> init() async {
       () => GetKaraProvinceListUsecase(karaPartnerRepository: getIt()));
   getIt.registerLazySingleton<KaraSubscriptionUsecase>(
       () => KaraSubscriptionUsecase(karaPartnerRepository: getIt()));
+  getIt.registerLazySingleton<GetKaraListByProvinceUsecase>(
+      () => GetKaraListByProvinceUsecase(karaPartnerRepository: getIt()));
 
   // BloC
   getIt.registerFactory<AppBloc>(() => AppBloc(
@@ -259,6 +265,7 @@ Future<void> init() async {
   getIt.registerFactory<DemandePubBloc>(() => DemandePubBloc(
       getParentScreenUseCase: getIt(),
       createAnnonceUseCase: getIt(),
+      createAnnoncePlainteSuggestionUsecase: getIt(),
       extendValidityAnnonceUsecase: getIt(),
       uploadImageAnnonceUseCase: getIt(),
       updateAnnonceUseCase: getIt(),
@@ -270,6 +277,7 @@ Future<void> init() async {
         getRecentsAnnoncesUsecase: getIt(),
         reactToAnnonceUseCase: getIt(),
         createAnnonceUseCase: getIt(),
+        createAnnoncePlainteSuggestionUsecase: getIt(),
         deleteAnnonceUseCase: getIt(),
         makeFavAnnonceUseCase: getIt(),
         updateAnnonceUseCase: getIt(),
@@ -323,5 +331,6 @@ Future<void> init() async {
   getIt.registerFactory<KaraPartnerBloc>(() => KaraPartnerBloc(
         getKaraProvinceListUsecase: getIt(),
         karaSubscriptionUsecase: getIt(),
+        getKaraListByProvinceUsecase: getIt(),
       ));
 }

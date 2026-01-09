@@ -501,7 +501,7 @@ class _MenuScreenState extends State<MenuScreen> {
           print(
               "KARA PARTNER : ${menuItems[i].reference} & PARTNER : ${menuItems[i].subMenu.length}");
           if (menuItems[i].reference == "IP") {
-            continue;
+            // continue;
           }
           menuItem = MenuItemHolder(
               annoncesTodayCount: menuItems[i].annoncesTodayCount,

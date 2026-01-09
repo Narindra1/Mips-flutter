@@ -6,6 +6,7 @@ import 'package:bot_toast/bot_toast.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:MIPS/presentation/configurations/extension_for_localization.dart';
@@ -872,13 +873,22 @@ class MessageDisplayerUtils {
                 Row(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Text(
-                      slug,
-                      textAlign: TextAlign.center,
-                      style: Theme.of(context).textTheme.titleLarge!.copyWith(
-                            fontFamily: "Prétendard",
-                            fontWeight: FontWeight.bold,
-                          ),
+                    GestureDetector(
+                      onTap: () {
+                        Clipboard.setData(
+                          ClipboardData(text: slug.substring(4)),
+                        );
+                        MessageDisplayerUtils.showToastMessage(context.appLoc
+                            .welcome_user("Le Slug est bien copiée"));
+                      },
+                      child: Text(
+                        slug.substring(4),
+                        textAlign: TextAlign.center,
+                        style: Theme.of(context).textTheme.titleLarge!.copyWith(
+                              fontFamily: "Prétendard",
+                              fontWeight: FontWeight.bold,
+                            ),
+                      ),
                     ),
                   ],
                 ),

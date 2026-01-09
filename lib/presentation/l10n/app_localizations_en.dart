@@ -73,6 +73,18 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get ad_id => 'Ad ID';
+
+  @override
+  String get ad_id_is_required => 'Ad ID is required';
+
+  @override
+  String get add_the_ad_id => 'Add the ad ID';
+
+  @override
+  String get choose_province => 'Choose province(s)';
+
+  @override
   String get become_kara_partner => 'Become a KARA partner';
 
   @override

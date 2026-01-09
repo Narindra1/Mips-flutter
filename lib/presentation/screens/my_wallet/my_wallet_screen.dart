@@ -304,92 +304,34 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
               },
             ),
           ),
-          SliverPersistentHeader(
-            pinned: true,
-            delegate: ResponsiveSliverHeaderDelegate(
-              height: _headerHeight == 0 ? 140 : _headerHeight,
-              child: MeasureSize(
-                onChange: (size) {
-                  if (_headerHeight != size.height) {
-                    setState(() {
-                      _headerHeight = size.height;
-                    });
-                  }
-                },
-                child: Container(
-                  decoration: BoxDecoration(
-                    color: Colors.white,
-                    boxShadow: [
-                      BoxShadow(
-                        offset: Offset(0, 0),
-                        color: Colors.grey.shade200,
-                        blurRadius: 1,
-                        spreadRadius: 1,
-                      ),
-                    ],
-                  ),
-                  padding: const EdgeInsets.all(8),
-                  child: Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    mainAxisSize: MainAxisSize.min, // 🔥 IMPORTANT
-                    children: [
-                      Text(
-                        context.appLoc.list_of_operations,
-                        style: Theme.of(context).textTheme.titleMedium,
-                      ),
-                      const SizedBox(height: mediumPadding),
-                      Wrap(
-                        spacing: 5,
-                        runSpacing: 5,
-                        children: List.generate(
-                          operations.length,
-                          (index) => ChoiceChip(
-                            label: operations[index],
-                            showCheckmark: false,
-                            selected: _value == index,
-                            onSelected: (selected) {
-                              setState(() {
-                                _value = selected ? index : _value;
-                              });
-                            },
-                            color: WidgetStateProperty.resolveWith(
-                              (states) => states.contains(WidgetState.selected)
-                                  ? secondaryColor
-                                  : Colors.white,
-                            ),
-                            labelPadding: EdgeInsets.zero,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-              ),
-            ),
-          ),
-
           // SliverPersistentHeader(
-          //   floating: false,
           //   pinned: true,
-          //   delegate: _SliverAppBarDelegate(
-          //     minHeight: 125,
-          //     maxHeight: 125,
-          //     child: Container(
-          //       decoration: BoxDecoration(
-          //         color: Colors.white,
-          //         boxShadow: [
-          //           BoxShadow(
-          //             offset: Offset(0, 0),
-          //             color: Colors.grey.shade200,
-          //             blurRadius: 1,
-          //             spreadRadius: 1,
-          //           ),
-          //         ],
-          //       ),
-          //       child: Padding(
-          //         padding: const EdgeInsets.all(8.0),
+          //   delegate: ResponsiveSliverHeaderDelegate(
+          //     height: _headerHeight == 0 ? 125.0 : _headerHeight,
+          //     child: MeasureSize(
+          //       onChange: (size) {
+          //         if (_headerHeight != size.height) {
+          //           setState(() {
+          //             _headerHeight = size.height;
+          //           });
+          //         }
+          //       },
+          //       child: Container(
+          //         decoration: BoxDecoration(
+          //           color: Colors.white,
+          //           boxShadow: [
+          //             BoxShadow(
+          //               offset: Offset(0, 0),
+          //               color: Colors.grey.shade200,
+          //               blurRadius: 1,
+          //               spreadRadius: 1,
+          //             ),
+          //           ],
+          //         ),
+          //         padding: const EdgeInsets.all(8),
           //         child: Column(
           //           crossAxisAlignment: CrossAxisAlignment.start,
+          //           mainAxisSize: MainAxisSize.min, // 🔥 IMPORTANT
           //           children: [
           //             Text(
           //               context.appLoc.list_of_operations,
@@ -397,30 +339,27 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
           //             ),
           //             const SizedBox(height: mediumPadding),
           //             Wrap(
-          //               spacing: 5.0,
-          //               runSpacing: 5.0,
-          //               children: List<Widget>.generate(operations.length,
-          //                   (int index) {
-          //                 return ChoiceChip(
+          //               spacing: 5,
+          //               runSpacing: 5,
+          //               children: List.generate(
+          //                 operations.length,
+          //                 (index) => ChoiceChip(
           //                   label: operations[index],
           //                   showCheckmark: false,
           //                   selected: _value == index,
-          //                   onSelected: (bool selected) {
+          //                   onSelected: (selected) {
           //                     setState(() {
           //                       _value = selected ? index : _value;
           //                     });
           //                   },
-          //                   color: WidgetStateProperty.resolveWith<Color>(
-          //                     (states) {
-          //                       if (states.contains(WidgetState.selected)) {
-          //                         return secondaryColor;
-          //                       }
-          //                       return Colors.white;
-          //                     },
+          //                   color: WidgetStateProperty.resolveWith(
+          //                     (states) => states.contains(WidgetState.selected)
+          //                         ? secondaryColor
+          //                         : Colors.white,
           //                   ),
-          //                   labelPadding: EdgeInsets.all(0),
-          //                 );
-          //               }).toList(),
+          //                   labelPadding: EdgeInsets.zero,
+          //                 ),
+          //               ),
           //             ),
           //           ],
           //         ),
@@ -428,6 +367,67 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
           //     ),
           //   ),
           // ),
+
+          SliverPersistentHeader(
+            floating: false,
+            pinned: true,
+            delegate: _SliverAppBarDelegate(
+              minHeight: 125,
+              maxHeight: 125,
+              child: Container(
+                decoration: BoxDecoration(
+                  color: Colors.white,
+                  boxShadow: [
+                    BoxShadow(
+                      offset: Offset(0, 0),
+                      color: Colors.grey.shade200,
+                      blurRadius: 1,
+                      spreadRadius: 1,
+                    ),
+                  ],
+                ),
+                child: Padding(
+                  padding: const EdgeInsets.all(8.0),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Text(
+                        context.appLoc.list_of_operations,
+                        style: Theme.of(context).textTheme.titleMedium,
+                      ),
+                      const SizedBox(height: mediumPadding),
+                      Wrap(
+                        spacing: 5.0,
+                        runSpacing: 5.0,
+                        children: List<Widget>.generate(operations.length,
+                            (int index) {
+                          return ChoiceChip(
+                            label: operations[index],
+                            showCheckmark: false,
+                            selected: _value == index,
+                            onSelected: (bool selected) {
+                              setState(() {
+                                _value = selected ? index : _value;
+                              });
+                            },
+                            color: WidgetStateProperty.resolveWith<Color>(
+                              (states) {
+                                if (states.contains(WidgetState.selected)) {
+                                  return secondaryColor;
+                                }
+                                return Colors.white;
+                              },
+                            ),
+                            labelPadding: EdgeInsets.all(0),
+                          );
+                        }).toList(),
+                      ),
+                    ],
+                  ),
+                ),
+              ),
+            ),
+          ),
           BlocProvider.value(
             value: context.read<AppBloc>()
               ..add(LoadHistoryFakaChangeEvent(page: 1)),
@@ -518,93 +518,92 @@ Widget _buildListHistory(BuildContext context, AppState state, int value) {
   return EmptyListWidget(listType: ListType.message);
 }
 
-class MeasureSize extends StatefulWidget {
-  final Widget child;
-  final ValueChanged<Size> onChange;
-
-  const MeasureSize({
-    super.key,
-    required this.child,
-    required this.onChange,
-  });
-
-  @override
-  State<MeasureSize> createState() => _MeasureSizeState();
-}
-
-class _MeasureSizeState extends State<MeasureSize> {
-  Size? oldSize;
-
-  @override
-  Widget build(BuildContext context) {
-    WidgetsBinding.instance.addPostFrameCallback((_) {
-      final size = context.size;
-      if (size != null && oldSize != size) {
-        oldSize = size;
-        widget.onChange(size);
-      }
-    });
-
-    return widget.child;
-  }
-}
-
-class ResponsiveSliverHeaderDelegate extends SliverPersistentHeaderDelegate {
-  final Widget child;
-  final double height;
-
-  ResponsiveSliverHeaderDelegate({
-    required this.child,
-    required this.height,
-  });
-
-  @override
-  double get minExtent => height;
-
-  @override
-  double get maxExtent => height;
-
-  @override
-  Widget build(
-    BuildContext context,
-    double shrinkOffset,
-    bool overlapsContent,
-  ) {
-    return child;
-  }
-
-  @override
-  bool shouldRebuild(covariant ResponsiveSliverHeaderDelegate oldDelegate) {
-    return height != oldDelegate.height || child != oldDelegate.child;
-  }
-}
-
-// class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
-//   _SliverAppBarDelegate({
-//     required this.minHeight,
-//     required this.maxHeight,
-//     required this.child,
-//   });
-//   final double minHeight;
-//   final double maxHeight;
+// class MeasureSize extends StatefulWidget {
 //   final Widget child;
+//   final ValueChanged<Size> onChange;
+
+//   const MeasureSize({
+//     super.key,
+//     required this.child,
+//     required this.onChange,
+//   });
 
 //   @override
-//   double get minExtent => minHeight;
+//   State<MeasureSize> createState() => _MeasureSizeState();
+// }
+
+// class _MeasureSizeState extends State<MeasureSize> {
+//   Size? oldSize;
 
 //   @override
-//   double get maxExtent => max(maxHeight, minHeight);
+//   Widget build(BuildContext context) {
+//     WidgetsBinding.instance.addPostFrameCallback((_) {
+//       final size = context.size;
+//       if (size != null && oldSize != size) {
+//         oldSize = size;
+//         widget.onChange(size);
+//       }
+//     });
+//     return widget.child;
+//   }
+// }
+
+// class ResponsiveSliverHeaderDelegate extends SliverPersistentHeaderDelegate {
+//   final Widget child;
+//   final double height;
+
+//   ResponsiveSliverHeaderDelegate({
+//     required this.child,
+//     required this.height,
+//   });
+
+//   @override
+//   double get minExtent => height;
+
+//   @override
+//   double get maxExtent => height;
 
 //   @override
 //   Widget build(
-//       BuildContext context, double shrinkOffset, bool overlapsContent) {
-//     return SizedBox.expand(child: child);
+//     BuildContext context,
+//     double shrinkOffset,
+//     bool overlapsContent,
+//   ) {
+//     return child;
 //   }
 
 //   @override
-//   bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
-//     return maxHeight != oldDelegate.maxHeight ||
-//         minHeight != oldDelegate.minHeight ||
-//         child != oldDelegate.child;
+//   bool shouldRebuild(covariant ResponsiveSliverHeaderDelegate oldDelegate) {
+//     return height != oldDelegate.height || child != oldDelegate.child;
 //   }
 // }
+
+class _SliverAppBarDelegate extends SliverPersistentHeaderDelegate {
+  _SliverAppBarDelegate({
+    required this.minHeight,
+    required this.maxHeight,
+    required this.child,
+  });
+  final double minHeight;
+  final double maxHeight;
+  final Widget child;
+
+  @override
+  double get minExtent => minHeight;
+
+  @override
+  double get maxExtent => max(maxHeight, minHeight);
+
+  @override
+  Widget build(
+      BuildContext context, double shrinkOffset, bool overlapsContent) {
+    return SizedBox.expand(child: child);
+  }
+
+  @override
+  bool shouldRebuild(_SliverAppBarDelegate oldDelegate) {
+    return maxHeight != oldDelegate.maxHeight ||
+        minHeight != oldDelegate.minHeight ||
+        child != oldDelegate.child;
+  }
+}

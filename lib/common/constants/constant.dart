@@ -93,6 +93,7 @@ enum MenuTypeRoute {
   menuNotScroll,
   list,
   listBasic,
+  listKara,
   page,
   EXCHANGE_RATE,
   MAHA_SONDAGE,

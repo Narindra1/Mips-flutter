@@ -1,5 +1,6 @@
 import 'package:MIPS/common/common.dart';
 import 'package:MIPS/domain/domain.dart';
+import 'package:MIPS/domain/usecases/annonces/create_annonce_plainte_suggestion_usecase.dart';
 import 'package:bloc/bloc.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/material.dart';
@@ -18,6 +19,8 @@ class DemandePubBloc extends Bloc<DemandePubEvent, DemandePubState> {
   final UploadImageAnnonceUseCase uploadImageAnnonceUseCase;
   final UpdateAnnonceUseCase updateAnnonceUseCase;
   final CreateAnnonceUseCase createAnnonceUseCase;
+  final CreateAnnoncePlainteSuggestionUsecase
+      createAnnoncePlainteSuggestionUsecase;
   final GetParentMenuScreenUseCase getParentScreenUseCase;
   final GetMenuTarifOptionsUseCase getMenuTarifOptionsUseCase;
   final ExtendValidityAnnonceUsecase extendValidityAnnonceUsecase;
@@ -29,6 +32,7 @@ class DemandePubBloc extends Bloc<DemandePubEvent, DemandePubState> {
   DemandePubBloc(
       {required this.uploadImageAnnonceUseCase,
       required this.createAnnonceUseCase,
+      required this.createAnnoncePlainteSuggestionUsecase,
       required this.updateAnnonceUseCase,
       required this.getMenuTarifOptionsUseCase,
       required this.extendValidityAnnonceUsecase,
@@ -479,6 +483,54 @@ class DemandePubBloc extends Bloc<DemandePubEvent, DemandePubState> {
             state.annonceTarif[state.indexTarifSelected]
                 .tarifs[state.indexAnnonceTarifOptionSelected].id);
       }
+      if (result.isSuccess()) {
+        emit(state.copyWith(status: Status.doneSubmiting));
+        if (isEditMode) {
+          annonceBloc!
+              .add(AnnonceSelectedModifiedEvent(annonce: result.getSuccess()!));
+        }
+      } else {
+        emit(state.copyWith(
+            status: Status.errorSubmiting,
+            errorMessage: result.getError()?.message));
+      }
+    });
+    on<SubmitPlainteFormEvent>((event, emit) async {
+      emit(state.copyWith(status: Status.demandeSubmiting));
+      Result<Failure, Annonce> result;
+      result = await createAnnoncePlainteSuggestionUsecase(
+          Annonce(
+              isLiked: false,
+              reactionCount: 0,
+              isWebsitePub: false,
+              slug: "",
+              authorID: 0,
+              dateLimit: "",
+              menuParentRef: "0",
+              menuRacineRef: "",
+              menuRacineName: "",
+              parrain: event.parrain,
+              customHtmlUrl: "",
+              menuParentID: int.parse(event.idMenu),
+              id: 0,
+              title: event.title,
+              descriptionCourte: event.descriptionCourte,
+              descriptionDetaille: event.descriptionDetaillee,
+              photos: List.generate(state.imagesAnnonceUpload.length, (index) {
+                return state.imagesAnnonceUpload[index].imageEntity;
+              }),
+              commentaires: [],
+              emplacement: event.emplacement,
+              annonceType:
+                  state.annonceTarif[state.indexTarifSelected].annonceType,
+              contact: event.contact,
+              dateDeCreation: "",
+              author: "User1",
+              isFavs: false,
+              menuParentName: event.titleMenu),
+          state.annonceTarif[state.indexTarifSelected]
+              .tarifs[state.indexAnnonceTarifOptionSelected].id);
+
       if (result.isSuccess()) {
         emit(state.copyWith(status: Status.doneSubmiting));
         if (isEditMode) {

@@ -101,6 +101,41 @@ class RemoteDataSource {
     );
   }
 
+  Future<List<AnnonceModel>> fetchKaraAnnoncesByProvince(
+      String province, int page, String query) async {
+    return requestHandler(
+      () async {
+        String url = '';
+        // Chargement des annonces avec pagination
+        if (page > 1 || query != "") {
+          if (query != "") {
+            url =
+                '/menus/kara_partenaires/$province/paginate?page=$page&query=$query';
+          } else {
+            url = '/menus/kara_partenaires/$province/paginate?page=$page';
+          }
+        } else {
+          url = '/menus/kara_partenaires/$province';
+        }
+
+        Response response = await dio.get(url);
+        List<dynamic> jsonResult = _json(response.data);
+        List<AnnonceModel> annonceModelList = [];
+
+        if (jsonResult.isNotEmpty) {
+          for (var e in jsonResult) {
+            annonceModelList.add(AnnonceModel.fromJson(e["annonce"],
+                annonceType: AnnonceType.general));
+          }
+        }
+
+        print("PROVINCE : $annonceModelList");
+
+        return annonceModelList;
+      },
+    );
+  }
+
   /// Récupère la liste des avis.
   /// Retourne une liste de [AvisModel].
   Future<List<AvisModel>> getAllAvis() async {
@@ -403,12 +438,14 @@ class RemoteDataSource {
   /// [phoneReceiver] : numéro téléphone du bénéficiaire
   /// [amount] : montant en FAKA à transferer
   /// return [UserModel]
-  Future<UserModel> transfertFaka(String phoneReceiver, int amount) async {
+  Future<UserModel> transfertFaka(
+      String phoneReceiver, int amount, String motif) async {
     return requestHandler(
       () async {
         Response response = await dio.post('/profil/faka/transfert', data: {
           "numero": phoneReceiver.replaceAll(" ", ""),
-          "montant": amount
+          "montant": amount,
+          "motif": motif,
         });
         Map<String, dynamic> jsonResult = _json(response.data);
         return UserModel.fromJson(jsonResult);
@@ -1038,6 +1075,48 @@ class RemoteDataSource {
     );
   }
 
+  /// Crée une nouvelle annonce.
+  /// [annonceModel] : instance de la nouvelle annonce
+  /// [idTarifOptions] : id de l'option de tarifs choisi
+  /// return [AnnonceModel] : l'annonce créée
+  Future<AnnonceModel> createAnnoncePlainteSuggestion(
+      AnnonceModel annonceModel, int idTarifOptions) async {
+    return requestHandler(
+      () async {
+        Response response = await dio.post(
+          '/plainte_suggestion',
+          data: annonceModel.toJson()..["option_id"] = idTarifOptions,
+          onSendProgress: (int sent, int total) {
+            AppUtils.showDebugLog(
+                runtimeType, "createAnnonce uploading: $sent/$total");
+          },
+        );
+        var result = _json(response.data);
+
+        /// Depend de l'objet retourné
+        /// si le retour est id de l'annonce
+        if (result is int) {
+          return annonceModel.copyWith(id: result);
+        } else if (result is String) {
+          return annonceModel.copyWith(id: int.parse(result));
+        }
+
+        /// si le retour est un json
+        else if (result is Map<String, dynamic>) {
+          annonceModel = annonceModel.copyWith(
+              id: result["id"] ?? 0,
+              dateDeCreation: result["created_at"] ?? " ");
+          return annonceModel;
+        }
+
+        /// si la requete n'a pas comporté une erreur
+        else {
+          return annonceModel;
+        }
+      },
+    );
+  }
+
   /// Récupère les commentaires d'une annonce.
   /// [idAnnonce] : id de l'annonce contenant les commentaires
   /// [page] : page du commentaire (commence par 1 )
@@ -1092,10 +1171,16 @@ class RemoteDataSource {
 
   /// Récupère la liste des provinces.
   /// return list [ProvinceModel]
-  Future<void> karaSubscription() async {
+  Future<void> karaSubscription(List<String> provinces, String slug) async {
     return requestHandler(
       () async {
-        Response response = await dio.get('/menus/kara_partenaires/subscribe');
+        Response response = await dio.post(
+          '/menus/kara_partenaires/subscribe',
+          data: {
+            "provinces": provinces,
+            "slug": slug,
+          },
+        );
         var jsonResult = _json(response.data);
         print("INSCRIPTION KARA : $jsonResult");
         return;

@@ -1,4 +1,6 @@
+import 'package:MIPS/domain/entities/annonce.dart';
 import 'package:MIPS/domain/entities/province.dart';
+import 'package:MIPS/domain/usecases/kara_partner/get_kara_list_by_province_usecase.dart';
 import 'package:MIPS/domain/usecases/kara_partner/get_kara_province_list_usecase.dart';
 import 'package:MIPS/domain/usecases/kara_partner/kara_subscription_usecase.dart';
 import 'package:bloc/bloc.dart';
@@ -11,16 +13,23 @@ class KaraPartnerBloc extends Bloc<KaraPartnerEvent, KaraPartnerState> {
   KaraPartnerBloc({
     required this.getKaraProvinceListUsecase,
     required this.karaSubscriptionUsecase,
+    required this.getKaraListByProvinceUsecase,
   }) : super(KaraPartnerState(
             provinces: [],
+            karaAnnonces: [],
+            karaListStatus: KaraListStatus.loading,
             karaProvinceStatus: KaraProvinceStatus.loading,
             karaSubscriptionStatus: KaraSubscriptionStatus.notSending,
+            isNextListAvailable: false,
+            query: "",
             error: "")) {
     on<KaraProvinceLoaded>(_onKaraProvinceLoaded);
+    on<KaraListLoaded>(_onKaraListLoaded);
     on<KaraSubscriptionLoaded>(_onKaraSubscriptionLoaded);
   }
   final GetKaraProvinceListUsecase getKaraProvinceListUsecase;
   final KaraSubscriptionUsecase karaSubscriptionUsecase;
+  final GetKaraListByProvinceUsecase getKaraListByProvinceUsecase;
 
   void _onKaraProvinceLoaded(KaraProvinceLoaded event, Emitter emit) async {
     emit(state.copyWith(karaProvinceStatus: KaraProvinceStatus.loading));
@@ -41,7 +50,7 @@ class KaraPartnerBloc extends Bloc<KaraPartnerEvent, KaraPartnerState> {
       KaraSubscriptionLoaded event, Emitter emit) async {
     emit(state.copyWith(
         karaSubscriptionStatus: KaraSubscriptionStatus.notSending));
-    var result = await karaSubscriptionUsecase();
+    var result = await karaSubscriptionUsecase(event.provinces, event.slug);
     print("RESULT BLOC : ${result.isSuccess()}");
     if (result.isSuccess()) {
       emit(state.copyWith(
@@ -53,6 +62,21 @@ class KaraPartnerBloc extends Bloc<KaraPartnerEvent, KaraPartnerState> {
     } else {
       emit(state.copyWith(
           karaSubscriptionStatus: KaraSubscriptionStatus.error,
+          error: result.getError()?.message));
+    }
+  }
+
+  void _onKaraListLoaded(KaraListLoaded event, Emitter emit) async {
+    emit(state.copyWith(karaListStatus: KaraListStatus.loading));
+    var result =
+        await getKaraListByProvinceUsecase(event.province, event.page, "");
+    if (result.isSuccess()) {
+      emit(state.copyWith(
+          karaAnnonces: result.getSuccess(),
+          karaListStatus: KaraListStatus.loaded));
+    } else {
+      emit(state.copyWith(
+          karaListStatus: KaraListStatus.error,
           error: result.getError()?.message));
     }
   }

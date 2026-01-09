@@ -42,6 +42,10 @@
       }
     }
   },
+  "ad_id": "ID de l'annonce",
+  "ad_id_is_required": "ID de l'annonce est requis",
+  "add_the_ad_id": "Ajoutez l'ID de l'annonce",
+  "choose_province": "Choisissez de(s) province(s)",
   "become_kara_partner": "Devenir un partenaire KARA",
   "request_successfully_sent": "Demande bien envoyée",
   "submit_your_request": "Envoyer votre demande",

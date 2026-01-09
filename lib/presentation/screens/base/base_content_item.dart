@@ -431,7 +431,9 @@ class BaseContentItem extends StatelessWidget {
                     right: 0,
                     child: menuItem.isFree
                         ? Container(
-                            width: 100,
+                            // width: 100,
+                            padding:
+                                EdgeInsets.symmetric(horizontal: smallPadding),
                             decoration: BoxDecoration(
                               color: tertiaryColor,
                               borderRadius: BorderRadius.only(

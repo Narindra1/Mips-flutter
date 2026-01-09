@@ -73,6 +73,18 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
+  String get ad_id => '광고 ID';
+
+  @override
+  String get ad_id_is_required => '광고 ID가 필요합니다.';
+
+  @override
+  String get add_the_ad_id => '광고 ID를 추가하세요';
+
+  @override
+  String get choose_province => '해당 지역을 선택하세요';
+
+  @override
   String get become_kara_partner => 'KARA 파트너가 되세요';
 
   @override

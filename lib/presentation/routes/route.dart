@@ -13,9 +13,11 @@ import 'package:MIPS/presentation/screens/delete_account/delete_account_screen.d
 import 'package:MIPS/presentation/screens/detail/detail_global_screen.dart';
 import 'package:MIPS/presentation/screens/exchange_rate/exchange_rate_screen.dart';
 import 'package:MIPS/presentation/screens/followers/followers_screen.dart';
-import 'package:MIPS/presentation/screens/kara_partner/kara_partner.dart';
-import 'package:MIPS/presentation/screens/kara_partner/kara_subscription.dart';
+import 'package:MIPS/presentation/screens/kara_partner/bloc/kara_partner_bloc.dart';
+import 'package:MIPS/presentation/screens/kara_partner/kara_partner_screen.dart';
+import 'package:MIPS/presentation/screens/kara_partner/kara_subscription_screen.dart';
 import 'package:MIPS/presentation/screens/list/list_global_content.dart';
+import 'package:MIPS/presentation/screens/kara_partner/kara_list_screen.dart';
 import 'package:MIPS/presentation/screens/maha_partenaire/maha_partenaire_screen.dart';
 import 'package:MIPS/presentation/screens/base/base_screen.dart';
 import 'package:MIPS/presentation/screens/change_password/change_password_screen.dart';
@@ -60,6 +62,7 @@ abstract class RoutesNames {
   static String home = "/home";
   static String portal = "/portal";
   static String list = "/list";
+  static String karaList = "/karaList";
   static String globalSearch = "/globalSearch";
   static String appSettings = "/appSettings";
   static String mahaPartenaireList = "/mahaPartenaireList";
@@ -208,6 +211,7 @@ abstract class AppRoute {
               builder: (BuildContext context, GoRouterState state) {
                 int authorID =
                     int.parse(state.uri.queryParameters["authorID"] ?? "0");
+                print("AUTHOR ID : ${authorID}");
                 return BlocProvider(
                   create: (context) => GetIt.instance<MenuScreenBloc>()
                     ..add(LoadMenuScreenEvent(id: "0")),
@@ -307,7 +311,7 @@ abstract class AppRoute {
               name: RoutesNames.karaPartner,
               path: RoutesNames.karaPartner,
               builder: (BuildContext context, GoRouterState state) {
-                return KaraPartner(
+                return KaraPartnerScreen(
                   title:
                       state.uri.queryParameters['title'] ?? "Partenaires KARA",
                 );
@@ -317,7 +321,11 @@ abstract class AppRoute {
               name: RoutesNames.karaSubscription,
               path: RoutesNames.karaSubscription,
               builder: (BuildContext context, GoRouterState state) {
-                return KaraSubscription();
+                return BlocProvider(
+                  create: (context) => GetIt.instance<KaraPartnerBloc>()
+                    ..add(KaraProvinceLoaded()),
+                  child: KaraSubscriptionScreen(),
+                );
               },
             ),
             GoRoute(
@@ -358,6 +366,16 @@ abstract class AppRoute {
               builder: (BuildContext context, GoRouterState state) {
                 return ListScreen(
                   initialMenuInfoScreen: state.extra as Menu,
+                );
+              },
+            ),
+            GoRoute(
+              name: RoutesNames.karaList,
+              path: RoutesNames.karaList,
+              builder: (BuildContext context, GoRouterState state) {
+                return KaraListScreen(
+                  initialMenuInfoScreen: state.extra as Menu,
+                  province: state.uri.queryParameters["province"] ?? "",
                 );
               },
             ),

@@ -1,4 +1,5 @@
 import 'package:MIPS/common/common.dart';
+import 'package:MIPS/domain/usecases/annonces/create_annonce_plainte_suggestion_usecase.dart';
 import 'package:MIPS/domain/usecases/annonces/get_annonce_with_partner_sponsor_usecase.dart';
 import 'package:MIPS/domain/usecases/annonces/get_recents_annonces_usecase.dart';
 import 'package:bloc/bloc.dart';
@@ -15,6 +16,8 @@ class AnnonceBloc extends Bloc<AnnonceEvent, AnnonceState> {
   final GetAnnonceUseCase getAnnonceUseCase;
   final GetAnnonceWithPartnerSponsorUsecase getAnnonceWithPartnerSponsorUsecase;
   final CreateAnnonceUseCase createAnnonceUseCase;
+  final CreateAnnoncePlainteSuggestionUsecase
+      createAnnoncePlainteSuggestionUsecase;
   final DeleteAnnonceUseCase deleteAnnonceUseCase;
   final MakeFavAnnonceUseCase makeFavAnnonceUseCase;
   final ReactToAnnonceUseCase reactToAnnonceUseCase;
@@ -35,6 +38,7 @@ class AnnonceBloc extends Bloc<AnnonceEvent, AnnonceState> {
     required this.getRecentsAnnoncesUsecase,
     required this.getAnnonceWithPartnerSponsorUsecase,
     required this.createAnnonceUseCase,
+    required this.createAnnoncePlainteSuggestionUsecase,
     required this.deleteAnnonceUseCase,
     required this.reactToAnnonceUseCase,
     required this.makeFavAnnonceUseCase,

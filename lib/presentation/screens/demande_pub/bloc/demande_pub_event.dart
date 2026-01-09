@@ -77,6 +77,30 @@ class SubmitFormEvent extends DemandePubEvent {
   });
 }
 
+class SubmitPlainteFormEvent extends DemandePubEvent {
+  final String title;
+  final String descriptionCourte;
+  final String descriptionDetaillee;
+  final String emplacement;
+  final String contact;
+  final String idMenu;
+  final String titleMenu;
+  final String idAnnonce;
+  final String parrain;
+
+  SubmitPlainteFormEvent({
+    required this.idAnnonce,
+    required this.title,
+    required this.descriptionCourte,
+    required this.descriptionDetaillee,
+    required this.emplacement,
+    required this.contact,
+    required this.idMenu,
+    required this.parrain,
+    required this.titleMenu,
+  });
+}
+
 class ExtendValidityEvent extends DemandePubEvent {}
 
 class AnnonceTypeChangeEvent extends DemandePubEvent {

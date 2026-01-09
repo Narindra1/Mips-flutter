@@ -46,6 +46,9 @@ abstract class AnnonceRepository {
   Future<Result<Failure, Annonce>> createAnnonce(
       Annonce annonce, int idTarifOptions);
 
+  Future<Result<Failure, Annonce>> createAnnoncePlainteSuggestion(
+      Annonce annonce, int idTarifOptions);
+
   Future<Result<Failure, ImageEntity>> uploadImageAnnonce(
       Uint8List imageByteList,
       String idMenu,
