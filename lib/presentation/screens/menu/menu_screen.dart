@@ -399,6 +399,9 @@ class _MenuScreenState extends State<MenuScreen> {
       case MenuTypeRoute.KARA_PARTNER:
         routeNames = RoutesNames.karaPartner;
         break;
+      case MenuTypeRoute.MIPS_INFO:
+        routeNames = RoutesNames.mipsInfo;
+        break;
       default:
         routeNames = RoutesNames.empty;
     }
@@ -434,6 +437,9 @@ class _MenuScreenState extends State<MenuScreen> {
       } else if (routeNames == RoutesNames.exchangeRate) {
         AppRouter.go(context, routeNames);
       } else if (routeNames == RoutesNames.karaPartner) {
+        AppRouter.go(context, routeNames,
+            queryParameters: {"title": menuItem.name});
+      } else if (routeNames == RoutesNames.mipsInfo) {
         AppRouter.go(context, routeNames,
             queryParameters: {"title": menuItem.name});
       } else {

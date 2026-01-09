@@ -11,6 +11,6 @@ import 'package:MIPS/domain/entities/avis.dart';
 /// en cas d'erreur réseau ou applicative.
 abstract class AvisRepository {
   Future<Result<Failure, List<Avis>>> getAvisList();
-
+  Future<Result<Failure, List<Avis>>> getMipsInfoList();
   Future<Result<Failure, Avis>> getAvis(int id);
 }

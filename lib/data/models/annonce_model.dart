@@ -134,6 +134,16 @@ class AnnonceModel extends Equatable {
         return CommentaireModel.fromJson(e);
       }).toList();
     }
+    String website_url = "";
+    if (json["website_url"] != null) {
+      if (json["website_url"].toString().startsWith('/')) {
+        website_url = json["website_url"].toString().substring(1);
+      } else {
+        website_url = json["website_url"].toString();
+      }
+    } else {
+      website_url = "";
+    }
     return AnnonceModel(
         menuParentID: menuParentID,
         menuParentName: menuParentName,
@@ -145,8 +155,8 @@ class AnnonceModel extends Equatable {
         slug: json["slug"] ?? "slug",
         title: json["titre"] ?? "",
         dateLimit: json["limited_date"] ?? "",
-        customHtmlUrl: (GetIt.instance<EnvironmentWrapper>().baseUrl +
-            (json["website_url"] ?? "")),
+        customHtmlUrl:
+            (GetIt.instance<EnvironmentWrapper>().baseUrl + website_url),
         photos: photoJson,
         isLiked: json["hasLike"] ?? false,
         reactionCount: json["reactions_count"] ?? -1,

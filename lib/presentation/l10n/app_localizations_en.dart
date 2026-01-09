@@ -82,6 +82,15 @@ class AppLocalizationsEn extends AppLocalizations {
   String get add_the_ad_id => 'Add the ad ID';
 
   @override
+  String get ad_id_doesnt_exist => 'Ad ID doesn\'t exist';
+
+  @override
+  String get ad_is_already_pending => 'Ad is already pending';
+
+  @override
+  String get survey_results => 'Survey results';
+
+  @override
   String get choose_province => 'Choose province(s)';
 
   @override

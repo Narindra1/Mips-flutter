@@ -136,7 +136,7 @@ class KaraAdsWidget extends StatelessWidget {
                                 children: [
                                   (menuParentRef != blablaZoneMenuRef)
                                       ? TextSpan(
-                                          text: id.toString(),
+                                          text: "N°$id",
                                           style: Theme.of(context)
                                               .textTheme
                                               .bodySmall)
@@ -157,7 +157,7 @@ class KaraAdsWidget extends StatelessWidget {
                                                   .bodySmall)
                                           : TextSpan(),
                                   TextSpan(
-                                      text: "   $lieu",
+                                      text: " - $lieu",
                                       style: Theme.of(context)
                                           .textTheme
                                           .bodySmall),

@@ -101,6 +101,7 @@ enum MenuTypeRoute {
   MAHA_PLAINTE_SUGGESTION,
   MAHA_AVIS,
   KARA_PARTNER,
+  MIPS_INFO,
   none
 }
 

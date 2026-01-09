@@ -82,6 +82,15 @@ class AppLocalizationsKo extends AppLocalizations {
   String get add_the_ad_id => '광고 ID를 추가하세요';
 
   @override
+  String get ad_id_doesnt_exist => '광고 ID가 존재하지 않습니다.';
+
+  @override
+  String get ad_is_already_pending => '이미 신청서가 접수되어 심사 중입니다.';
+
+  @override
+  String get survey_results => '여론조사 결과';
+
+  @override
   String get choose_province => '해당 지역을 선택하세요';
 
   @override

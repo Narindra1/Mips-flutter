@@ -27,6 +27,7 @@ import 'package:MIPS/presentation/screens/login/login_screen.dart';
 import 'package:MIPS/presentation/screens/menu/menu_screen.dart';
 import 'package:MIPS/presentation/screens/mes_annonces/mes_annonces_screen.dart';
 import 'package:MIPS/presentation/screens/modify_user_info/modify_user_info_screen.dart';
+import 'package:MIPS/presentation/screens/mips_info/mips_info_screen.dart';
 import 'package:MIPS/presentation/screens/my_menu_profil/bloc/my_menu_profil_bloc.dart';
 import 'package:MIPS/presentation/screens/my_wallet/my_wallet_screen.dart';
 import 'package:MIPS/presentation/screens/my_wallet/todays_rewards_screen.dart';
@@ -63,6 +64,7 @@ abstract class RoutesNames {
   static String portal = "/portal";
   static String list = "/list";
   static String karaList = "/karaList";
+  static String mipsInfo = "/mipsInfo";
   static String globalSearch = "/globalSearch";
   static String appSettings = "/appSettings";
   static String mahaPartenaireList = "/mahaPartenaireList";
@@ -417,7 +419,15 @@ abstract class AppRoute {
               path: RoutesNames.sondageList,
               builder: (BuildContext context, GoRouterState state) {
                 return SondageListScreen(
-                  // title: state.uri.queryParameters['title'] ?? "Mahafaka",
+                  title: state.uri.queryParameters['title'] ?? "MIPS",
+                );
+              },
+            ),
+            GoRoute(
+              name: RoutesNames.mipsInfo,
+              path: RoutesNames.mipsInfo,
+              builder: (BuildContext context, GoRouterState state) {
+                return MipsInfoScreen(
                   title: state.uri.queryParameters['title'] ?? "MIPS",
                 );
               },

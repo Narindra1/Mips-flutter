@@ -179,6 +179,24 @@ abstract class AppLocalizations {
   /// **'Ajoutez l\'ID de l\'annonce'**
   String get add_the_ad_id;
 
+  /// No description provided for @ad_id_doesnt_exist.
+  ///
+  /// In fr, this message translates to:
+  /// **'L\'ID de l\'annonce n\'existe pas'**
+  String get ad_id_doesnt_exist;
+
+  /// No description provided for @ad_is_already_pending.
+  ///
+  /// In fr, this message translates to:
+  /// **'Annonce déjà une demande en attente'**
+  String get ad_is_already_pending;
+
+  /// No description provided for @survey_results.
+  ///
+  /// In fr, this message translates to:
+  /// **'Résultats du sondage'**
+  String get survey_results;
+
   /// No description provided for @choose_province.
   ///
   /// In fr, this message translates to:

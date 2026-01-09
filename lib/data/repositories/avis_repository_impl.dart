@@ -53,4 +53,23 @@ class AvisRepositoryImpl implements AvisRepository {
       return Error(ServerFailure(message: e.toString()));
     }
   }
+
+  @override
+  Future<Result<Failure, List<Avis>>> getMipsInfoList() async {
+    try {
+      List<Avis> result = (await remoteDataSource.getAllMipsInfo())
+          .map((e) => e.toEntity())
+          .toList();
+
+      return Success(result);
+    } on AppException catch (e) {
+      AppUtils.showDebugLog(runtimeType, e.toString());
+      if (e is NoConnectionException) {
+        return Error(NoConnectionFailure());
+      }
+      return Error(ServerFailure(message: e.message));
+    } on Exception catch (e) {
+      return Error(ServerFailure(message: e.toString()));
+    }
+  }
 }

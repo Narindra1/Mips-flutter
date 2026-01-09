@@ -76,6 +76,15 @@ class AppLocalizationsZh extends AppLocalizations {
   String get add_the_ad_id => '添加广告 ID';
 
   @override
+  String get ad_id_doesnt_exist => '广告 ID 不存在';
+
+  @override
+  String get ad_is_already_pending => '申请已在待处理中';
+
+  @override
+  String get survey_results => '民意调查结果';
+
+  @override
   String get choose_province => '选择省份';
 
   @override

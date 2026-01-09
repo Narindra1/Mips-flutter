@@ -209,9 +209,6 @@ class MenuItemModel extends Equatable {
           break;
         case "ANNONCE_BASIC":
           menuTypeRoute = MenuTypeRoute.listBasic;
-          // if (referenceIM == "IM") {
-          //   menuTypeRoute = MenuTypeRoute.EXCHANGE_RATE;
-          // }
           break;
         case "MENU":
           menuTypeRoute = MenuTypeRoute.menuScroll;
@@ -233,6 +230,9 @@ class MenuItemModel extends Equatable {
           break;
         case "KARA_PARTNER":
           menuTypeRoute = MenuTypeRoute.KARA_PARTNER;
+          break;
+        case "MIPS_INFO":
+          menuTypeRoute = MenuTypeRoute.MIPS_INFO;
           break;
         default:
           menuTypeRoute = MenuTypeRoute.none;

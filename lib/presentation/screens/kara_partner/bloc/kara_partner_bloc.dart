@@ -60,9 +60,35 @@ class KaraPartnerBloc extends Bloc<KaraPartnerEvent, KaraPartnerState> {
             karaSubscriptionStatus: KaraSubscriptionStatus.sent));
       });
     } else {
-      emit(state.copyWith(
-          karaSubscriptionStatus: KaraSubscriptionStatus.error,
-          error: result.getError()?.message));
+      if (result.getError()!.message.contains("Data missing")) {
+        emit(state.copyWith(
+            karaSubscriptionStatus: KaraSubscriptionStatus.sending));
+        await Future.delayed(Duration(seconds: 1), () {
+          emit(state.copyWith(
+              karaSubscriptionStatus: KaraSubscriptionStatus.notExist,
+              error: result.getError()?.message));
+        });
+        emit(state.copyWith(
+            karaSubscriptionStatus: KaraSubscriptionStatus.notSending));
+      } else if (result
+          .getError()!
+          .message
+          .contains("Payload validation error")) {
+        emit(state.copyWith(
+            karaSubscriptionStatus: KaraSubscriptionStatus.sending));
+        await Future.delayed(Duration(seconds: 1), () {
+          emit(state.copyWith(
+              karaSubscriptionStatus: KaraSubscriptionStatus.pendding,
+              error: result.getError()?.message));
+        });
+        emit(state.copyWith(
+            karaSubscriptionStatus: KaraSubscriptionStatus.notSending));
+      } else {
+        emit(state.copyWith(
+            karaSubscriptionStatus: KaraSubscriptionStatus.error,
+            error: result.getError()?.message));
+      }
+      print("KARA PARTENAIRE ERREUR : ${result.getError()?.message}");
     }
   }
 

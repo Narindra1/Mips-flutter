@@ -138,6 +138,22 @@ class RemoteDataSource {
 
   /// Récupère la liste des avis.
   /// Retourne une liste de [AvisModel].
+  Future<List<AvisModel>> getAllMipsInfo() async {
+    return requestHandler(
+      () async {
+        Response response = await dio.get("/mips_info");
+        Map<String, dynamic> resultList = _json(response.data);
+
+        List<AvisModel> ret = (resultList["resultatSondage"] as List<dynamic>)
+            .map((e) => AvisModel.fromJson(e, avisType: AvisType.normal))
+            .toList();
+        return ret;
+      },
+    );
+  }
+
+  /// Récupère la liste des avis.
+  /// Retourne une liste de [AvisModel].
   Future<List<AvisModel>> getAllAvis() async {
     return requestHandler(
       () async {
@@ -152,8 +168,8 @@ class RemoteDataSource {
         List<AvisModel> ret = (resultList["avisInfo"] as List<dynamic>)
             .map((e) => AvisModel.fromJson(e, avisType: AvisType.avisInfo))
             .toList();
-        ret.addAll((resultList["avis"] as List<dynamic>)
-            .map((e) => AvisModel.fromJson(e, avisType: AvisType.normal)));
+        // ret.addAll((resultList["avis"] as List<dynamic>)
+        //     .map((e) => AvisModel.fromJson(e, avisType: AvisType.normal)));
         return ret;
       },
     );

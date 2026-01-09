@@ -76,6 +76,15 @@ class AppLocalizationsAf extends AppLocalizations {
   String get add_the_ad_id => 'Ampio ny ID doka';
 
   @override
+  String get ad_id_doesnt_exist => 'Tsy misy ny ID doka';
+
+  @override
+  String get ad_is_already_pending => 'Efa misy fangatahana miandry';
+
+  @override
+  String get survey_results => 'Vokatra fanadihadiana';
+
+  @override
   String get choose_province => 'Mifidiana faritany';
 
   @override

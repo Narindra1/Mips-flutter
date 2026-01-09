@@ -82,6 +82,15 @@ class AppLocalizationsFr extends AppLocalizations {
   String get add_the_ad_id => 'Ajoutez l\'ID de l\'annonce';
 
   @override
+  String get ad_id_doesnt_exist => 'L\'ID de l\'annonce n\'existe pas';
+
+  @override
+  String get ad_is_already_pending => 'Annonce déjà une demande en attente';
+
+  @override
+  String get survey_results => 'Résultats du sondage';
+
+  @override
   String get choose_province => 'Choisissez de(s) province(s)';
 
   @override

@@ -34,6 +34,7 @@ import 'package:MIPS/domain/usecases/profil/get_annonces_user_profil_count_useca
 import 'package:MIPS/domain/usecases/profil/get_annonces_user_profil_usecase.dart';
 import 'package:MIPS/domain/usecases/profil/get_user_info_profil_by_id_usecase.dart';
 import 'package:MIPS/domain/usecases/reward/get_reward_list_usecase.dart';
+import 'package:MIPS/domain/usecases/support/get_all_mips_info_usecase.dart';
 import 'package:MIPS/domain/usecases/support/submit_a_sondage_usecase.dart';
 import 'package:MIPS/presentation/bloc/follow_bloc.dart';
 import 'package:MIPS/presentation/presentation.dart';
@@ -43,6 +44,7 @@ import 'package:MIPS/presentation/screens/demande_pub/bloc/demande_pub_bloc.dart
 import 'package:MIPS/presentation/screens/exchange_rate/bloc/exchange_rate_bloc.dart';
 import 'package:MIPS/presentation/screens/kara_partner/bloc/kara_partner_bloc.dart';
 import 'package:MIPS/presentation/screens/mes_annonces/bloc/mes_annonces_screen_bloc.dart';
+import 'package:MIPS/presentation/screens/mips_info/bloc/mips_info_bloc.dart';
 import 'package:MIPS/presentation/screens/my_menu_profil/bloc/my_menu_profil_bloc.dart';
 import 'package:MIPS/presentation/screens/my_wallet/bloc/rewards_bloc.dart';
 import 'package:MIPS/presentation/screens/profil/bloc/profil_bloc.dart';
@@ -187,6 +189,8 @@ Future<void> init() async {
       () => GetAAvisUseCase(avisRepository: getIt()));
   getIt.registerLazySingleton<GetAllAvisUseCase>(
       () => GetAllAvisUseCase(avisRepository: getIt()));
+  getIt.registerLazySingleton<GetAllMipsInfoUsecase>(
+      () => GetAllMipsInfoUsecase(avisRepository: getIt()));
   getIt.registerLazySingleton<GetAnnoncePopupUseCase>(() =>
       GetAnnoncePopupUseCase(
           annonceRepository: getIt(), userPrefRepository: getIt()));
@@ -332,5 +336,8 @@ Future<void> init() async {
         getKaraProvinceListUsecase: getIt(),
         karaSubscriptionUsecase: getIt(),
         getKaraListByProvinceUsecase: getIt(),
+      ));
+  getIt.registerFactory<MipsInfoBloc>(() => MipsInfoBloc(
+        getAllMipsInfoUsecase: getIt(),
       ));
 }

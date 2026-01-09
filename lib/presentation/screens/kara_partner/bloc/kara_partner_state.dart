@@ -4,7 +4,14 @@ enum KaraProvinceStatus { loading, loaded, error }
 
 enum KaraListStatus { loading, loaded, error }
 
-enum KaraSubscriptionStatus { sending, sent, notSending, error }
+enum KaraSubscriptionStatus {
+  sending,
+  sent,
+  notSending,
+  pendding,
+  notExist,
+  error
+}
 
 final class KaraPartnerState extends Equatable {
   const KaraPartnerState({

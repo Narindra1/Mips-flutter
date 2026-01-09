@@ -21,11 +21,17 @@ class CustomHtmlDialog extends StatelessWidget {
             Expanded(child: MyWebviewWidget(htmlData: urlHtml)),
             Padding(
               padding: const EdgeInsets.all(mediumPadding),
-              child: OutlinedButton(
-                onPressed: () {
-                  context.pop();
-                },
-                child: Text(context.appLoc.fermer),
+              child: SizedBox(
+                height: 40,
+                child: ElevatedButton(
+                  style: ButtonStyle(
+                      shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                          borderRadius: BorderRadius.circular(largePadding)))),
+                  onPressed: () {
+                    context.pop();
+                  },
+                  child: Text(context.appLoc.fermer),
+                ),
               ),
             ),
           ],

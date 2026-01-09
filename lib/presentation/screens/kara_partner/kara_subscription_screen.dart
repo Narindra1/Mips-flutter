@@ -164,6 +164,10 @@ class _KaraSubscriptionScreenState extends State<KaraSubscriptionScreen> {
                   ),
                   // border: InputBorder.none,
                 ),
+                onChanged: (value) {
+                  print(value);
+                  print(_slugController.text);
+                },
                 validator: (value) {
                   if (value == null || value.isEmpty) {
                     return context.appLoc.ad_id_is_required;
@@ -200,6 +204,20 @@ class _KaraSubscriptionScreenState extends State<KaraSubscriptionScreen> {
                           MessageDisplayerUtils.showToastMessage(
                               GlobalContextService.snackbarKey.currentContext!
                                   .appLoc.request_successfully_sent);
+                          context.pop();
+                        }
+                        if (state.karaSubscriptionStatus ==
+                            KaraSubscriptionStatus.notExist) {
+                          MessageDisplayerUtils.showToastMessage(
+                              GlobalContextService.snackbarKey.currentContext!
+                                  .appLoc.ad_id_doesnt_exist);
+                          context.pop();
+                        }
+                        if (state.karaSubscriptionStatus ==
+                            KaraSubscriptionStatus.pendding) {
+                          MessageDisplayerUtils.showToastMessage(
+                              GlobalContextService.snackbarKey.currentContext!
+                                  .appLoc.ad_is_already_pending);
                           context.pop();
                         }
                       },
