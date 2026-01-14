@@ -73,9 +73,9 @@ class ProfilScreen extends StatelessWidget {
                     content = Center(child: ErrorPageWidget());
                   } else if (state.profilUserAnnoncesStatus ==
                       ProfilUserAnnoncesStatus.loaded) {
-                    print(
-                        "USER CONNECTED : ${context.read<AppBloc>().state.user?.id == authorID}");
-                    print("ANNONCE REF : ${state.annonces[0].menuRacineRef}");
+                    // print(
+                    //     "USER CONNECTED : ${context.read<AppBloc>().state.user?.id == authorID}");
+                    // print("ANNONCE REF : ${state.annonces[0].menuRacineRef}");
                     if (context.read<AppBloc>().state.user?.id == authorID) {
                       mesAnnonces = state.annonces;
                     } else {
@@ -83,7 +83,7 @@ class ProfilScreen extends StatelessWidget {
                           .where((e) => e.menuParentRef != blablaZoneMenuRef)
                           .toList();
                     }
-                    print("MES ANNONCES : ${mesAnnonces.length}");
+                    // print("MES ANNONCES : ${mesAnnonces.length}");
                     content = Container(
                       // color: Colors.purple,
                       width: MediaQuery.of(context).size.width,
@@ -178,18 +178,18 @@ class ProfilScreen extends StatelessWidget {
                                                                 (appState.user
                                                                         ?.id ??
                                                                     -1);
-                                                        bool
-                                                            followersMoreThan1 =
-                                                            followState
-                                                                    .myFollowers
-                                                                    .length >
-                                                                1;
-                                                        bool
-                                                            followingsMoreThan1 =
-                                                            followState
-                                                                    .myFollowings
-                                                                    .length >
-                                                                1;
+                                                        // bool
+                                                        //     followersMoreThan1 =
+                                                        //     followState
+                                                        //             .myFollowers
+                                                        //             .length >
+                                                        //         1;
+                                                        // bool
+                                                        //     followingsMoreThan1 =
+                                                        //     followState
+                                                        //             .myFollowings
+                                                        //             .length >
+                                                        //         1;
                                                         int followersCount =
                                                             followState
                                                                 .myFollowers
@@ -198,13 +198,13 @@ class ProfilScreen extends StatelessWidget {
                                                             followState
                                                                 .myFollowings
                                                                 .length;
-                                                        print("UP UP");
-                                                        print(
-                                                            "AUTHOR ID : ${authorID}");
-                                                        print(
-                                                            "FOLLOWINGS : ${followingsCount}");
-                                                        print(
-                                                            "FOLLOWERS : ${followersCount}");
+                                                        // print("UP UP");
+                                                        // print(
+                                                        //     "AUTHOR ID : ${authorID}");
+                                                        // print(
+                                                        //     "FOLLOWINGS : ${followingsCount}");
+                                                        // print(
+                                                        //     "FOLLOWERS : ${followersCount}");
 
                                                         return appState
                                                                     .isLogged &&
@@ -483,24 +483,24 @@ class ProfilScreen extends StatelessWidget {
                                             builder: (context, appState) {
                                               bool isAuthorID = authorID ==
                                                   (appState.user?.id ?? -1);
-                                              bool followersMoreThan1 =
-                                                  followState
-                                                          .myFollowers.length >
-                                                      1;
-                                              bool followingsMoreThan1 =
-                                                  followState
-                                                          .myFollowings.length >
-                                                      1;
+                                              // bool followersMoreThan1 =
+                                              //     followState
+                                              //             .myFollowers.length >
+                                              //         1;
+                                              // bool followingsMoreThan1 =
+                                              //     followState
+                                              //             .myFollowings.length >
+                                              //         1;
                                               int followersCount = followState
                                                   .myFollowers.length;
                                               int followingsCount = followState
                                                   .myFollowings.length;
-                                              print("DOWN DOWN");
-                                              print("AUTHOR ID : ${authorID}");
-                                              print(
-                                                  "FOLLOWINGS : ${followingsCount}");
-                                              print(
-                                                  "FOLLOWERS : ${followersCount}");
+                                              // print("DOWN DOWN");
+                                              // print("AUTHOR ID : ${authorID}");
+                                              // print(
+                                              //     "FOLLOWINGS : ${followingsCount}");
+                                              // print(
+                                              //     "FOLLOWERS : ${followersCount}");
 
                                               return appState.isLogged &&
                                                       isAuthorID
@@ -674,11 +674,11 @@ class ProfilScreen extends StatelessWidget {
                                   itemBuilder:
                                       (BuildContext context, int index) {
                                     if (index == mesAnnonces.length) {
-                                      print("INDEX $index");
-                                      print(
-                                          "ANNONCES LIST COUNT : ${mesAnnonces.length}");
-                                      print(
-                                          "NEXT AVALABLE: ${state.isNextListAvailable}");
+                                      // print("INDEX $index");
+                                      // print(
+                                      //     "ANNONCES LIST COUNT : ${mesAnnonces.length}");
+                                      // print(
+                                      //     "NEXT AVALABLE: ${state.isNextListAvailable}");
                                       return Padding(
                                         padding:
                                             const EdgeInsets.all(largePadding),
@@ -786,7 +786,12 @@ class ProfilScreen extends StatelessWidget {
                                     );
                                   },
                                 )
-                              : EmptyListWidget(listType: ListType.annonce),
+                              : SliverFillRemaining(
+                                  child: SingleChildScrollView(
+                                  physics: const NeverScrollableScrollPhysics(),
+                                  child: EmptyListWidget(
+                                      listType: ListType.annonce),
+                                )),
                         )
                       ]),
                     );

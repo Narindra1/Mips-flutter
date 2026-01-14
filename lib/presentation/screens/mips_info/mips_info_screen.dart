@@ -1,6 +1,7 @@
 import 'package:MIPS/common/constants/constant.dart';
 import 'package:MIPS/presentation/configurations/colors_list.dart';
 import 'package:MIPS/presentation/configurations/extension_for_localization.dart';
+import 'package:MIPS/presentation/presentation.dart';
 import 'package:MIPS/presentation/routes/route.dart';
 import 'package:MIPS/presentation/routes/router.dart';
 import 'package:MIPS/presentation/screens/avis/bloc/avis_bloc.dart';
@@ -26,61 +27,85 @@ class MipsInfoScreen extends StatelessWidget {
         useDefaultAnnonceSponsPart: true,
         content: BlocBuilder<MipsInfoBloc, MipsInfoState>(
           builder: (context, state) {
-            return SingleChildScrollView(
-              padding: EdgeInsets.all(mediumPadding),
-              physics: const AlwaysScrollableScrollPhysics(),
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Text(
-                    context.appLoc.survey_results,
-                    style: Theme.of(context)
-                        .textTheme
-                        .titleMedium!
-                        .copyWith(fontWeight: FontWeight.bold),
-                    textAlign: TextAlign.start,
-                    overflow: TextOverflow.ellipsis,
-                  ),
-                  SizedBox(height: mediumPadding),
-                  ListView.separated(
-                    shrinkWrap: true,
-                    physics: NeverScrollableScrollPhysics(),
-                    itemCount: state.avisList.length,
-                    itemBuilder: (context, index) {
-                      return MenuProfilButton(
-                        title: state.avisList[index].title,
-                        style:
-                            Theme.of(context).textTheme.titleMedium!.copyWith(
-                                  fontWeight: FontWeight.w400,
-                                ),
-                        onPressed: () {
-                          AppRouter.go(
-                            context,
-                            RoutesNames.avisDetail,
-                            queryParameters: {
-                              "id": state.avisList[index].id.toString(),
-                              "title": state.avisList[index].title,
-                              "pageUrl": state.avisList[index].htmlURL
-                            },
-                          );
-                        },
-                      );
-                    },
-                    separatorBuilder: (context, index) {
-                      return Column(
-                        children: [
-                          Divider(
-                            color: Colors.grey.shade400,
-                            indent: 50,
-                            endIndent: 15,
-                          ),
-                          const SizedBox(height: smallPadding),
-                        ],
-                      );
-                    },
-                  ),
-                ],
-              ),
+            Widget content = SizedBox();
+            if (state.mipsInfoStatus == MipsInfoStatus.loading) {
+              content = AppLoadingWidget();
+            } else if (state.mipsInfoStatus == MipsInfoStatus.loaded) {
+              content = SingleChildScrollView(
+                padding: EdgeInsets.all(mediumPadding),
+                physics: const AlwaysScrollableScrollPhysics(),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    state.avisList.isEmpty
+                        ? SizedBox()
+                        : Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                context.appLoc.survey_results,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .copyWith(fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.start,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              SizedBox(height: mediumPadding),
+                              ListView.separated(
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                itemCount: state.avisList.length,
+                                itemBuilder: (context, index) {
+                                  return MaterialButton(
+                                    child: Text(
+                                      state.avisList[index].title,
+                                      style: Theme.of(context)
+                                          .textTheme
+                                          .titleSmall
+                                          ?.copyWith(
+                                            color: tertiaryColor,
+                                          ),
+                                    ),
+                                    onPressed: () {
+                                      AppRouter.go(
+                                        context,
+                                        RoutesNames.avisDetail,
+                                        queryParameters: {
+                                          "id": state.avisList[index].id
+                                              .toString(),
+                                          "title": state.avisList[index].title,
+                                          "pageUrl":
+                                              state.avisList[index].htmlURL
+                                        },
+                                      );
+                                    },
+                                  );
+                                },
+                                separatorBuilder: (context, index) {
+                                  return Column(
+                                    children: [
+                                      Divider(
+                                        color: Colors.grey.shade400,
+                                        indent: 50,
+                                        endIndent: 15,
+                                      ),
+                                      const SizedBox(height: smallPadding),
+                                    ],
+                                  );
+                                },
+                              ),
+                            ],
+                          )
+                  ],
+                ),
+              );
+            }
+            return RefreshIndicator(
+              child: content,
+              onRefresh: () async {
+                context.read<MipsInfoBloc>().add(LoadMipsInfoListEvent());
+              },
             );
           },
         ),

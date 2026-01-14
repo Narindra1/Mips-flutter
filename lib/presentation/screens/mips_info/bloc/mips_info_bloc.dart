@@ -11,19 +11,22 @@ class MipsInfoBloc extends Bloc<MipsInfoEvent, MipsInfoState> {
 
   MipsInfoBloc({
     required this.getAllMipsInfoUsecase,
-  }) : super(MipsInfoState(avisList: [], status: Status.loading, error: "")) {
+  }) : super(MipsInfoState(
+            avisList: [], mipsInfoStatus: MipsInfoStatus.loading, error: "")) {
     on<LoadMipsInfoListEvent>(_onLoadMipsInfoListEvent);
   }
 
   _onLoadMipsInfoListEvent(LoadMipsInfoListEvent event, Emitter emit) async {
-    emit(state.copyWith(status: Status.loading));
+    emit(state.copyWith(mipsInfoStatus: MipsInfoStatus.loading));
     var result = await getAllMipsInfoUsecase();
     if (result.isSuccess()) {
-      emit(
-          state.copyWith(status: Status.loaded, avisList: result.getSuccess()));
+      emit(state.copyWith(
+          mipsInfoStatus: MipsInfoStatus.loaded,
+          avisList: result.getSuccess()));
     } else {
       emit(state.copyWith(
-          status: Status.error, error: result.getError()?.message));
+          mipsInfoStatus: MipsInfoStatus.error,
+          error: result.getError()?.message));
     }
   }
 }

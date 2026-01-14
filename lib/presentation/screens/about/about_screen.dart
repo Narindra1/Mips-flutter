@@ -131,17 +131,17 @@ class AboutScreen extends StatelessWidget {
                 context.appLoc.setting_about_propriete_contact_text,
                 style: Theme.of(context).textTheme.bodyMedium,
               ),
-              const SizedBox(height: largePadding * 2),
-              Align(
-                alignment: Alignment.center,
-                child: Text(
-                  "Icons by Icons8",
-                  style: Theme.of(context)
-                      .textTheme
-                      .bodyMedium
-                      ?.copyWith(color: Colors.grey),
-                ),
-              ),
+              // const SizedBox(height: largePadding * 2),
+              // Align(
+              //   alignment: Alignment.center,
+              //   child: Text(
+              //     "Icons by Icons8",
+              //     style: Theme.of(context)
+              //         .textTheme
+              //         .bodyMedium
+              //         ?.copyWith(color: Colors.grey),
+              //   ),
+              // ),
             ],
           ),
         ),
