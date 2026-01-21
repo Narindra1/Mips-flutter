@@ -28,6 +28,7 @@ if (flutterVersionName == null) {
 
 def getVersionCodeTimestamp() {
     def date = new Date()
+    // def formattedDate = date.format('MMddHHmm')
     def formattedDate = date.format('yyMMddHH')
     def code = formattedDate.toInteger()
     println sprintf("VersionCode: %d", code)
@@ -85,10 +86,14 @@ android {
             // Supprime les ressources inutilisées (images, layouts non utilisés)
             shrinkResources true
             // Règles de configuration par défaut
-            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt')
+            // proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
             
             // --- GARDEZ VOTRE SIGNATURE ---
             signingConfig signingConfigs.release
+            ndk {
+                debugSymbolLevel 'SYMBOL_TABLE'
+            }
         }
     }
 //     buildTypes {

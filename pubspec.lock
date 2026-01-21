@@ -966,6 +966,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "0.2.2"
+  in_app_update:
+    dependency: "direct main"
+    description:
+      name: in_app_update
+      sha256: "9924a3efe592e1c0ec89dda3683b3cfec3d4cd02d908e6de00c24b759038ddb1"
+      url: "https://pub.dev"
+    source: hosted
+    version: "4.2.5"
   insta_image_viewer:
     dependency: "direct main"
     description:
@@ -1219,14 +1227,6 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "2.1.0"
-  ota_update:
-    dependency: "direct main"
-    description:
-      name: ota_update
-      sha256: e0872d082b9498f543a9b51f25001e2c77e5e3963abdc36e7c849606a283d287
-      url: "https://pub.dev"
-    source: hosted
-    version: "7.0.2"
   overlay_support:
     dependency: "direct main"
     description:
