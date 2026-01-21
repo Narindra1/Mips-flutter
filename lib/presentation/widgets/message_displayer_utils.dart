@@ -320,7 +320,8 @@ class MessageDisplayerUtils {
                                           ),
                                         ),
                                         const SizedBox(width: 10),
-                                        Icon(Ionicons.chevron_forward_outline),
+                                        const Icon(
+                                            Ionicons.chevron_forward_outline),
                                       ],
                                     ),
                                   ),
@@ -343,7 +344,7 @@ class MessageDisplayerUtils {
                       onPressed: () {
                         context.pop();
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Ionicons.close,
                         color: Colors.black,
                       ),
@@ -899,7 +900,7 @@ class MessageDisplayerUtils {
                 //     onPressed: () {
                 //       context.pop();
                 //     },
-                //     icon: Icon(Ionicons.close),
+                //     icon: const Icon(Ionicons.close),
                 //   ),
                 // ),
               ],

@@ -2,7 +2,6 @@ import 'dart:math';
 
 import 'package:MIPS/common/common.dart';
 import 'package:MIPS/domain/entities/annonce.dart';
-import 'package:MIPS/domain/entities/profil.dart';
 import 'package:MIPS/presentation/bloc/annonce_bloc.dart';
 import 'package:MIPS/presentation/bloc/app_bloc.dart';
 import 'package:MIPS/presentation/bloc/follow_bloc.dart';
@@ -18,7 +17,6 @@ import 'package:MIPS/presentation/widgets/loading_image_cache_widget.dart';
 import 'package:MIPS/presentation/widgets/loading_widget.dart';
 import 'package:MIPS/presentation/widgets/message_displayer_utils.dart';
 import 'package:MIPS/presentation/widgets/normal_ads_global_widget.dart';
-import 'package:MIPS/presentation/widgets/normal_ads_widget.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -308,8 +306,9 @@ class ProfilScreen extends StatelessWidget {
                                                                         .white,
                                                                   )
                                                                 : isFollowing
-                                                                    ? Icon(Ionicons
-                                                                        .checkmark_outline)
+                                                                    ? const Icon(
+                                                                        Ionicons
+                                                                            .checkmark_outline)
                                                                     : SizedBox(),
                                                             Text(
                                                               isFollowing
@@ -430,8 +429,9 @@ class ProfilScreen extends StatelessWidget {
                                                                           .white,
                                                                     )
                                                                   : isFollowing
-                                                                      ? Icon(Ionicons
-                                                                          .checkmark_outline)
+                                                                      ? const Icon(
+                                                                          Ionicons
+                                                                              .checkmark_outline)
                                                                       : SizedBox(),
                                                               Text(
                                                                 isFollowing
@@ -650,7 +650,7 @@ class ProfilScreen extends StatelessWidget {
                                                         .some_may_be_hidden,
                                                   );
                                                 },
-                                                child: Icon(
+                                                child: const Icon(
                                                   Ionicons.help,
                                                   color: Colors.black,
                                                   size: 16,
@@ -814,7 +814,7 @@ class ProfilScreen extends StatelessWidget {
                 onPressed: () {
                   context.pop();
                 },
-                icon: Icon(
+                icon: const Icon(
                   Ionicons.chevron_back,
                   color: Colors.black,
                 ),
@@ -830,7 +830,7 @@ class ProfilScreen extends StatelessWidget {
                                   '${context.appLoc.online_ads_from(state.user.name)}\n\nhttps://mips.mg/profil/$authorID'),
                         );
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         Ionicons.share_social_outline,
                         color: Colors.black,
                       ),

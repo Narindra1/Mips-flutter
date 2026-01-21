@@ -171,7 +171,7 @@ class AnnonceBloc extends Bloc<AnnonceEvent, AnnonceState> {
         emit(state.copyWith(
             annoncesPartenaire: annonceList, selectedAnnonce: event.annonce));
         break;
-      case AnnonceType.general:
+      // case AnnonceType.general:
       default:
         annonceList = state.annoncesNormal;
         int annonceIndex =
@@ -454,7 +454,7 @@ class AnnonceBloc extends Bloc<AnnonceEvent, AnnonceState> {
           case AnnonceType.vip:
             annonceVIP.add(annonce);
             break;
-          case AnnonceType.general:
+          // case AnnonceType.general:
           default:
             annonceNormal.add(annonce);
         }

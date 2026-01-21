@@ -1,6 +1,5 @@
 import 'package:MIPS/common/common.dart';
 import 'package:MIPS/domain/entities/annonce.dart';
-import 'package:MIPS/domain/entities/profil.dart';
 import 'package:MIPS/domain/entities/user.dart';
 
 abstract class ProfilRepository {

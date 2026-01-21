@@ -1,5 +1,4 @@
 import 'package:MIPS/common/common.dart';
-import 'package:MIPS/common/services/environment_wrapper.dart';
 import 'package:MIPS/presentation/configurations/extension_for_localization.dart';
 import 'package:MIPS/presentation/screens/profil/bloc/profil_bloc.dart';
 import 'package:MIPS/presentation/widgets/page_count_icon_indicator.dart';
@@ -19,11 +18,9 @@ import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:iconify_flutter/iconify_flutter.dart';
 import '../../../domain/entities/commentaire.dart';
-import '../../widgets/app_panel_widget.dart';
 import '../../widgets/error_page_widget.dart';
 import '../../widgets/hero_photoview_route_wrapper.dart';
 
@@ -93,7 +90,7 @@ class DetailScreen extends StatelessWidget {
             onPressed: () {
               context.pop();
             },
-            icon: Icon(
+            icon: const Icon(
               Ionicons.chevron_back_outline,
               color: Colors.black,
             ),
@@ -118,7 +115,7 @@ class DetailScreen extends StatelessWidget {
                             // Icons.favorite,
                             color: Colors.red,
                           )
-                        : Icon(
+                        : const Icon(
                             // Icons.favorite_border,
                             Ionicons.heart_outline,
                             // color: tertiaryColor,
@@ -133,7 +130,7 @@ class DetailScreen extends StatelessWidget {
                           '${context.appLoc.found_ad_that_might_interest_you}\n\nhttps://mips.mg/annonces/$idRoute'),
                 );
               },
-              icon: Icon(
+              icon: const Icon(
                 Ionicons.share_social_outline,
                 color: Colors.black,
               ),
@@ -472,7 +469,7 @@ class DetailScreen extends StatelessWidget {
                                         side: BorderSide(color: tertiaryColor),
                                       ))),
                                       visualDensity: VisualDensity.compact,
-                                      icon: Icon(
+                                      icon: const Icon(
                                         Ionicons.menu,
                                         color: tertiaryColor,
                                         size: 24,
@@ -486,7 +483,7 @@ class DetailScreen extends StatelessWidget {
                                       const EdgeInsets.only(top: mediumPadding),
                                   child: Row(
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         size: 16,
                                         Ionicons.location,
                                         color: Colors.grey,
@@ -508,7 +505,7 @@ class DetailScreen extends StatelessWidget {
                                       const EdgeInsets.only(top: mediumPadding),
                                   child: Row(
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         size: 16,
                                         Ionicons.calendar,
                                         color: Colors.grey,
@@ -1173,7 +1170,7 @@ class DetailScreen extends StatelessWidget {
   //                                 const CircleAvatar(
   //                                   maxRadius: 12,
   //                                   backgroundColor: tertiaryColor,
-  //                                   child: Icon(
+  //                                   child: const Icon(
   //                                     size: 16,
   //                                     Icons.phone_outlined,
   //                                     color: Colors.white,
@@ -1225,7 +1222,7 @@ class DetailScreen extends StatelessWidget {
   //                                 const CircleAvatar(
   //                                   maxRadius: 12,
   //                                   backgroundColor: tertiaryColor,
-  //                                   child: Icon(
+  //                                   child: const Icon(
   //                                     size: 16,
   //                                     Icons.place_outlined,
   //                                     color: Colors.white,
@@ -1438,7 +1435,7 @@ class DetailScreen extends StatelessWidget {
   //                     padding: const EdgeInsets.all(smallPadding),
   //                     child: Directionality(
   //                       textDirection: TextDirection.rtl,
-  //                       child: TextButton.icon(
+  //                       child: TextButton.const Icon(
   //                         onPressed: () {
   //                           context
   //                               .read<AnnonceBloc>()
@@ -1565,7 +1562,7 @@ class DetailScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Icon(
+                const Icon(
                   Ionicons.chevron_forward,
                   color: Colors.grey,
                   size: 16,
@@ -1587,7 +1584,7 @@ class DetailScreen extends StatelessWidget {
           const CircleAvatar(
             maxRadius: 16,
             backgroundColor: tertiaryColor,
-            child: Icon(
+            child: const Icon(
               size: 22,
               Ionicons.call,
               color: Colors.white,
@@ -1681,7 +1678,7 @@ class DetailScreen extends StatelessWidget {
         // const CircleAvatar(
         //   backgroundColor: Colors.transparent,
         //   maxRadius: 16,
-        //   child: Icon(
+        //   child: const Icon(
         //     Icons.account_circle,
         //     color: tertiaryColor,
         //     size: 32,

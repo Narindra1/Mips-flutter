@@ -4,10 +4,8 @@ import 'package:MIPS/presentation/configurations/extension_for_localization.dart
 import 'package:MIPS/presentation/presentation.dart';
 import 'package:MIPS/presentation/routes/route.dart';
 import 'package:MIPS/presentation/routes/router.dart';
-import 'package:MIPS/presentation/screens/avis/bloc/avis_bloc.dart';
 import 'package:MIPS/presentation/screens/base/base_screen.dart';
 import 'package:MIPS/presentation/screens/mips_info/bloc/mips_info_bloc.dart';
-import 'package:MIPS/presentation/screens/my_menu_profil/widgets/menu_profil_button.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -120,7 +118,7 @@ class MipsInfoScreen extends StatelessWidget {
             onPressed: () {
               context.pop();
             },
-            icon: Icon(
+            icon: const Icon(
               Ionicons.chevron_back,
               color: Colors.black,
             )),

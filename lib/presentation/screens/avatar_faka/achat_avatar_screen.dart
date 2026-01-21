@@ -1,6 +1,5 @@
 import 'package:MIPS/presentation/configurations/extension_for_localization.dart';
 import 'package:MIPS/presentation/screens/base/base_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -70,7 +69,7 @@ class AchatAvatarScreen extends StatelessWidget {
           onPressed: () {
             context.pop();
           },
-          icon: Icon(
+          icon: const Icon(
             Ionicons.chevron_back,
             color: Colors.black,
           )),

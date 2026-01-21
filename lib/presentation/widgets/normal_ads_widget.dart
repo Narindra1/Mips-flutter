@@ -302,7 +302,7 @@ class NormalAdsWidget extends StatelessWidget {
                       // const Padding(
                       //   // Padding for the trailing widget
                       //   padding: const EdgeInsets.all(smallPadding),
-                      //   child: Icon(
+                      //   child: const Icon(
                       //     Icons.keyboard_arrow_right,
                       //     color: tertiaryColor,
                       //   ), // Display trailing widget

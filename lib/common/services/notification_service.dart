@@ -1,5 +1,3 @@
-import 'dart:async';
-
 import 'package:MIPS/common/common.dart';
 import 'package:dart_pusher_channels/dart_pusher_channels.dart';
 
@@ -55,16 +53,16 @@ class NotificationService {
         },
       ),
     );
-    final StreamSubscription connectionSubs =
-        client.onConnectionEstablished.listen((_) {
+    // final StreamSubscription connectionSubs =
+    client.onConnectionEstablished.listen((_) {
       // Subscribes to the channel if didn't unsubscribe from it intentionally
       channel.subscribeIfNotUnsubscribed();
     });
     // Connexion
     await client.connect();
 
-    StreamSubscription<ChannelReadEvent> somePrivateChannelEventSubs =
-        channel.bind('private-MyEvent').listen((event) {
+    // StreamSubscription<ChannelReadEvent> somePrivateChannelEventSubs =
+    channel.bind('private-MyEvent').listen((event) {
       AppUtils.showDebugLog(runtimeType,
           'Event from the private channel fired! ${event.data.toString()}');
     });

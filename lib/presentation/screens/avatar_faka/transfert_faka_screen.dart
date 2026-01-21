@@ -4,12 +4,10 @@ import 'package:MIPS/presentation/widgets/message_displayer_utils.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ionicons/ionicons.dart';
 import '../../bloc/app_bloc.dart';
 import '../../configurations/colors_list.dart';
-import '../../widgets/app_panel_widget.dart';
 import '../base/base_screen.dart';
 
 class TransfertFakaScreen extends StatefulWidget {
@@ -122,17 +120,17 @@ class _TransfertFakaScreenState extends State<TransfertFakaScreen> {
                       //   child: Row(
                       //     mainAxisSize: MainAxisSize.min,
                       //     children: [
-                      //       Icon(
+                      //       const Icon(
                       //         size: 64,
                       //         Icons.person,
                       //         color: Colors.black54,
                       //       ),
-                      //       Icon(
+                      //       const Icon(
                       //         size: 34,
                       //         Icons.forward,
                       //         color: Colors.black54,
                       //       ),
-                      //       Icon(
+                      //       const Icon(
                       //         Icons.person,
                       //         size: 64,
                       //       )
@@ -228,7 +226,7 @@ class _TransfertFakaScreenState extends State<TransfertFakaScreen> {
                                       TextStyle(color: Colors.grey.shade700),
                                   hintText: context.appLoc.ann_contact_hint,
                                   // icon: const Icon(Icons.person),
-                                  suffixIcon: Icon(
+                                  suffixIcon: const Icon(
                                     Ionicons.call,
                                     color: Colors.grey,
                                   ),
@@ -462,7 +460,7 @@ class _TransfertFakaScreenState extends State<TransfertFakaScreen> {
                   onPressed: () {
                     context.pop();
                   },
-                  icon: Icon(
+                  icon: const Icon(
                     Ionicons.chevron_back,
                     color: Colors.black,
                   )),

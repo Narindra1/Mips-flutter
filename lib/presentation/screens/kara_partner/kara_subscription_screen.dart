@@ -10,7 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/widgets.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
-import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ionicons/ionicons.dart';
 
@@ -258,7 +257,7 @@ class _KaraSubscriptionScreenState extends State<KaraSubscriptionScreen> {
           onPressed: () {
             context.pop();
           },
-          icon: Icon(
+          icon: const Icon(
             Ionicons.chevron_back,
             color: Colors.black,
           )),

@@ -1,4 +1,3 @@
-import 'package:MIPS/domain/domain.dart';
 import 'package:MIPS/presentation/configurations/extension_for_localization.dart';
 import 'package:MIPS/presentation/presentation.dart';
 import 'package:MIPS/presentation/screens/base/base_screen.dart';
@@ -15,7 +14,6 @@ import '../../../common/constants/constant.dart';
 import '../../routes/route.dart';
 import '../../routes/router.dart';
 import '../../widgets/empty_list_widget.dart';
-import '../../widgets/normal_ads_widget.dart';
 import 'bloc/mes_annonces_screen_bloc.dart';
 
 class MesAnnoncesScreen extends StatelessWidget {
@@ -149,7 +147,7 @@ class MesAnnoncesScreen extends StatelessWidget {
                 onPressed: () {
                   context.pop();
                 },
-                icon: Icon(
+                icon: const Icon(
                   Ionicons.chevron_back,
                   color: Colors.black,
                 )),

@@ -1,7 +1,5 @@
 import 'package:MIPS/domain/contracts/profil_repository.dart';
 import 'package:MIPS/domain/entities/annonce.dart';
-import 'package:MIPS/domain/entities/profil.dart';
-import 'package:MIPS/domain/entities/user.dart';
 
 import '../../../common/common.dart';
 

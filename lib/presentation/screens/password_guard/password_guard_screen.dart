@@ -11,7 +11,6 @@ import 'package:ionicons/ionicons.dart';
 
 import '../../../common/constants/constant.dart';
 import '../../configurations/colors_list.dart';
-import '../../widgets/app_panel_widget.dart';
 
 class PasswordGuardScreen extends StatelessWidget {
   final TextEditingController _passwordController = TextEditingController();
@@ -149,7 +148,7 @@ class PasswordGuardScreen extends StatelessWidget {
         onPressed: () {
           context.pop();
         },
-        icon: Icon(
+        icon: const Icon(
           Ionicons.chevron_back,
           color: Colors.black,
         ),

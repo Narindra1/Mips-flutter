@@ -1,7 +1,6 @@
 import 'dart:math';
 
 import 'package:MIPS/common/constants/constant.dart';
-import 'package:MIPS/common/di/injections.dart';
 import 'package:MIPS/common/utils/app_utils.dart';
 import 'package:MIPS/domain/entities/menu.dart';
 import 'package:MIPS/presentation/bloc/app_bloc.dart';
@@ -19,7 +18,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
-import 'package:http/http.dart';
 import 'package:ionicons/ionicons.dart';
 
 class KaraPartnerScreen extends StatelessWidget {
@@ -89,7 +87,7 @@ class KaraPartnerScreen extends StatelessWidget {
             onPressed: () {
               context.pop();
             },
-            icon: Icon(
+            icon: const Icon(
               Ionicons.chevron_back,
               color: Colors.black,
             )),

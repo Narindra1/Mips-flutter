@@ -7,7 +7,7 @@ import 'package:go_router/go_router.dart';
 import 'package:ionicons/ionicons.dart';
 import '../../bloc/app_bloc.dart';
 import '../../widgets/app_panel_widget.dart';
-import '../../widgets/ota_progress_dialog.dart';
+import 'package:in_app_update/in_app_update.dart';
 
 /// Écran d'information "À propos" de l'application.
 class AboutScreen extends StatelessWidget {
@@ -56,16 +56,53 @@ class AboutScreen extends StatelessWidget {
                               context.read<AppBloc>().updateVersion)),
                           const SizedBox(height: smallPadding),
                           FilledButton(
-                              onPressed: () async {
-                                // UriUtils.trylaunchUrl(urlDownloadAppUpdate)
-                                showDialog(
-                                  context: context,
-                                  barrierDismissible: false,
-                                  builder: (context) =>
-                                      const OtaProgressDialog(),
-                                );
-                              },
-                              child: Text(context.appLoc.update))
+                            onPressed: () async {
+                              // 1️⃣ Affiche ton dialog de progression
+                              // showDialog(
+                              //   context: context,
+                              //   barrierDismissible: false,
+                              //   builder: (_) => const OtaProgressDialog(),
+                              // );
+
+                              try {
+                                // 2️⃣ Vérifie s'il y a une mise à jour
+                                final info = await InAppUpdate.checkForUpdate();
+
+                                if (info.updateAvailability ==
+                                    UpdateAvailability.updateAvailable) {
+                                  if (info.immediateUpdateAllowed) {
+                                    // 3️⃣ Mise à jour forcée (plein écran)
+                                    await InAppUpdate.performImmediateUpdate();
+                                  } else if (info.flexibleUpdateAllowed) {
+                                    // 4️⃣ Mise à jour en arrière-plan
+                                    await InAppUpdate.startFlexibleUpdate();
+                                    await InAppUpdate.completeFlexibleUpdate();
+                                  }
+                                }
+                              } catch (e) {
+                                debugPrint("Erreur In-App Update: $e");
+                              } finally {
+                                // 5️⃣ Ferme ton dialog quoi qu’il arrive
+                                if (context.mounted) {
+                                  Navigator.of(context, rootNavigator: true)
+                                      .pop();
+                                }
+                              }
+                            },
+                            child: Text(context.appLoc.update),
+                          )
+
+                          // FilledButton(
+                          //   onPressed: () async {
+                          //     // UriUtils.trylaunchUrl(urlDownloadAppUpdate)
+                          //     showDialog(
+                          //       context: context,
+                          //       barrierDismissible: false,
+                          //       builder: (context) => const OtaProgressDialog(),
+                          //     );
+                          //   },
+                          //   child: Text(context.appLoc.update),
+                          // )
                         ],
                       ),
                   ],
@@ -154,7 +191,7 @@ class AboutScreen extends StatelessWidget {
           onPressed: () {
             context.pop();
           },
-          icon: Icon(
+          icon: const Icon(
             Ionicons.chevron_back,
             color: Colors.black,
           )),

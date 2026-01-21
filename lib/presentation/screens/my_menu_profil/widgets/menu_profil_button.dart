@@ -73,7 +73,7 @@ class MenuProfilButton extends StatelessWidget {
               ),
             // const Spacer(),
             isButton
-                ? Icon(
+                ? const Icon(
                     Ionicons.chevron_forward,
                     color: Colors.grey,
                   )

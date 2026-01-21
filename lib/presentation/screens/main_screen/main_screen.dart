@@ -122,7 +122,7 @@ class MainScreen extends StatelessWidget {
             selectedIndex: seletedIndex,
             destinations: <Widget>[
               NavigationDestination(
-                icon: Icon(
+                icon: const Icon(
                   Ionicons.home_outline,
                   // Symbols.home_rounded,
                   color: Colors.black,
@@ -130,7 +130,7 @@ class MainScreen extends StatelessWidget {
                   size: 24,
                 ),
                 label: context.appLoc.home,
-                selectedIcon: Icon(
+                selectedIcon: const Icon(
                   Ionicons.home,
                   // Symbols.home_rounded,
                   fill: 1,

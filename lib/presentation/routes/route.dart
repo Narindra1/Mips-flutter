@@ -4,7 +4,6 @@ import 'package:MIPS/presentation/bloc/annonce_bloc.dart';
 import 'package:MIPS/presentation/bloc/app_bloc.dart';
 import 'package:MIPS/presentation/bloc/follow_bloc.dart';
 import 'package:MIPS/presentation/bloc/menu_screen_bloc.dart';
-import 'package:MIPS/presentation/routes/router.dart';
 import 'package:MIPS/presentation/screens/avatar_faka/achat_avatar_finalisation_screen.dart';
 import 'package:MIPS/presentation/screens/avatar_faka/bloc/avatar_bloc.dart';
 import 'package:MIPS/presentation/screens/choose_lang/choose_lang_screen.dart';
@@ -38,7 +37,6 @@ import 'package:MIPS/presentation/screens/resetpassword/reset_password_screen.da
 import 'package:MIPS/presentation/screens/about/about_screen.dart';
 import 'package:MIPS/presentation/screens/settings/setttings_screen.dart';
 import 'package:MIPS/presentation/widgets/empty_list_widget.dart';
-import 'package:app_links/app_links.dart';
 import 'package:bot_toast/bot_toast.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

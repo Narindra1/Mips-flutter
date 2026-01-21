@@ -1,5 +1,4 @@
 import 'package:MIPS/common/constants/constant.dart';
-import 'package:MIPS/presentation/configurations/colors_list.dart';
 import 'package:MIPS/presentation/configurations/extension_for_localization.dart';
 import 'package:MIPS/presentation/routes/route.dart';
 import 'package:MIPS/presentation/routes/router.dart';
@@ -8,7 +7,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ionicons/ionicons.dart';
-import 'package:mocktail/mocktail.dart';
 import 'package:terminate_restart/terminate_restart.dart';
 import '../../bloc/app_bloc.dart';
 import '../base/base_screen.dart';
@@ -63,7 +61,7 @@ class SettingsScreen extends StatelessWidget {
               Row(
                 spacing: 10.0,
                 children: [
-                  // Icon(
+                  // const Icon(
                   //   Ionicons.globe,
                   //   size: 32,
                   //   color: Colors.black,
@@ -122,7 +120,7 @@ class SettingsScreen extends StatelessWidget {
               // DropdownButtonFormField(
               //   decoration: const InputDecoration(
               //       border: InputBorder.none,
-              //       prefixIcon: Icon(Icons.language),
+              //       prefixIcon: const Icon(Icons.language),
               //       fillColor: Colors.white,
               //       filled: true),
               //   value: context.read<AppBloc>().userPrefRepositoryImpl.getLang(),
@@ -240,7 +238,7 @@ class SettingsScreen extends StatelessWidget {
               Row(
                 spacing: 10.0,
                 children: [
-                  // Icon(
+                  // const Icon(
                   //   Ionicons.text_outline,
                   //   size: 32,
                   //   color: Colors.black,
@@ -283,7 +281,7 @@ class SettingsScreen extends StatelessWidget {
               // DropdownButtonFormField(
               //   decoration: const InputDecoration(
               //       border: InputBorder.none,
-              //       prefixIcon: Icon(Icons.format_size),
+              //       prefixIcon: const Icon(Icons.format_size),
               //       fillColor: Colors.white,
               //       filled: true),
               //   value: context.read<AppBloc>().state.textScale,
@@ -412,7 +410,7 @@ class SettingsScreen extends StatelessWidget {
                     DropdownButtonFormField(
                       decoration: const InputDecoration(
                           border: InputBorder.none,
-                          prefixIcon: Icon(Icons.developer_mode),
+                          prefixIcon: const Icon(Icons.developer_mode),
                           fillColor: Colors.white,
                           filled: true),
                       value: context
@@ -457,7 +455,7 @@ class SettingsScreen extends StatelessWidget {
                 title: Row(
                   spacing: 10.0,
                   children: [
-                    Icon(
+                    const Icon(
                       Ionicons.information_circle,
                       size: 32,
                       color: Colors.black,
@@ -489,7 +487,7 @@ class SettingsScreen extends StatelessWidget {
         onPressed: () {
           context.pop();
         },
-        icon: Icon(
+        icon: const Icon(
           Ionicons.chevron_back,
           color: Colors.black,
         ),

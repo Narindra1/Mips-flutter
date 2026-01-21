@@ -3,7 +3,6 @@ import 'package:MIPS/presentation/bloc/app_bloc.dart';
 import 'package:MIPS/presentation/configurations/extension_for_localization.dart';
 import 'package:MIPS/presentation/routes/route.dart';
 import 'package:MIPS/presentation/routes/router.dart';
-import 'package:MIPS/presentation/widgets/app_panel_widget.dart';
 import 'package:country_flags/country_flags.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';

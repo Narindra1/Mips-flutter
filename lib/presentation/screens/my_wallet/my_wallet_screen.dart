@@ -30,7 +30,7 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
   // final List<bool> _selectedOperations = <bool>[true, false, false, false];
   bool vertical = false;
   int? _value = 0;
-  double _headerHeight = 0;
+  // double _headerHeight = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -473,7 +473,7 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
           onPressed: () {
             context.pop();
           },
-          icon: Icon(
+          icon: const Icon(
             Ionicons.chevron_back,
             color: Colors.black,
           )),

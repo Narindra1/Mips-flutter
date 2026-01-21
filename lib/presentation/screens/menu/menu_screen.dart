@@ -285,7 +285,7 @@ class _MenuScreenState extends State<MenuScreen> {
                           queryParameters: {"onSearch": "true"},
                         );
                       },
-                      icon: Icon(
+                      icon: const Icon(
                         // Icons.search,
                         Ionicons.search_outline,
                         color: Colors.black,
@@ -920,7 +920,7 @@ class _MenuScreenState extends State<MenuScreen> {
 //                             queryParameters: {"onSearch": "true"},
 //                           );
 //                         },
-//                         icon: Icon(
+//                         icon: const Icon(
 //                           Icons.search,
 //                           color: Theme.of(context).colorScheme.primary,
 //                         ),

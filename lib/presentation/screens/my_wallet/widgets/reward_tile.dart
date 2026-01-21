@@ -58,7 +58,7 @@ class RewardTile extends StatelessWidget {
                       ),
                       color: Colors.white54,
                     ),
-                    child: Icon(
+                    child: const Icon(
                       Ionicons.image,
                       color: tertiaryColor,
                     ),
@@ -86,7 +86,7 @@ class RewardTile extends StatelessWidget {
                 color: Colors.white54,
               ),
               child: reward.counted == reward.counts
-                  ? Icon(
+                  ? const Icon(
                       Ionicons.checkbox,
                       color: tertiaryColor,
                     )

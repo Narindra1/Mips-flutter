@@ -135,7 +135,7 @@ class UserFollow extends StatelessWidget {
                                     color: Colors.white,
                                   )
                                 : isFollowing
-                                    ? Icon(Ionicons.checkmark_outline)
+                                    ? const Icon(Ionicons.checkmark_outline)
                                     : SizedBox(),
                             Text(
                               isFollowing

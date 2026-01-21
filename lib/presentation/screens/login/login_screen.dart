@@ -83,7 +83,7 @@ class LoginScreenState extends State<LoginScreen> {
           onPressed: () {
             context.pop();
           },
-          icon: Icon(
+          icon: const Icon(
             Ionicons.chevron_back,
             color: Colors.black,
           )),
@@ -163,7 +163,7 @@ class LoginScreenState extends State<LoginScreen> {
                       hintStyle: TextStyle(color: Colors.grey.shade700),
                       hintText:
                           "${context.appLoc.exemple_pref_hint}034 00 000 00",
-                      suffixIcon: Icon(Icons.phone, color: Colors.grey),
+                      suffixIcon: const Icon(Icons.phone, color: Colors.grey),
                       fillColor: Colors.grey.shade300,
                       filled: false,
                       border: OutlineInputBorder(

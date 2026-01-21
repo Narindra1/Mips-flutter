@@ -5,7 +5,6 @@ import 'package:MIPS/presentation/widgets/error_page_widget.dart';
 import 'package:MIPS/presentation/widgets/normal_ads_global_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:get_it/get_it.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ionicons/ionicons.dart';
 import 'package:visibility_detector/visibility_detector.dart';
@@ -18,7 +17,6 @@ import '../../routes/route.dart';
 import '../../routes/router.dart';
 import '../../widgets/empty_list_widget.dart';
 import '../../widgets/loading_widget.dart';
-import '../../widgets/normal_ads_widget.dart';
 import '../base/base_screen.dart';
 import 'bloc/my_menu_profil_bloc.dart';
 
@@ -52,7 +50,7 @@ class _ViewSavedAnnonceMenuScreenState extends State<ViewSavedAnnonceMenuScreen>
 
   @override
   Widget build(BuildContext context) {
-    final TextTheme textTheme = Theme.of(context).textTheme;
+    // final TextTheme textTheme = Theme.of(context).textTheme;
 
     return BlocBuilder<MyMenuProfilBloc, MyMenuProfilState>(
       builder: (context, state) {
@@ -131,7 +129,7 @@ class _ViewSavedAnnonceMenuScreenState extends State<ViewSavedAnnonceMenuScreen>
               onPressed: () {
                 context.pop();
               },
-              icon: Icon(
+              icon: const Icon(
                 Ionicons.chevron_back,
                 color: Colors.black,
               )),

@@ -1,8 +1,6 @@
 import 'dart:math';
 
 import 'package:MIPS/common/common.dart';
-import 'package:MIPS/common/constants/constant.dart';
-import 'package:MIPS/presentation/configurations/colors_list.dart';
 import 'package:MIPS/presentation/configurations/extension_for_localization.dart';
 import 'package:MIPS/presentation/screens/base/base_screen.dart';
 import 'package:MIPS/presentation/screens/my_wallet/bloc/rewards_bloc.dart';
@@ -354,7 +352,7 @@ class _TodaysRewardsScreenState extends State<TodaysRewardsScreen>
           onPressed: () {
             context.pop();
           },
-          icon: Icon(
+          icon: const Icon(
             Ionicons.chevron_back,
             color: Colors.black,
           )),

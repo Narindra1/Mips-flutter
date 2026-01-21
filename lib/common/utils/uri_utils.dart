@@ -4,13 +4,13 @@ import 'package:url_launcher/url_launcher.dart';
 class UriUtils {
   static Future<void> trylaunchUrl(String url) async {
     final Uri params = Uri.parse(url);
-    bool encounterError = false;
+    // bool encounterError = false;
     if (await canLaunchUrl(params)) {
       if (!await launchUrl(params)) {
-        encounterError = true;
+        // encounterError = true;
       }
     } else {
-      encounterError = true;
+      // encounterError = true;
     }
   }
 
@@ -19,13 +19,13 @@ class UriUtils {
       scheme: 'tel',
       path: tel,
     );
-    bool encounterError = false;
+    // bool encounterError = false;
     if (await canLaunchUrl(params)) {
       if (!await launchUrl(params)) {
-        encounterError = true;
+        // encounterError = true;
       }
     } else {
-      encounterError = true;
+      // encounterError = true;
     }
   }
 
@@ -35,13 +35,13 @@ class UriUtils {
         scheme: 'mailto',
         path: contactAdress,
         queryParameters: {'subject': subject, 'body': body});
-    bool encounterError = false;
+    // bool encounterError = false;
     if (await canLaunchUrl(params)) {
       if (!await launchUrl(params)) {
-        encounterError = true;
+        // encounterError = true;
       }
     } else {
-      encounterError = true;
+      // encounterError = true;
     }
   }
 }

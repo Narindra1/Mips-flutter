@@ -52,7 +52,7 @@ class _PageCountIconIndicatorState extends State<PageCountIconIndicator> {
       child: Row(
         spacing: 3.0,
         children: [
-          Icon(
+          const Icon(
             Ionicons.camera,
             color: Colors.white,
             size: 12,

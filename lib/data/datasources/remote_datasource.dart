@@ -6,7 +6,6 @@ import 'package:MIPS/common/services/environment_wrapper.dart';
 import 'package:MIPS/data/data.dart';
 import 'package:MIPS/data/models/devise_model.dart';
 import 'package:MIPS/data/models/exchange_rate_model.dart';
-import 'package:MIPS/data/models/profil_model.dart';
 import 'package:MIPS/data/models/province_model.dart';
 import 'package:MIPS/data/models/reward_model.dart';
 import 'package:MIPS/data/models/user_menu_profil_model.dart';

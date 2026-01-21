@@ -1,6 +1,5 @@
 import 'package:MIPS/presentation/widgets/mywebview_widget.dart';
 import 'package:MIPS/presentation/screens/base/base_screen.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ionicons/ionicons.dart';
@@ -28,7 +27,7 @@ class AvisDetailScreen extends StatelessWidget {
           onPressed: () {
             context.pop();
           },
-          icon: Icon(
+          icon: const Icon(
             Ionicons.chevron_back,
             color: Colors.black,
           )),

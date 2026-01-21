@@ -10,7 +10,6 @@ import 'package:ionicons/ionicons.dart';
 import '../../configurations/colors_list.dart';
 import '../../routes/route.dart';
 import '../../routes/router.dart';
-import '../../widgets/app_panel_widget.dart';
 import '../../widgets/message_displayer_utils.dart';
 
 class ResetPasswordScreen extends StatefulWidget {
@@ -60,7 +59,7 @@ class _ResetPassScreenState extends State<ResetPasswordScreen> {
           onPressed: () {
             context.pop();
           },
-          icon: Icon(
+          icon: const Icon(
             Ionicons.chevron_back,
             color: Colors.black,
           )),

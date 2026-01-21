@@ -162,7 +162,7 @@
 //                           onPressed: () {
 //                             AppRouter.go(context, RoutesNames.globalSearch);
 //                           },
-//                           icon: Icon(
+//                           icon: const Icon(
 //                             Icons.search,
 //                             color: Theme.of(context).colorScheme.primary,
 //                           ),

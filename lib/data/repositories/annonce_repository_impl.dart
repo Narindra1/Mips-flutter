@@ -1,7 +1,6 @@
 import 'package:MIPS/common/common.dart';
 import 'package:MIPS/data/data.dart';
 import 'package:MIPS/domain/domain.dart';
-import 'package:MIPS/domain/usecases/annonces/get_user_favorite_annonces_usecase.dart';
 import 'package:dio/dio.dart';
 import 'package:flutter/foundation.dart';
 

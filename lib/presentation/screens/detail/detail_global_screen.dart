@@ -1,8 +1,3 @@
-import 'package:MIPS/common/services/environment_wrapper.dart';
-import 'package:MIPS/presentation/bloc/follow_bloc.dart';
-import 'package:MIPS/presentation/screens/profil/bloc/profil_bloc.dart';
-import 'package:MIPS/presentation/widgets/page_count_icon_indicator.dart';
-import 'package:MIPS/presentation/widgets/page_count_indicator.dart';
 import 'package:animations/animations.dart';
 import 'package:cached_network_image/cached_network_image.dart';
 import 'package:colorful_iconify_flutter/icons/noto.dart';
@@ -22,7 +17,9 @@ import 'package:MIPS/presentation/presentation.dart';
 import 'package:MIPS/presentation/routes/route.dart';
 import 'package:MIPS/presentation/routes/router.dart';
 import 'package:MIPS/presentation/screens/base/base_screen.dart';
+import 'package:MIPS/presentation/screens/profil/bloc/profil_bloc.dart';
 import 'package:MIPS/presentation/widgets/message_displayer_utils.dart';
+import 'package:MIPS/presentation/widgets/page_count_icon_indicator.dart';
 
 import '../../../domain/entities/commentaire.dart';
 import '../../widgets/error_page_widget.dart';
@@ -95,7 +92,7 @@ class DetailGlobalScreen extends StatelessWidget {
             onPressed: () {
               context.pop();
             },
-            icon: Icon(
+            icon: const Icon(
               Ionicons.chevron_back_outline,
               color: Colors.black,
             ),
@@ -118,7 +115,7 @@ class DetailGlobalScreen extends StatelessWidget {
                           // Icons.favorite,
                           color: Colors.red,
                         )
-                      : Icon(
+                      : const Icon(
                           // Icons.favorite_border,
                           Ionicons.heart_outline,
                           // color: tertiaryColor,
@@ -132,7 +129,7 @@ class DetailGlobalScreen extends StatelessWidget {
                           '${context.appLoc.found_ad_that_might_interest_you}\n\nhttps://mips.mg/annonces/$idRoute'),
                 );
               },
-              icon: Icon(
+              icon: const Icon(
                 Ionicons.share_social_outline,
                 color: Colors.black,
               ),
@@ -481,7 +478,7 @@ class DetailGlobalScreen extends StatelessWidget {
                                         side: BorderSide(color: tertiaryColor),
                                       ))),
                                       visualDensity: VisualDensity.compact,
-                                      icon: Icon(
+                                      icon: const Icon(
                                         Ionicons.menu,
                                         color: tertiaryColor,
                                         size: 24,
@@ -603,7 +600,7 @@ class DetailGlobalScreen extends StatelessWidget {
                                       const EdgeInsets.only(top: mediumPadding),
                                   child: Row(
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         size: 16,
                                         Ionicons.location,
                                         color: Colors.grey,
@@ -625,7 +622,7 @@ class DetailGlobalScreen extends StatelessWidget {
                                       const EdgeInsets.only(top: mediumPadding),
                                   child: Row(
                                     children: [
-                                      Icon(
+                                      const Icon(
                                         size: 16,
                                         Ionicons.calendar,
                                         color: Colors.grey,
@@ -1017,7 +1014,7 @@ class DetailGlobalScreen extends StatelessWidget {
                     ),
                   ],
                 ),
-                Icon(
+                const Icon(
                   Ionicons.chevron_forward,
                   color: Colors.grey,
                   size: 16,
@@ -1039,7 +1036,7 @@ class DetailGlobalScreen extends StatelessWidget {
           const CircleAvatar(
             maxRadius: 16,
             backgroundColor: tertiaryColor,
-            child: Icon(
+            child: const Icon(
               size: 22,
               Ionicons.call,
               color: Colors.white,
@@ -1149,7 +1146,7 @@ class DetailGlobalScreen extends StatelessWidget {
         // const CircleAvatar(
         //   backgroundColor: Colors.transparent,
         //   maxRadius: 16,
-        //   child: Icon(
+        //   child: const Icon(
         //     Icons.account_circle,
         //     color: tertiaryColor,
         //     size: 32,

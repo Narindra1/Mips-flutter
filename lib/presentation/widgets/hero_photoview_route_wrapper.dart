@@ -74,7 +74,7 @@ class _HeroPhotoViewRouteWrapperState extends State<HeroPhotoViewRouteWrapper> {
           onPressed: () {
             context.pop();
           },
-          icon: Icon(
+          icon: const Icon(
             Ionicons.chevron_back_outline,
             color: Colors.black,
           ),
@@ -100,7 +100,7 @@ class _HeroPhotoViewRouteWrapperState extends State<HeroPhotoViewRouteWrapper> {
                 errorWidget: (context, url, error) => const Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
-                    Icon(Icons.error_outline),
+                    const Icon(Icons.error_outline),
                     Text("Error loading image"),
                   ],
                 ),

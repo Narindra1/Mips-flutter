@@ -76,7 +76,7 @@ class ListScreen extends StatelessWidget {
               onPressed: () {
                 context.pop();
               },
-              icon: Icon(
+              icon: const Icon(
                 Ionicons.chevron_back,
                 color: Colors.black,
               ),
