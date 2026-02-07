@@ -121,8 +121,10 @@ class MessagesScreen extends StatelessWidget {
               physics: const NeverScrollableScrollPhysics(),
               itemCount: state.userMessageList.length,
               shrinkWrap: true,
-              itemBuilder: (context, index) =>
-                  _buildMessageTile(context, state.userMessageList[index]),
+              itemBuilder: (context, index) => _buildMessageTile(
+                context,
+                state.userMessageList[index],
+              ),
             ),
             if (state.statusMessage == StatusMessage.loading)
               Padding(
@@ -214,6 +216,38 @@ class MessagesScreen extends StatelessWidget {
                       AppUtils.formatDateReadableWithMonth(
                           context, message.date),
                       style: const TextStyle(fontWeight: FontWeight.bold),
+                    ),
+                  ),
+                  IconButton(
+                    constraints: BoxConstraints(),
+                    onPressed: () {
+                      showDialog<void>(
+                        context: context,
+                        builder: (context) => AlertDialog(
+                          title: Text(context.appLoc.delete),
+                          content: Text(context.appLoc.confirm),
+                          actions: [
+                            TextButton(
+                              onPressed: () => Navigator.of(context).pop(false),
+                              child: Text(context.appLoc.cancel),
+                            ),
+                            TextButton(
+                              onPressed: () {
+                                context
+                                    .read<AppBloc>()
+                                    .add(DeleteMessageEvent(id: message.id));
+                                Navigator.of(context).pop(true);
+                              },
+                              child: Text(context.appLoc.delete),
+                            ),
+                          ],
+                        ),
+                      );
+                    },
+                    icon: const Icon(
+                      Ionicons.trash,
+                      size: 18,
+                      color: Colors.red,
                     ),
                   ),
                 ],

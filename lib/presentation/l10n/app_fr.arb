@@ -42,6 +42,8 @@
       }
     }
   },
+  "you_earned_kara_bonus": "Vous avez gagné de bonus KARA!",
+  "optional": "Facultatif",
   "ad_id": "ID de l'annonce",
   "ad_id_is_required": "ID de l'annonce est requis",
   "add_the_ad_id": "Ajoutez l'ID de l'annonce",

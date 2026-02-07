@@ -19,6 +19,8 @@
       }
     }
   },
+  "you_earned_kara_bonus": "您已获得 KARA 奖励！",
+  "optional": "选修的",
   "ad_id": "广告 ID",
   "ad_id_is_required": "需要广告 ID",
   "add_the_ad_id": "添加广告 ID",

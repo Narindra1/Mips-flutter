@@ -446,6 +446,8 @@ class DemandePubBloc extends Bloc<DemandePubEvent, DemandePubState> {
             dateDeCreation: "",
             annonceType: annonceBloc!.state.selectedAnnonce!.annonceType,
             author: "User1",
+            canGetKaraBonus: false,
+            hasGetKaraBonus: false,
             isFavs: false,
             menuParentName: event.titleMenu));
       } else {
@@ -478,6 +480,8 @@ class DemandePubBloc extends Bloc<DemandePubEvent, DemandePubState> {
                 contact: event.contact,
                 dateDeCreation: "",
                 author: "User1",
+                canGetKaraBonus: false,
+                hasGetKaraBonus: false,
                 isFavs: false,
                 menuParentName: event.titleMenu),
             state.annonceTarif[state.indexTarifSelected]
@@ -526,6 +530,8 @@ class DemandePubBloc extends Bloc<DemandePubEvent, DemandePubState> {
               contact: event.contact,
               dateDeCreation: "",
               author: "User1",
+              canGetKaraBonus: false,
+              hasGetKaraBonus: false,
               isFavs: false,
               menuParentName: event.titleMenu),
           state.annonceTarif[state.indexTarifSelected]

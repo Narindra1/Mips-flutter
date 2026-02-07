@@ -67,6 +67,12 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get you_earned_kara_bonus => '您已获得 KARA 奖励！';
+
+  @override
+  String get optional => '选修的';
+
+  @override
   String get ad_id => '广告 ID';
 
   @override

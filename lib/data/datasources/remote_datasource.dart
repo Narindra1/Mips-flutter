@@ -541,6 +541,14 @@ class RemoteDataSource {
     );
   }
 
+  /// Récupérer le bonus d'une annonce
+  Future<void> fetchBonusFromAnnonce(int idAnnonce) async {
+    return requestHandler(() async {
+      await dio.post('/primes/forAnnonce/$idAnnonce');
+      return;
+    });
+  }
+
   /// Ajout/enlève un menu dans favoris
   /// [idScreen] : id du menu
   /// [isLike] : true=ajout or false=enlève
@@ -837,8 +845,19 @@ class RemoteDataSource {
         if (jsonResult["data"] != null) {
           List<dynamic> resultList = (jsonResult["data"] as List<dynamic>);
           for (var e in resultList) {
-            annonceModelList.add(
-                AnnonceModel.fromJson(e, annonceType: AnnonceType.general));
+            if (e["type"] != null) {
+              print("object");
+              if (e["type"]["nom"] == "VIP") {
+                annonceModelList.add(
+                    AnnonceModel.fromJson(e, annonceType: AnnonceType.vip));
+              } else if (e["type"]["nom"] == "PREMIUM") {
+                annonceModelList.add(
+                    AnnonceModel.fromJson(e, annonceType: AnnonceType.premium));
+              } else {
+                annonceModelList.add(
+                    AnnonceModel.fromJson(e, annonceType: AnnonceType.general));
+              }
+            }
           }
         }
 
@@ -1336,7 +1355,6 @@ class RemoteDataSource {
   }
 
   /// Ouvre(marquer comme lus) un messages de l'utilisateur
-
   Future<void> viewUserMessage(int id) async {
     try {
       Response response = await dio.get(
@@ -1399,6 +1417,14 @@ class RemoteDataSource {
 
       throw ServerException(message: e.toString());
     }
+  }
+
+  /// Supprime un messages de l'utilisateur
+  Future<void> deleteUserMessage(int id) async {
+    return requestHandler(() async {
+      await dio.delete('/notification/$id');
+      return;
+    });
   }
 
   /// Récupère l'historique des transactions de l'utilisateur.

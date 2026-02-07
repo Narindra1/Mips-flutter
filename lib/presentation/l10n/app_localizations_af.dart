@@ -67,6 +67,12 @@ class AppLocalizationsAf extends AppLocalizations {
   }
 
   @override
+  String get you_earned_kara_bonus => 'Nahazo bonus KARA ianao!';
+
+  @override
+  String get optional => 'Tsy voatery';
+
+  @override
   String get ad_id => 'ID ny doka';
 
   @override

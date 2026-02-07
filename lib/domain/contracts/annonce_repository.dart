@@ -37,6 +37,8 @@ abstract class AnnonceRepository {
 
   Future<Result<Failure, Annonce>> getAnnonceByID(String annonceID);
 
+  Future<Result<Failure, SuccessResult>> getBonusFromAnnonce(int idAnnonce);
+
   Future<Result<Failure, List<Annonce>>> getAnnonceByIDWithPartnerSponsor(
       String annonceID);
 

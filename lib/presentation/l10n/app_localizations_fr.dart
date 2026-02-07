@@ -73,6 +73,12 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String get you_earned_kara_bonus => 'Vous avez gagné de bonus KARA!';
+
+  @override
+  String get optional => 'Facultatif';
+
+  @override
   String get ad_id => 'ID de l\'annonce';
 
   @override

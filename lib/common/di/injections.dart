@@ -15,6 +15,7 @@ import 'package:MIPS/domain/contracts/reward_repository.dart';
 import 'package:MIPS/domain/domain.dart';
 import 'package:MIPS/domain/usecases/annonces/create_annonce_plainte_suggestion_usecase.dart';
 import 'package:MIPS/domain/usecases/annonces/get_annonce_with_partner_sponsor_usecase.dart';
+import 'package:MIPS/domain/usecases/annonces/get_bonus_from_annonce_usecase.dart';
 import 'package:MIPS/domain/usecases/annonces/get_recents_annonces_usecase.dart';
 import 'package:MIPS/domain/usecases/annonces/get_user_annonces_count_usecase.dart';
 import 'package:MIPS/domain/usecases/annonces/get_user_favorite_annonces_count_usecase.dart';
@@ -36,6 +37,7 @@ import 'package:MIPS/domain/usecases/profil/get_user_info_profil_by_id_usecase.d
 import 'package:MIPS/domain/usecases/reward/get_reward_list_usecase.dart';
 import 'package:MIPS/domain/usecases/support/get_all_mips_info_usecase.dart';
 import 'package:MIPS/domain/usecases/support/submit_a_sondage_usecase.dart';
+import 'package:MIPS/domain/usecases/user/delete_a_message_usecase.dart';
 import 'package:MIPS/presentation/bloc/follow_bloc.dart';
 import 'package:MIPS/presentation/presentation.dart';
 import 'package:MIPS/presentation/screens/avatar_faka/bloc/avatar_bloc.dart';
@@ -119,6 +121,8 @@ Future<void> init() async {
       () => GetAllAnnoncesByIdScreenUseCase(annonceRepository: getIt()));
   getIt.registerLazySingleton<GetAnnonceUseCase>(
       () => GetAnnonceUseCase(annonceRepository: getIt()));
+  getIt.registerLazySingleton<GetBonusFromAnnonceUsecase>(
+      () => GetBonusFromAnnonceUsecase(annonceRepository: getIt()));
   getIt.registerLazySingleton<GetUserAnnoncesCountUsecase>(
       () => GetUserAnnoncesCountUsecase(annonceRepository: getIt()));
   getIt.registerLazySingleton<GetUserFavoriteAnnoncesUsecase>(
@@ -210,6 +214,8 @@ Future<void> init() async {
       () => ViewAMessageUseCase(userRepository: getIt()));
   getIt.registerLazySingleton<ViewAllMessageUseCase>(
       () => ViewAllMessageUseCase(userRepository: getIt()));
+  getIt.registerLazySingleton<DeleteAMessageUsecase>(
+      () => DeleteAMessageUsecase(userRepository: getIt()));
   getIt.registerLazySingleton<GetUserUnreadMessageCountUsecase>(
       () => GetUserUnreadMessageCountUsecase(userRepository: getIt()));
   getIt.registerLazySingleton<GetUserInfoProfilByIdUsecase>(
@@ -252,6 +258,7 @@ Future<void> init() async {
         changePasswordUseCase: getIt(),
         updateUserUseCase: getIt(),
         viewAMessageUseCase: getIt(),
+        deleteAMessageUseCase: getIt(),
         viewAllMessageUseCase: getIt(),
         getUserMessages: getIt(),
         deleteUserUseCase: getIt(),
@@ -277,6 +284,7 @@ Future<void> init() async {
   getIt.registerFactory<AnnonceBloc>(() => AnnonceBloc(
         getAllAnnoncesByIdScreenUseCase: getIt(),
         getAnnonceUseCase: getIt(),
+        getBonusFromAnnonceUsecase: getIt(),
         getAnnonceWithPartnerSponsorUsecase: getIt(),
         getRecentsAnnoncesUsecase: getIt(),
         reactToAnnonceUseCase: getIt(),

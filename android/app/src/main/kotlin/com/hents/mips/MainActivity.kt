@@ -1,4 +1,4 @@
-package com.hents.mips
+package com.mamy.mips
 
 import io.flutter.embedding.android.FlutterActivity
 

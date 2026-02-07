@@ -2,6 +2,8 @@
 
 part of 'annonce_bloc.dart';
 
+enum GetBonusStatus { getting, got, error }
+
 enum ListStatus { loading, loaded, error }
 
 enum SelectedStatus { loading, loaded, error, deleted }
@@ -18,8 +20,10 @@ class AnnonceState {
   final List<Annonce> annoncesVIP;
   final Annonce? selectedAnnonce;
   final ListStatus listStatus;
+  final bool annonceBonusHasGot;
   final bool isNextListAvailable;
   final bool isNextCommentaireListAvailable;
+  final GetBonusStatus getBonusStatus;
   final SelectedStatus selectedStatus;
   final CommentaireStatus commentaireStatus;
   final CommentaireListStatus commentaireListStatus;
@@ -31,6 +35,8 @@ class AnnonceState {
       {required this.listStatus,
       required this.annoncesVIP,
       required this.selectedStatus,
+      required this.getBonusStatus,
+      required this.annonceBonusHasGot,
       required this.annoncesNormal,
       required this.annoncesPartenaire,
       required this.annoncesPremium,
@@ -52,8 +58,10 @@ class AnnonceState {
         annoncesVIP: [],
         listStatus: ListStatus.loading,
         selectedStatus: SelectedStatus.loading,
+        getBonusStatus: GetBonusStatus.getting,
         commentaireListStatus: CommentaireListStatus.loaded,
         commentaireStatus: CommentaireStatus.loaded,
+        annonceBonusHasGot: false,
         isNextListAvailable: true,
         isNextCommentaireListAvailable: true,
         idCommentaireInProcess: -1,
@@ -69,9 +77,11 @@ class AnnonceState {
       List<Annonce>? annoncesVIP,
       Annonce? selectedAnnonce,
       ListStatus? listStatus,
+      bool? annonceBonusHasGot,
       bool? isNextListAvailable,
       bool? isNextCommentaireListAvailable,
       SelectedStatus? selectedStatus,
+      GetBonusStatus? getBonusStatus,
       CommentaireStatus? commentaireStatus,
       CommentaireListStatus? commentaireListStatus,
       String? query,
@@ -85,6 +95,7 @@ class AnnonceState {
       annoncesSponsor: annoncesSponsor ?? this.annoncesSponsor,
       annoncesPremium: annoncesPremium ?? this.annoncesPremium,
       annoncesNormal: annoncesNormal ?? this.annoncesNormal,
+      annonceBonusHasGot: annonceBonusHasGot ?? this.annonceBonusHasGot,
       selectedAnnonce: reInitializeSelectedAnnonce
           ? null
           : (selectedAnnonce ?? this.selectedAnnonce),
@@ -93,6 +104,7 @@ class AnnonceState {
       isNextCommentaireListAvailable:
           isNextCommentaireListAvailable ?? this.isNextCommentaireListAvailable,
       selectedStatus: selectedStatus ?? this.selectedStatus,
+      getBonusStatus: getBonusStatus ?? this.getBonusStatus,
       commentaireStatus: commentaireStatus ?? this.commentaireStatus,
       commentaireListStatus:
           commentaireListStatus ?? this.commentaireListStatus,

@@ -43,6 +43,8 @@ enum StatusMessage { loading, loaded, error }
 
 enum StatusMessageDetail { loading, loaded, error }
 
+enum StatusMessageDeleted { onDelete, deleted, error }
+
 class AppState {
   final bool isLogged;
   final Locale lang;
@@ -68,6 +70,7 @@ class AppState {
   final List<Message> userMessageList;
   final StatusMessage statusMessage;
   final StatusMessageDetail statusMessageDetail;
+  final StatusMessageDeleted statusMessageDeleted;
   final bool isNextMessageListAvailable;
   final int unreadMessageCount;
 
@@ -87,6 +90,7 @@ class AppState {
         popupAnnonceStatus: PopupAnnonceStatus.error,
         transactionHistory: [],
         statusMessage: StatusMessage.loaded,
+        statusMessageDeleted: StatusMessageDeleted.deleted,
         statusMessageDetail: StatusMessageDetail.loaded,
         userMessageList: [],
         unreadMessageCount: 0,
@@ -111,6 +115,7 @@ class AppState {
       required this.transactionHistory,
       required this.userMessageList,
       required this.statusMessage,
+      required this.statusMessageDeleted,
       required this.statusMessageDetail,
       required this.unreadMessageCount,
       this.statusTranfertFaka = StatusTranfertFaka.none,
@@ -159,6 +164,7 @@ class AppState {
       List<TransactionHistory>? transactionHistory,
       List<Message>? userMessageList,
       StatusMessage? statusMessage,
+      StatusMessageDeleted? statusMessageDeleted,
       StatusMessageDetail? statusMessageDetail,
       int? unreadMessageCount,
       bool? isNextMessageListAvailable,
@@ -172,6 +178,7 @@ class AppState {
       statusResetPass: statusResetPass ?? this.statusResetPass,
       userMessageList: userMessageList ?? this.userMessageList,
       statusMessage: statusMessage ?? this.statusMessage,
+      statusMessageDeleted: statusMessageDeleted ?? this.statusMessageDeleted,
       unreadMessageCount: unreadMessageCount ?? this.unreadMessageCount,
       statusMessageDetail: statusMessageDetail ?? this.statusMessageDetail,
       isNextMessageListAvailable:

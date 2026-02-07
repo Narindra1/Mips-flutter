@@ -24,6 +24,7 @@ class NormalAdsGlobalWidget extends StatelessWidget {
   final int reactionCount;
   final bool isMerci;
   final bool isPremium;
+  final bool isVIP;
   final bool isFree;
   final bool? saved;
   final String? menuRacineRef;
@@ -45,6 +46,7 @@ class NormalAdsGlobalWidget extends StatelessWidget {
       required this.dateCreation,
       required this.urlImage,
       required this.isPremium,
+      required this.isVIP,
       required this.reactionCount,
       this.menuRacineRef,
       this.menuRacineName,
@@ -133,31 +135,75 @@ class NormalAdsGlobalWidget extends StatelessWidget {
                                     overflow: TextOverflow.ellipsis,
                                   ),
                                 ),
-                                saved!
-                                    ? SizedBox()
-                                    : Container(
+                                Row(
+                                  children: [
+                                    if (isPremium)
+                                      Container(
                                         margin: const EdgeInsets.symmetric(
                                             horizontal: 4),
                                         padding: const EdgeInsets.symmetric(
                                             horizontal: 2),
                                         decoration: BoxDecoration(
-                                          color: _buildMenuRacineColor(
-                                              menuRacineRef!),
+                                          color: Colors.grey,
                                           borderRadius:
                                               BorderRadius.circular(4),
                                         ),
                                         child: Text(
-                                          menuRacineRef! == ""
-                                              ? ""
-                                              // ? context.appLoc.ad_modified
-                                              : menuRacineName!,
+                                          "Premium",
                                           style: TextStyle(
-                                            fontSize: 10,
-                                            fontWeight: FontWeight.bold,
+                                            fontWeight: FontWeight.w900,
                                             color: Colors.white,
+                                            fontSize: 10,
                                           ),
                                         ),
                                       ),
+                                    if (isVIP)
+                                      Container(
+                                        margin: const EdgeInsets.symmetric(
+                                            horizontal: 4),
+                                        padding: const EdgeInsets.symmetric(
+                                            horizontal: 2),
+                                        decoration: BoxDecoration(
+                                          color: secondaryColor,
+                                          borderRadius:
+                                              BorderRadius.circular(4),
+                                        ),
+                                        child: Text(
+                                          "VIP",
+                                          style: TextStyle(
+                                            fontWeight: FontWeight.w900,
+                                            color: Colors.black,
+                                            fontSize: 10,
+                                          ),
+                                        ),
+                                      ),
+                                    saved!
+                                        ? SizedBox()
+                                        : Container(
+                                            margin: const EdgeInsets.symmetric(
+                                                horizontal: 4),
+                                            padding: const EdgeInsets.symmetric(
+                                                horizontal: 2),
+                                            decoration: BoxDecoration(
+                                              color: _buildMenuRacineColor(
+                                                  menuRacineRef!),
+                                              borderRadius:
+                                                  BorderRadius.circular(4),
+                                            ),
+                                            child: Text(
+                                              menuRacineRef! == ""
+                                                  ? ""
+                                                  // ? context.appLoc.ad_modified
+                                                  : menuRacineName!,
+                                              style: TextStyle(
+                                                fontSize: 10,
+                                                fontWeight: FontWeight.bold,
+                                                color: Colors.white,
+                                              ),
+                                            ),
+                                          ),
+                                  ],
+                                )
                               ],
                             ),
                             const SizedBox(height: smallPadding),
@@ -366,19 +412,64 @@ class NormalAdsGlobalWidget extends StatelessWidget {
                   ),
                 ),
               ),
-              if (isPremium)
-                const Align(
-                  alignment: Alignment.centerRight,
-                  child: CornerBanner(
-                    bannerPosition: CornerBannerPosition.topRight,
-                    bannerColor: Colors.grey,
-                    child: Text(
-                      "Premium",
-                      style: TextStyle(
-                          fontWeight: FontWeight.bold, color: Colors.white),
-                    ),
-                  ),
-                ),
+              // if (isPremium)
+              //   const Align(
+              //     alignment: Alignment.centerRight,
+              //     child: CornerBanner(
+              //       bannerPosition: CornerBannerPosition.topRight,
+              //       bannerColor: Colors.grey,
+              //       child: Text(
+              //         "Premium",
+              //         style: TextStyle(
+              //             fontWeight: FontWeight.bold, color: Colors.white),
+              //       ),
+              //     ),
+              //   ),
+              // if (isPremium)
+              //   const Align(
+              //     alignment: Alignment.centerRight,
+              //     child: CornerBanner(
+              //       bannerPosition: CornerBannerPosition.topRight,
+              //       bannerColor: Colors.grey,
+              //       child: Text(
+              //         "Premium",
+              //         style: TextStyle(
+              //           fontWeight: FontWeight.w900,
+              //           color: Colors.white,
+              //           fontSize: 11,
+              //         ),
+              //       ),
+              //     ),
+              //   ),
+              // if (isVIP)
+              //   const Align(
+              //     alignment: Alignment.centerRight,
+              //     child: CornerBanner(
+              //       bannerPosition: CornerBannerPosition.topRight,
+              //       bannerColor: secondaryColor,
+              //       child: Text(
+              //         "VIP",
+              //         style: TextStyle(
+              //             fontWeight: FontWeight.bold, color: Colors.black),
+              //       ),
+              //     ),
+              //   ),
+              // if (isVIP)
+              //   const Align(
+              //     alignment: Alignment.centerRight,
+              //     child: CornerBanner(
+              //       bannerPosition: CornerBannerPosition.topRight,
+              //       bannerColor: secondaryColor,
+              //       child: Text(
+              //         "VIP",
+              //         style: TextStyle(
+              //           fontWeight: FontWeight.w900,
+              //           color: Colors.black,
+              //           fontSize: 11,
+              //         ),
+              //       ),
+              //     ),
+              //   ),
               // Positioned(
               //   top: 5,
               //   right: 5,

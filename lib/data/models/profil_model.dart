@@ -115,6 +115,8 @@ class ProfilModel extends Equatable {
             reactionCount: 0,
             customHtmlUrl: "",
             parrain: "",
+            canGetKaraBonus: false,
+            hasGetKaraBonus: false,
             isFavs: false,
           ),
         );

@@ -148,6 +148,8 @@ class ListGlobalContent extends StatelessWidget {
                             state.annoncesNormal[index].menuParentRef,
                         isPremium: state.annoncesNormal[index].annonceType ==
                             AnnonceType.premium,
+                        isVIP: state.annoncesNormal[index].annonceType ==
+                            AnnonceType.vip,
                         dateCreation:
                             state.annoncesNormal[index].dateDeCreation,
                         id: state.annoncesNormal[index].id,

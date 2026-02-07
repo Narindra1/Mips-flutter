@@ -401,10 +401,11 @@ class ListScreen extends StatelessWidget {
           mainAxisSize: MainAxisSize.min,
           children: [
             if (initialMenuInfoScreen.reference == mahaNouvelleMenuRef)
-              const Padding(
-                padding: EdgeInsets.all(mediumPadding),
-                child: TipsMahaolWidget(),
-              ),
+              const Padding(padding: EdgeInsets.only(top: mediumPadding)),
+            //   const Padding(
+            //     padding: EdgeInsets.all(mediumPadding),
+            //     child: TipsMahaolWidget(),
+            //   ),
             if (!initialMenuInfoScreen.isFree)
               Container(
                 decoration: const BoxDecoration(

@@ -52,6 +52,8 @@ abstract class UserRepository {
 
   Future<Result<Failure, SuccessResult>> viewAllUserMessage();
 
+  Future<Result<Failure, SuccessResult>> deleteUserMessage(int messageId);
+
   Future<Result<Failure, int>> getUserUnreadMessageCount();
 
   Future<Result<Failure, List<TransactionHistory>>> getTransactionHistory(

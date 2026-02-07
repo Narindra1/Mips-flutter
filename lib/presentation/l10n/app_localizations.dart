@@ -161,6 +161,18 @@ abstract class AppLocalizations {
   /// **'Annonces en ligne de {name}'**
   String online_ads_from(String name);
 
+  /// No description provided for @you_earned_kara_bonus.
+  ///
+  /// In fr, this message translates to:
+  /// **'Vous avez gagné de bonus KARA!'**
+  String get you_earned_kara_bonus;
+
+  /// No description provided for @optional.
+  ///
+  /// In fr, this message translates to:
+  /// **'Facultatif'**
+  String get optional;
+
   /// No description provided for @ad_id.
   ///
   /// In fr, this message translates to:

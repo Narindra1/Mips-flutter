@@ -175,6 +175,12 @@ class ViewMessageEvent extends AppEvent {
   ViewMessageEvent({required this.id});
 }
 
+class DeleteMessageEvent extends AppEvent {
+  final int id;
+
+  DeleteMessageEvent({required this.id});
+}
+
 class ViewAllMessageEvent extends AppEvent {}
 
 class GetUnreadMessageCountEvent extends AppEvent {}

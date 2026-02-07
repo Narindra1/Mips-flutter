@@ -1,5 +1,6 @@
 import 'dart:ui';
 
+import 'package:MIPS/domain/usecases/user/delete_a_message_usecase.dart';
 import 'package:MIPS/presentation/configurations/extension_for_localization.dart';
 import 'package:MIPS/presentation/widgets/message_displayer_utils.dart';
 import 'package:bloc/bloc.dart';
@@ -40,6 +41,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   /// Pour la gestion des messages
   final GetUserMessages getUserMessages;
   final ViewAMessageUseCase viewAMessageUseCase;
+  final DeleteAMessageUsecase deleteAMessageUseCase;
   final GetUserUnreadMessageCountUsecase getUserUnreadMessageCountUsecase;
   int currentMessagePage = 1;
 
@@ -47,6 +49,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
       {required this.userPrefRepositoryImpl,
       required this.networkService,
       required this.viewAMessageUseCase,
+      required this.deleteAMessageUseCase,
       required this.viewAllMessageUseCase,
       required this.getUserMessages,
       required this.logoutUserUseCase,
@@ -88,6 +91,7 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     on<LoadUserMessageListEvent>(_onLoadUserMessageListEvent);
     on<ViewMessageEvent>(_onViewMessageEvent);
     on<ViewAllMessageEvent>(_onViewAllMessageEvent);
+    on<DeleteMessageEvent>(_onDeleteMessageEvent);
     on<GetUnreadMessageCountEvent>(_onGetUnreadMessageCountEvent);
     on<LoadMoreMessageEvent>(_onLoadMoreMessageEvent);
     on<LoadHistoryFakaChangeEvent>(_onLoadHistoryFakaChangeEvent);
@@ -177,6 +181,21 @@ class AppBloc extends Bloc<AppEvent, AppState> {
   void _onViewAllMessageEvent(ViewAllMessageEvent event, Emitter emit) async {
     emit(state.copyWith(statusMessageDetail: StatusMessageDetail.loading));
     var result = await viewAllMessageUseCase();
+    if (result.isSuccess()) {
+      /// Recupere le nombre de message non lu
+      add(GetUnreadMessageCountEvent());
+
+      /// Recharge tous les messages
+      add(LoadUserMessageListEvent());
+      emit(state.copyWith(statusMessageDetail: StatusMessageDetail.loaded));
+    } else {
+      emit(state.copyWith(statusMessageDetail: StatusMessageDetail.error));
+    }
+  }
+
+  void _onDeleteMessageEvent(DeleteMessageEvent event, Emitter emit) async {
+    emit(state.copyWith(statusMessageDetail: StatusMessageDetail.loading));
+    var result = await deleteAMessageUseCase(event.id);
     if (result.isSuccess()) {
       /// Recupere le nombre de message non lu
       add(GetUnreadMessageCountEvent());

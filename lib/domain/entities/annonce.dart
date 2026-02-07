@@ -35,6 +35,8 @@ class Annonce extends Equatable {
   final String dateDeCreation;
   final String dateLimit;
   final AnnonceType annonceType;
+  final bool canGetKaraBonus;
+  final bool hasGetKaraBonus;
   final bool isFavs;
   final bool isLiked;
   final int reactionCount;
@@ -67,6 +69,8 @@ class Annonce extends Equatable {
       required this.dateDeCreation,
       required this.annonceType,
       required this.author,
+      required this.canGetKaraBonus,
+      required this.hasGetKaraBonus,
       required this.isFavs,
       required this.isLiked,
       required this.dateLimit,
@@ -89,6 +93,8 @@ class Annonce extends Equatable {
         menuRacineName,
         dateDeCreation,
         annonceType,
+        canGetKaraBonus,
+        hasGetKaraBonus,
         isFavs,
         photos,
         commentaires,
@@ -115,6 +121,8 @@ class Annonce extends Equatable {
     String? menuRacineName,
     String? dateDeCreation,
     AnnonceType? annonceType,
+    bool? canGetKaraBonus,
+    bool? hasGetKaraBonus,
     bool? isFavs,
     bool? isLiked,
     int? reactionCount,
@@ -142,6 +150,8 @@ class Annonce extends Equatable {
       dateDeCreation: dateDeCreation ?? this.dateDeCreation,
       dateLimit: dateLimit ?? this.dateLimit,
       annonceType: annonceType ?? this.annonceType,
+      canGetKaraBonus: canGetKaraBonus ?? this.canGetKaraBonus,
+      hasGetKaraBonus: hasGetKaraBonus ?? this.hasGetKaraBonus,
       isFavs: isFavs ?? this.isFavs,
       isLiked: isLiked ?? this.isLiked,
       reactionCount: reactionCount ?? this.reactionCount,

@@ -454,9 +454,10 @@ class BaseContentItem extends StatelessWidget {
                         : const SizedBox(),
                   ),
                   listItem,
-                  if (menuItem.reference == "IC" ||
-                      menuItem.reference == "ID" ||
-                      menuItem.reference == "AA")
+                  if (menuItem.reference == "IC" || menuItem.reference == "ID"
+                      // ||
+                      // menuItem.reference == "AA"
+                      )
                     Positioned(
                       right: 0,
                       bottom: 0,

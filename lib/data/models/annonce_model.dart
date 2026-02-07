@@ -23,6 +23,8 @@ class AnnonceModel extends Equatable {
   final String author;
   final String menuParentRef;
   final int authorID;
+  final bool canGetKaraBonus;
+  final bool hasGetKaraBonus;
   final bool isFavs;
   final bool isLiked;
   final bool isWebsitePub;
@@ -63,6 +65,8 @@ class AnnonceModel extends Equatable {
       required this.reactionCount,
       required this.customHtmlUrl,
       required this.parrain,
+      required this.canGetKaraBonus,
+      required this.hasGetKaraBonus,
       required this.isFavs});
 
   factory AnnonceModel.fromJson(Map<String, dynamic> json,
@@ -166,6 +170,8 @@ class AnnonceModel extends Equatable {
         contact: json['contact'] ?? "",
         commentaires: commentaires,
         parrain: json['parrain'] ?? "",
+        canGetKaraBonus: json["canGetKaraBonus"] ?? false,
+        hasGetKaraBonus: json["hasGetKaraBonus"] ?? false,
         isFavs: json["hasFavourite"] ?? false,
         annonceType: annonceTypeRet,
         author: json["auteur_basic"] == null
@@ -179,31 +185,34 @@ class AnnonceModel extends Equatable {
 
   Annonce toEntity() {
     return Annonce(
-        dateLimit: dateLimit,
-        menuParentID: menuParentID,
-        menuParentName: menuParentName,
-        menuParentRef: menuParentRef,
-        menuRacineRef: menuRacineRef,
-        menuRacineName: menuRacineName,
-        isWebsitePub: isWebsitePub,
-        id: id,
-        slug: slug,
-        title: title,
-        customHtmlUrl: customHtmlUrl,
-        descriptionCourte: descriptionCourte,
-        descriptionDetaille: descriptionDetaille,
-        contact: AppUtils.sanitizeNumber(contact),
-        dateDeCreation: dateDeCreation,
-        emplacement: emplacement,
-        photos: photos.map((e) => e.toEntity()).toList(),
-        author: author,
-        authorID: authorID,
-        isLiked: isLiked,
-        parrain: parrain,
-        reactionCount: reactionCount,
-        annonceType: annonceType,
-        commentaires: commentaires.map((e) => e.toEntity()).toList(),
-        isFavs: isFavs);
+      dateLimit: dateLimit,
+      menuParentID: menuParentID,
+      menuParentName: menuParentName,
+      menuParentRef: menuParentRef,
+      menuRacineRef: menuRacineRef,
+      menuRacineName: menuRacineName,
+      isWebsitePub: isWebsitePub,
+      id: id,
+      slug: slug,
+      title: title,
+      customHtmlUrl: customHtmlUrl,
+      descriptionCourte: descriptionCourte,
+      descriptionDetaille: descriptionDetaille,
+      contact: AppUtils.sanitizeNumber(contact),
+      dateDeCreation: dateDeCreation,
+      emplacement: emplacement,
+      photos: photos.map((e) => e.toEntity()).toList(),
+      author: author,
+      authorID: authorID,
+      isLiked: isLiked,
+      parrain: parrain,
+      reactionCount: reactionCount,
+      annonceType: annonceType,
+      commentaires: commentaires.map((e) => e.toEntity()).toList(),
+      canGetKaraBonus: canGetKaraBonus,
+      hasGetKaraBonus: hasGetKaraBonus,
+      isFavs: isFavs,
+    );
   }
 
   factory AnnonceModel.fromEntity(Annonce annonce) {
@@ -228,6 +237,8 @@ class AnnonceModel extends Equatable {
         emplacement: annonce.emplacement,
         dateDeCreation: annonce.dateDeCreation,
         photos: annonce.photos.map((e) => ImageModel.fromEntity(e)).toList(),
+        canGetKaraBonus: annonce.canGetKaraBonus,
+        hasGetKaraBonus: annonce.hasGetKaraBonus,
         isFavs: annonce.isFavs,
         author: annonce.author,
         authorID: annonce.authorID,
@@ -259,6 +270,8 @@ class AnnonceModel extends Equatable {
       String? menuRacineRef,
       String? menuRacineName,
       String? dateLimit,
+      bool? canGetKaraBonus,
+      bool? hasGetKaraBonus,
       bool? isFavs,
       bool? isWebsitePub,
       List<ImageModel>? photos,
@@ -294,6 +307,8 @@ class AnnonceModel extends Equatable {
         descriptionDetaille: descriptionDetaille ?? this.descriptionDetaille,
         contact: contact ?? this.contact,
         dateDeCreation: dateDeCreation ?? this.dateDeCreation,
+        canGetKaraBonus: canGetKaraBonus ?? this.canGetKaraBonus,
+        hasGetKaraBonus: hasGetKaraBonus ?? this.hasGetKaraBonus,
         isFavs: isFavs ?? this.isFavs,
         photos: photos ?? this.photos,
         author: author ?? this.author,

@@ -1,6 +1,7 @@
 import 'package:MIPS/common/common.dart';
 import 'package:MIPS/domain/usecases/annonces/create_annonce_plainte_suggestion_usecase.dart';
 import 'package:MIPS/domain/usecases/annonces/get_annonce_with_partner_sponsor_usecase.dart';
+import 'package:MIPS/domain/usecases/annonces/get_bonus_from_annonce_usecase.dart';
 import 'package:MIPS/domain/usecases/annonces/get_recents_annonces_usecase.dart';
 import 'package:bloc/bloc.dart';
 
@@ -15,6 +16,7 @@ class AnnonceBloc extends Bloc<AnnonceEvent, AnnonceState> {
   final GetRecentsAnnoncesUsecase getRecentsAnnoncesUsecase;
   final GetAnnonceUseCase getAnnonceUseCase;
   final GetAnnonceWithPartnerSponsorUsecase getAnnonceWithPartnerSponsorUsecase;
+  final GetBonusFromAnnonceUsecase getBonusFromAnnonceUsecase;
   final CreateAnnonceUseCase createAnnonceUseCase;
   final CreateAnnoncePlainteSuggestionUsecase
       createAnnoncePlainteSuggestionUsecase;
@@ -35,6 +37,7 @@ class AnnonceBloc extends Bloc<AnnonceEvent, AnnonceState> {
   AnnonceBloc({
     required this.getAllAnnoncesByIdScreenUseCase,
     required this.getAnnonceUseCase,
+    required this.getBonusFromAnnonceUsecase,
     required this.getRecentsAnnoncesUsecase,
     required this.getAnnonceWithPartnerSponsorUsecase,
     required this.createAnnonceUseCase,
@@ -52,6 +55,7 @@ class AnnonceBloc extends Bloc<AnnonceEvent, AnnonceState> {
     on<LoadAnnonceList>(_onLoadAnnonceList);
     on<LoadRecentAnnonceList>(_onLoadRecentAnnonceList);
     on<LoadAnnonce>(_onLoadAnnonce);
+    on<GetBonusFromAnnonceEvent>(_onGetBonusFromAnnonceEvent);
     on<LoadAnnonceWithPartnerSponsor>(_onLoadAnnonceWithPartnerSponsor);
     on<LoadMoreListItem>(_onLoadMoreListItem);
     on<LoadMoreListRecentItem>(_onLoadMoreListRecentItem);
@@ -116,6 +120,17 @@ class AnnonceBloc extends Bloc<AnnonceEvent, AnnonceState> {
       add(LoadRecentAnnonceList(id: annonceListID, pageIndex: 1));
     } else {
       emit(state.copyWith(selectedStatus: SelectedStatus.error));
+    }
+  }
+
+  _onGetBonusFromAnnonceEvent(
+      GetBonusFromAnnonceEvent event, Emitter emit) async {
+    emit(state.copyWith(getBonusStatus: GetBonusStatus.getting));
+    var result = await getBonusFromAnnonceUsecase(event.idAnnonce);
+    if (result.isSuccess()) {
+      emit(state.copyWith(getBonusStatus: GetBonusStatus.got));
+    } else {
+      emit(state.copyWith(getBonusStatus: GetBonusStatus.error));
     }
   }
 

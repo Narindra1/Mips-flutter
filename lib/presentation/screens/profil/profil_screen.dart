@@ -714,6 +714,9 @@ class ProfilScreen extends StatelessWidget {
                                           isPremium:
                                               mesAnnonces[index].annonceType ==
                                                   AnnonceType.premium,
+                                          isVIP:
+                                              mesAnnonces[index].annonceType ==
+                                                  AnnonceType.vip,
                                           dateCreation: state
                                               .annonces[index].dateDeCreation,
                                           id: mesAnnonces[index].id,

@@ -598,6 +598,7 @@ class DetailScreen extends StatelessWidget {
                     ),
                     // const SizedBox(height: mediumPadding),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
                         InkWell(
                           borderRadius: BorderRadius.circular(22),
@@ -636,13 +637,65 @@ class DetailScreen extends StatelessWidget {
                                       color: tertiaryColor,
                                       fontWeight: FontWeight.bold),
                                 ),
-                                const SizedBox(
-                                  width: largePadding,
-                                ),
+
+                                // if (context.read<AppBloc>().state.isLogged)
+                                //   state.selectedAnnonce!.canGetKaraBonus
+                                //       ? BlocBuilder<AnnonceBloc, AnnonceState>(
+                                //           builder: (context, state) {
+                                //             // if(state.annonceBonusHasGot == Status)
+                                //             return Image(
+                                //               height: 24,
+                                //               width: 24,
+                                //               image: AssetImage(
+                                //                   "assets/imgs/mips_coin.png"),
+                                //             );
+                                //           },
+                                //         )
+                                //       : SizedBox(),
                               ],
                             ),
                           ),
                         ),
+                        if (context.read<AppBloc>().state.isLogged)
+                          state.selectedAnnonce!.canGetKaraBonus
+                              ? state.selectedAnnonce!.hasGetKaraBonus
+                                  ? SizedBox()
+                                  : BlocConsumer<AnnonceBloc, AnnonceState>(
+                                      listener: (context, stateBonus) {
+                                        if (stateBonus.getBonusStatus ==
+                                            GetBonusStatus.got) {
+                                          MessageDisplayerUtils
+                                              .showToastMessage(context.appLoc
+                                                  .you_earned_kara_bonus);
+                                        }
+                                      },
+                                      listenWhen: (previous, current) {
+                                        return previous.getBonusStatus !=
+                                            current.getBonusStatus;
+                                      },
+                                      builder: (context, stateBonus) {
+                                        if (stateBonus.getBonusStatus ==
+                                            GetBonusStatus.got) {
+                                          return SizedBox();
+                                        }
+                                        return IconButton(
+                                          onPressed: () {
+                                            context.read<AnnonceBloc>().add(
+                                                GetBonusFromAnnonceEvent(
+                                                    idAnnonce: state
+                                                        .selectedAnnonce!.id));
+                                          },
+                                          constraints: BoxConstraints(),
+                                          icon: Image(
+                                            height: 24,
+                                            width: 24,
+                                            image: AssetImage(
+                                                "assets/imgs/mips_coin.png"),
+                                          ),
+                                        );
+                                      },
+                                    )
+                              : SizedBox(),
                       ],
                     ),
                     const SizedBox(

@@ -18,6 +18,14 @@ class LoadRecentAnnonceList extends AnnonceEvent {
   const LoadRecentAnnonceList({required this.id, required this.pageIndex});
 }
 
+class GetBonusFromAnnonceEvent extends AnnonceEvent {
+  final int idAnnonce;
+
+  const GetBonusFromAnnonceEvent({
+    required this.idAnnonce,
+  });
+}
+
 class LoadAnnonce extends AnnonceEvent {
   final String id;
 

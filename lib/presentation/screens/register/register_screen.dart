@@ -473,7 +473,8 @@ class RegisterScreenState extends State<RegisterScreen> {
                     decoration: InputDecoration(
                       errorStyle: const TextStyle(fontWeight: FontWeight.bold),
                       errorMaxLines: 3,
-                      label: Text(context.appLoc.register_mail_hint),
+                      label: Text(
+                          "${context.appLoc.register_mail_hint} (${context.appLoc.optional})"),
                       labelStyle: TextStyle(color: Colors.grey.shade700),
                       floatingLabelStyle: const TextStyle(color: tertiaryColor),
                       hintStyle: TextStyle(color: Colors.grey.shade700),

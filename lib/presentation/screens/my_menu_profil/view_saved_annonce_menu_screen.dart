@@ -202,6 +202,8 @@ class _ViewSavedAnnonceMenuScreenState extends State<ViewSavedAnnonceMenuScreen>
                             state.annoncesFavoris[index].menuParentRef,
                         isPremium: state.annoncesFavoris[index].annonceType ==
                             AnnonceType.premium,
+                        isVIP: state.annoncesFavoris[index].annonceType ==
+                            AnnonceType.vip,
                         dateCreation:
                             state.annoncesFavoris[index].dateDeCreation,
                         id: state.annoncesFavoris[index].id,
@@ -455,6 +457,8 @@ class _ViewSavedAnnonceMenuScreenState extends State<ViewSavedAnnonceMenuScreen>
                     isPremium:
                         state.annoncesOfFollowedUsers[index].annonceType ==
                             AnnonceType.premium,
+                    isVIP: state.annoncesOfFollowedUsers[index].annonceType ==
+                        AnnonceType.vip,
                     dateCreation:
                         state.annoncesOfFollowedUsers[index].dateDeCreation,
                     id: state.annoncesOfFollowedUsers[index].id,

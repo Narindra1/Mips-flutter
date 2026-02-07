@@ -2,6 +2,7 @@ import 'dart:math';
 
 import 'package:MIPS/common/common.dart';
 import 'package:MIPS/presentation/bloc/app_bloc.dart';
+import 'package:MIPS/presentation/configurations/extension_for_localization.dart';
 import 'package:MIPS/presentation/screens/base/base_content_item.dart';
 import 'package:breakpoint/breakpoint.dart';
 import 'package:flutter/foundation.dart';
@@ -566,7 +567,9 @@ class _BaseContentState extends State<BaseContent> {
                   ),
                 ),
               ),
-              Text(_menuMainName == "" ? "Annonces récentes" : _menuMainName),
+              Text(_menuMainName == ""
+                  ? context.appLoc.recents_announces
+                  : _menuMainName),
               Container(
                 child: _menuMainName == ""
                     ? const SizedBox()

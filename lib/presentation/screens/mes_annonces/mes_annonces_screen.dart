@@ -86,6 +86,8 @@ class MesAnnoncesScreen extends StatelessWidget {
                         menuParentRef: state.mesAnnonces[index].menuParentRef,
                         isPremium: state.mesAnnonces[index].annonceType ==
                             AnnonceType.premium,
+                        isVIP: state.mesAnnonces[index].annonceType ==
+                            AnnonceType.vip,
                         dateCreation: state.mesAnnonces[index].dateDeCreation,
                         id: state.mesAnnonces[index].id,
                         urlImage: (state.mesAnnonces[index].photos.isNotEmpty)

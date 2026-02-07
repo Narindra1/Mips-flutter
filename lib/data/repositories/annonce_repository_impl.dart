@@ -39,6 +39,23 @@ class AnnonceRepositoryImpl implements AnnonceRepository {
   }
 
   @override
+  Future<Result<Failure, SuccessResult>> getBonusFromAnnonce(
+      int idAnnonce) async {
+    try {
+      await remoteDataSource.fetchBonusFromAnnonce(idAnnonce);
+      return const Success(SuccessResult());
+    } on AppException catch (e) {
+      AppUtils.showDebugLog(runtimeType, e.toString());
+      if (e is NoConnectionException) {
+        return Error(NoConnectionFailure());
+      }
+      return Error(ServerFailure(message: e.message));
+    } on Exception catch (e) {
+      return Error(ServerFailure(message: e.toString()));
+    }
+  }
+
+  @override
   Future<Result<Failure, Annonce>> getAnnonceByID(String annonceID) async {
     try {
       Annonce result =

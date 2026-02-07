@@ -260,6 +260,7 @@ class MenuItemModel extends Equatable {
         iconPath: (screenMenuItemJson["url_icon"] != null &&
                 screenMenuItemJson["url_icon"] != "")
             ? GetIt.instance<EnvironmentWrapper>().baseUrl +
+                '/' +
                 (screenMenuItemJson["url_icon"])
             : null,
         subMenu: listsubItem);

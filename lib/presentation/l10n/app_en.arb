@@ -8,6 +8,8 @@
       "count": {}
     }
   },
+  "you_earned_kara_bonus": "You have earned a KARA bonus!",
+  "optional": "Optional",
   "ad_id": "Ad ID",
   "ad_id_is_required": "Ad ID is required",
   "add_the_ad_id": "Add the ad ID",
