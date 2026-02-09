@@ -1419,6 +1419,14 @@ class RemoteDataSource {
     }
   }
 
+  /// Supprime tous les messages de l'utilisateur
+  Future<void> deleteAllUserMessage() async {
+    return requestHandler(() async {
+      await dio.delete('/notification/delete_all');
+      return;
+    });
+  }
+
   /// Supprime un messages de l'utilisateur
   Future<void> deleteUserMessage(int id) async {
     return requestHandler(() async {

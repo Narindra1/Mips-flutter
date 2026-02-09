@@ -73,6 +73,9 @@ class AppLocalizationsKo extends AppLocalizations {
   }
 
   @override
+  String get delete_all => '모두 삭제';
+
+  @override
   String get you_earned_kara_bonus => 'KARA 보너스를 받으셨습니다!';
 
   @override

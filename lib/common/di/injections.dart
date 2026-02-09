@@ -38,6 +38,7 @@ import 'package:MIPS/domain/usecases/reward/get_reward_list_usecase.dart';
 import 'package:MIPS/domain/usecases/support/get_all_mips_info_usecase.dart';
 import 'package:MIPS/domain/usecases/support/submit_a_sondage_usecase.dart';
 import 'package:MIPS/domain/usecases/user/delete_a_message_usecase.dart';
+import 'package:MIPS/domain/usecases/user/delete_all_message_usecase.dart';
 import 'package:MIPS/presentation/bloc/follow_bloc.dart';
 import 'package:MIPS/presentation/presentation.dart';
 import 'package:MIPS/presentation/screens/avatar_faka/bloc/avatar_bloc.dart';
@@ -216,6 +217,8 @@ Future<void> init() async {
       () => ViewAllMessageUseCase(userRepository: getIt()));
   getIt.registerLazySingleton<DeleteAMessageUsecase>(
       () => DeleteAMessageUsecase(userRepository: getIt()));
+  getIt.registerLazySingleton<DeleteAllMessageUsecase>(
+      () => DeleteAllMessageUsecase(userRepository: getIt()));
   getIt.registerLazySingleton<GetUserUnreadMessageCountUsecase>(
       () => GetUserUnreadMessageCountUsecase(userRepository: getIt()));
   getIt.registerLazySingleton<GetUserInfoProfilByIdUsecase>(
@@ -259,6 +262,7 @@ Future<void> init() async {
         updateUserUseCase: getIt(),
         viewAMessageUseCase: getIt(),
         deleteAMessageUseCase: getIt(),
+        deleteAllMessageUsecase: getIt(),
         viewAllMessageUseCase: getIt(),
         getUserMessages: getIt(),
         deleteUserUseCase: getIt(),

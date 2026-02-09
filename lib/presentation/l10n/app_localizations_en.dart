@@ -73,6 +73,9 @@ class AppLocalizationsEn extends AppLocalizations {
   }
 
   @override
+  String get delete_all => 'Delete all';
+
+  @override
   String get you_earned_kara_bonus => 'You have earned a KARA bonus!';
 
   @override

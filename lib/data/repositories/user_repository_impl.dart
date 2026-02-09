@@ -306,6 +306,25 @@ class UserRepositoryImpl implements UserRepository {
   }
 
   @override
+  Future<Result<Failure, SuccessResult>> deleteAllUserMessage() async {
+    try {
+      (await remoteDataSource.deleteAllUserMessage());
+
+      return const Success(SuccessResult());
+    } on AppException catch (e) {
+      AppUtils.showDebugLog(runtimeType, e.toString());
+      if (e is NoConnectionException) {
+        return Error(NoConnectionFailure());
+      } else if (e is UserRegisterException) {
+        return Error(UserRegisterFailure(message: (e.message.toString())));
+      }
+      return Error(ServerFailure(message: e.message));
+    } on Exception catch (e) {
+      return Error(ServerFailure(message: e.toString()));
+    }
+  }
+
+  @override
   Future<Result<Failure, SuccessResult>> deleteUserMessage(
       int messageId) async {
     try {

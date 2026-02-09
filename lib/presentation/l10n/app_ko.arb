@@ -17,6 +17,7 @@
       }
     }
   },
+  "delete_all": "모두 삭제",
   "you_earned_kara_bonus": "KARA 보너스를 받으셨습니다!",
   "optional": "선택 과목",
   "ad_id": "광고 ID",

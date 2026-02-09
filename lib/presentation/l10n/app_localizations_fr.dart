@@ -73,6 +73,9 @@ class AppLocalizationsFr extends AppLocalizations {
   }
 
   @override
+  String get delete_all => 'Supprimer tout';
+
+  @override
   String get you_earned_kara_bonus => 'Vous avez gagné de bonus KARA!';
 
   @override
@@ -1007,7 +1010,7 @@ class AppLocalizationsFr extends AppLocalizations {
   String get register_accept_cgu => 'J\'accepte les ';
 
   @override
-  String get read_all => 'Tout lu ✓';
+  String get read_all => 'Tout lu';
 
   @override
   String get cgu => 'CGU';

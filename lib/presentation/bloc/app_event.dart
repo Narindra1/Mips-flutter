@@ -183,4 +183,6 @@ class DeleteMessageEvent extends AppEvent {
 
 class ViewAllMessageEvent extends AppEvent {}
 
+class DeleteAllMessageEvent extends AppEvent {}
+
 class GetUnreadMessageCountEvent extends AppEvent {}

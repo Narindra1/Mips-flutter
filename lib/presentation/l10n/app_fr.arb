@@ -42,6 +42,7 @@
       }
     }
   },
+  "delete_all": "Supprimer tout",
   "you_earned_kara_bonus": "Vous avez gagné de bonus KARA!",
   "optional": "Facultatif",
   "ad_id": "ID de l'annonce",
@@ -490,7 +491,7 @@
   "register_address_hint": "Province",
   "register_address_validation": "Erreur: Entrer une adresse  valide",
   "register_accept_cgu": "J'accepte les ",
-  "read_all": "Tout lu ✓",
+  "read_all": "Tout lu",
   "cgu": "CGU",
   "btn_register": "S'inscrire",
   "connection_error": "Erreur de connection",

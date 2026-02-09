@@ -161,6 +161,12 @@ abstract class AppLocalizations {
   /// **'Annonces en ligne de {name}'**
   String online_ads_from(String name);
 
+  /// No description provided for @delete_all.
+  ///
+  /// In fr, this message translates to:
+  /// **'Supprimer tout'**
+  String get delete_all;
+
   /// No description provided for @you_earned_kara_bonus.
   ///
   /// In fr, this message translates to:
@@ -1952,7 +1958,7 @@ abstract class AppLocalizations {
   /// No description provided for @read_all.
   ///
   /// In fr, this message translates to:
-  /// **'Tout lu ✓'**
+  /// **'Tout lu'**
   String get read_all;
 
   /// No description provided for @cgu.

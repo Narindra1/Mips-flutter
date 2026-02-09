@@ -67,6 +67,9 @@ class AppLocalizationsAf extends AppLocalizations {
   }
 
   @override
+  String get delete_all => 'Fafana daholo';
+
+  @override
   String get you_earned_kara_bonus => 'Nahazo bonus KARA ianao!';
 
   @override

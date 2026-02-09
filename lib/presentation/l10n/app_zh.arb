@@ -19,6 +19,7 @@
       }
     }
   },
+  "delete_all": "全部删除",
   "you_earned_kara_bonus": "您已获得 KARA 奖励！",
   "optional": "选修的",
   "ad_id": "广告 ID",

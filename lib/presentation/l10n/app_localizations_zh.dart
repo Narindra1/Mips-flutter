@@ -67,6 +67,9 @@ class AppLocalizationsZh extends AppLocalizations {
   }
 
   @override
+  String get delete_all => '全部删除';
+
+  @override
   String get you_earned_kara_bonus => '您已获得 KARA 奖励！';
 
   @override

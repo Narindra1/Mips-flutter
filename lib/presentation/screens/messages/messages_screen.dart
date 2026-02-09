@@ -42,27 +42,79 @@ class MessagesScreen extends StatelessWidget {
             child: BaseScreen(
               appBarAction: [
                 Row(children: [
-                  if (state.unreadMessageCount > 0)
-                    Directionality(
-                      textDirection: TextDirection.rtl,
-                      child: SizedBox(
-                        height: 40,
-                        child: FilledButton(
-                          style: ButtonStyle(
-                              shape: WidgetStatePropertyAll(
-                                  RoundedRectangleBorder(
-                                      borderRadius:
-                                          BorderRadius.circular(16.0)))),
-                          onPressed: () {
-                            context.read<AppBloc>().add(ViewAllMessageEvent());
-                          },
-                          child: Text(context.appLoc.read_all),
+                  IconButton(
+                    onPressed: () {
+                      showModalBottomSheet(
+                        context: context,
+                        constraints: BoxConstraints(
+                          minWidth: MediaQuery.of(context).size.width,
                         ),
-                      ),
+                        shape: RoundedRectangleBorder(
+                          borderRadius: BorderRadius.only(
+                            topLeft: Radius.circular(16),
+                            topRight: Radius.circular(16),
+                          ),
+                          side: BorderSide(
+                            color: Colors.grey.shade100,
+                          ),
+                        ),
+                        builder: (_) => ListView.builder(
+                            shrinkWrap: true,
+                            physics: const NeverScrollableScrollPhysics(),
+                            itemCount: 2,
+                            itemBuilder: (_, index) {
+                              return TextButton(
+                                style: ButtonStyle(
+                                  overlayColor:
+                                      WidgetStatePropertyAll(Colors.grey),
+                                  shape: WidgetStatePropertyAll(
+                                    RoundedRectangleBorder(
+                                      borderRadius: BorderRadius.circular(16),
+                                      // side: BorderSide(color: Colors.grey),
+                                    ),
+                                  ),
+                                  fixedSize: WidgetStatePropertyAll(Size(
+                                      MediaQuery.of(context).size.width, 40)),
+                                ),
+                                onPressed: () {
+                                  if (index == 0) {
+                                    context
+                                        .read<AppBloc>()
+                                        .add(ViewAllMessageEvent());
+                                  } else if (index == 1) {}
+                                  context.pop();
+                                },
+                                child: _buildOptionSettings(context, index),
+                              );
+                            }),
+                      );
+                    },
+                    icon: Icon(
+                      Ionicons.menu,
+                      color: Colors.black,
                     ),
-                  const SizedBox(
-                    width: smallPadding,
-                  )
+                  ),
+                  // if (state.unreadMessageCount > 0)
+                  //   Directionality(
+                  //     textDirection: TextDirection.rtl,
+                  //     child: SizedBox(
+                  //       height: 40,
+                  //       child: FilledButton(
+                  //         style: ButtonStyle(
+                  //             shape: WidgetStatePropertyAll(
+                  //                 RoundedRectangleBorder(
+                  //                     borderRadius:
+                  //                         BorderRadius.circular(16.0)))),
+                  //         onPressed: () {
+                  //           context.read<AppBloc>().add(ViewAllMessageEvent());
+                  //         },
+                  //         child: Text(context.appLoc.read_all),
+                  //       ),
+                  //     ),
+                  //   ),
+                  // const SizedBox(
+                  //   width: smallPadding,
+                  // )
                 ])
               ],
               content: RefreshIndicator(
@@ -90,6 +142,21 @@ class MessagesScreen extends StatelessWidget {
           );
         },
       ),
+    );
+  }
+
+  Widget _buildOptionSettings(BuildContext context, int index) {
+    List<IoniconsData> icons = [Ionicons.checkbox, Ionicons.trash];
+    List<String> options = [
+      context.appLoc.read_all,
+      context.appLoc.delete_all,
+    ];
+    return Row(
+      children: [
+        Icon(icons[index], color: tertiaryColor, size: 24),
+        SizedBox(width: mediumPadding),
+        Text(options[index], style: Theme.of(context).textTheme.titleSmall),
+      ],
     );
   }
 

@@ -16,8 +16,7 @@ import '../../widgets/error_page_widget.dart';
 import 'widgets/add_image_section_widget.dart';
 import 'bloc/demande_pub_bloc.dart';
 
-class DemandePubScreen extends StatelessWidget {
-  final _formKey = GlobalKey<FormState>();
+class DemandePubScreen extends StatefulWidget {
   final String idMenu;
   final String title;
   final String idAnnonce;
@@ -30,14 +29,6 @@ class DemandePubScreen extends StatelessWidget {
 
   /// Si on prolonge l'annonce
   final bool isTarifVIPOnlyMode;
-
-  /// Si l'annonce est VIP seulement, donc On montre que les tarifs VIP
-  final titleController = TextEditingController();
-  final descriptionCourteController = TextEditingController();
-  final descriptionDetailleeController = TextEditingController();
-  final emplacementController = TextEditingController();
-  final contactController = TextEditingController();
-  final recommandController = TextEditingController();
 
   DemandePubScreen(
       {super.key,
@@ -52,10 +43,39 @@ class DemandePubScreen extends StatelessWidget {
   }
 
   @override
+  State<DemandePubScreen> createState() => _DemandePubScreenState();
+}
+
+class _DemandePubScreenState extends State<DemandePubScreen> {
+  final _formKey = GlobalKey<FormState>();
+
+  /// Si l'annonce est VIP seulement, donc On montre que les tarifs VIP
+  final titleController = TextEditingController();
+
+  final descriptionCourteController = TextEditingController();
+
+  final descriptionDetailleeController = TextEditingController();
+
+  final emplacementController = TextEditingController();
+
+  final contactController = TextEditingController();
+
+  final recommandController = TextEditingController();
+
+  @override
+  void initState() {
+    contactController.text =
+        context.read<AppBloc>().state.user?.contactFormatted ?? "";
+    emplacementController.text =
+        context.read<AppBloc>().state.user?.lieuResidence ?? "";
+    super.initState();
+  }
+
+  @override
   Widget build(BuildContext context) {
     // Si AnnonceBloc est présent, la navigation vient du détail d'annonce
-    if (int.parse(idAnnonce) > 0) {
-      if (isExtendValidityMode) {
+    if (int.parse(widget.idAnnonce) > 0) {
+      if (widget.isExtendValidityMode) {
         return _buildExtendValidityAnnoncePage(context);
       } else {
         return _buildEditAnnoncePage(context);
@@ -87,7 +107,8 @@ class DemandePubScreen extends StatelessWidget {
           )),
       content: BlocProvider(
         create: (context) => GetIt.instance<DemandePubBloc>()
-          ..add(InitBloc(idMenu: idMenu, modeVIPOnly: isTarifVIPOnlyMode)),
+          ..add(InitBloc(
+              idMenu: widget.idMenu, modeVIPOnly: widget.isTarifVIPOnlyMode)),
         child: BlocBuilder<DemandePubBloc, DemandePubState>(
             buildWhen: (previous, current) {
           if (current.status == Status.errorSubmiting &&
@@ -102,8 +123,8 @@ class DemandePubScreen extends StatelessWidget {
               canPop: false,
               onPopInvokedWithResult: (didPop, result) async {
                 if (context.read<AnnonceBloc?>() != null) {
-                  context.read<AnnonceBloc>().add(
-                      LoadAnnonceList(id: int.parse(idMenu), pageIndex: 1));
+                  context.read<AnnonceBloc>().add(LoadAnnonceList(
+                      id: int.parse(widget.idMenu), pageIndex: 1));
                 }
                 Navigator.of(context).pop();
                 if (didPop) {
@@ -159,8 +180,8 @@ class DemandePubScreen extends StatelessWidget {
             return RefreshIndicator(
               onRefresh: () async {
                 context.read<DemandePubBloc>().add(InitBloc(
-                      modeVIPOnly: isTarifVIPOnlyMode,
-                      idMenu: idMenu,
+                      modeVIPOnly: widget.isTarifVIPOnlyMode,
+                      idMenu: widget.idMenu,
                     ));
               },
               child: const CustomScrollView(
@@ -238,7 +259,7 @@ class DemandePubScreen extends StatelessWidget {
                                   : null,
                             ),
                             const SizedBox(height: 12.0),
-                            if (menuParentRef != blablaZoneMenuRef)
+                            if (widget.menuParentRef != blablaZoneMenuRef)
                               DemandePubTextFieldWidget(
                                 controller: descriptionCourteController,
                                 label: context.appLoc.ann_desc_title,
@@ -260,9 +281,9 @@ class DemandePubScreen extends StatelessWidget {
                                           .appLoc.ann_desc_long_validation_error
                                       : null,
                             ),
-                            if (!maskPersonalInfoMode)
+                            if (!widget.maskPersonalInfoMode)
                               const SizedBox(height: 12.0),
-                            if (!maskPersonalInfoMode)
+                            if (!widget.maskPersonalInfoMode)
                               DemandePubTextFieldWidget(
                                 controller: emplacementController,
                                 label: context.appLoc.ann_emplacement_title,
@@ -273,9 +294,9 @@ class DemandePubScreen extends StatelessWidget {
                                             .ann_emplacement_validation_error
                                         : null,
                               ),
-                            if (!maskPersonalInfoMode)
+                            if (!widget.maskPersonalInfoMode)
                               const SizedBox(height: 12.0),
-                            if (!maskPersonalInfoMode)
+                            if (!widget.maskPersonalInfoMode)
                               DemandePubTextFieldWidget(
                                 controller: contactController,
                                 label: context.appLoc.ann_contact_title,
@@ -296,21 +317,21 @@ class DemandePubScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 10.0),
                             AddImageSectionWidget(
-                                menuParentRef: menuParentRef,
+                                menuParentRef: widget.menuParentRef,
                                 context: context,
                                 state: state),
-                            if (isTarifVIPOnlyMode)
+                            if (widget.isTarifVIPOnlyMode)
                               const SizedBox(
                                 height: largePadding,
                               ),
-                            if (isTarifVIPOnlyMode)
+                            if (widget.isTarifVIPOnlyMode)
                               DemandePubTextFieldWidget(
                                 controller: recommandController,
                                 label: context.appLoc.recommander_by,
                                 keyboardType: TextInputType.phone,
                                 hintText: context.appLoc.recommander_agent_hint,
                               ),
-                            if (!isFreeAnnonceMode)
+                            if (!widget.isFreeAnnonceMode)
                               _buildOptionsDePublicationSection(context, state),
                             Align(
                               alignment: Alignment.center,
@@ -338,7 +359,7 @@ class DemandePubScreen extends StatelessWidget {
                                         : () {
                                             if (_formKey.currentState!
                                                 .validate()) {
-                                              if (!isFreeAnnonceMode) {
+                                              if (!widget.isFreeAnnonceMode) {
                                                 MessageDisplayerUtils
                                                     .showConfirmSendAnnonceDialog(
                                                   context,
@@ -347,9 +368,11 @@ class DemandePubScreen extends StatelessWidget {
                                                     if (_formKey.currentState!
                                                         .validate()) {
                                                       context.read<DemandePubBloc>().add(SubmitFormEvent(
-                                                          idAnnonce: idAnnonce,
-                                                          idMenu: idMenu,
-                                                          titleMenu: title,
+                                                          idAnnonce:
+                                                              widget.idAnnonce,
+                                                          idMenu: widget.idMenu,
+                                                          titleMenu:
+                                                              widget.title,
                                                           title: titleController
                                                               .text,
                                                           descriptionCourte:
@@ -374,9 +397,10 @@ class DemandePubScreen extends StatelessWidget {
                                                 context
                                                     .read<DemandePubBloc>()
                                                     .add(SubmitFormEvent(
-                                                        idAnnonce: idAnnonce,
-                                                        idMenu: idMenu,
-                                                        titleMenu: title,
+                                                        idAnnonce: widget
+                                                            .idAnnonce,
+                                                        idMenu: widget.idMenu,
+                                                        titleMenu: widget.title,
                                                         title: titleController
                                                             .text,
                                                         descriptionCourte:
@@ -619,7 +643,7 @@ class DemandePubScreen extends StatelessWidget {
       content: BlocProvider(
         create: (context) => GetIt.instance<DemandePubBloc>()
           ..add(InitBloc(
-            modeVIPOnly: isTarifVIPOnlyMode,
+            modeVIPOnly: widget.isTarifVIPOnlyMode,
             idMenu: annonce.menuParentID.toString(),
             annonceBLoc: context.read<AnnonceBloc>(),
           )),
@@ -641,8 +665,8 @@ class DemandePubScreen extends StatelessWidget {
             return RefreshIndicator(
               onRefresh: () async {
                 context.read<DemandePubBloc>().add(InitBloc(
-                      modeVIPOnly: isTarifVIPOnlyMode,
-                      idMenu: idMenu,
+                      modeVIPOnly: widget.isTarifVIPOnlyMode,
+                      idMenu: widget.idMenu,
                       annonceBLoc: context.read<AnnonceBloc>(),
                     ));
               },
@@ -707,7 +731,7 @@ class DemandePubScreen extends StatelessWidget {
                                   : null,
                             ),
                             const SizedBox(height: 12.0),
-                            if (menuParentRef != blablaZoneMenuRef)
+                            if (widget.menuParentRef != blablaZoneMenuRef)
                               DemandePubTextFieldWidget(
                                 controller: descriptionCourteController
                                   ..text = annonce.descriptionCourte,
@@ -731,9 +755,9 @@ class DemandePubScreen extends StatelessWidget {
                                           .appLoc.ann_desc_long_validation_error
                                       : null,
                             ),
-                            if (!maskPersonalInfoMode)
+                            if (!widget.maskPersonalInfoMode)
                               const SizedBox(height: 12.0),
-                            if (!maskPersonalInfoMode)
+                            if (!widget.maskPersonalInfoMode)
                               DemandePubTextFieldWidget(
                                 controller: emplacementController
                                   ..text = annonce.emplacement,
@@ -745,9 +769,9 @@ class DemandePubScreen extends StatelessWidget {
                                             .ann_emplacement_validation_error
                                         : null,
                               ),
-                            if (!maskPersonalInfoMode)
+                            if (!widget.maskPersonalInfoMode)
                               const SizedBox(height: 12.0),
-                            if (!maskPersonalInfoMode)
+                            if (!widget.maskPersonalInfoMode)
                               DemandePubTextFieldWidget(
                                 controller: contactController
                                   ..text = annonce.contactFormatted,
@@ -769,7 +793,7 @@ class DemandePubScreen extends StatelessWidget {
                             ),
                             const SizedBox(height: 10.0),
                             AddImageSectionWidget(
-                                menuParentRef: menuParentRef,
+                                menuParentRef: widget.menuParentRef,
                                 context: context,
                                 state: state),
                             const SizedBox(height: 30.0),
@@ -805,9 +829,10 @@ class DemandePubScreen extends StatelessWidget {
                                               context
                                                   .read<DemandePubBloc>()
                                                   .add(SubmitFormEvent(
-                                                      idAnnonce: idAnnonce,
-                                                      idMenu: idMenu,
-                                                      titleMenu: title,
+                                                      idAnnonce:
+                                                          widget.idAnnonce,
+                                                      idMenu: widget.idMenu,
+                                                      titleMenu: widget.title,
                                                       title:
                                                           titleController.text,
                                                       descriptionCourte:
@@ -881,7 +906,7 @@ class DemandePubScreen extends StatelessWidget {
       content: BlocProvider(
         create: (context) => GetIt.instance<DemandePubBloc>()
           ..add(InitBloc(
-            modeExtendValidity: isExtendValidityMode,
+            modeExtendValidity: widget.isExtendValidityMode,
             idMenu: annonce.menuParentID.toString(),
             annonceBLoc: context.read<AnnonceBloc>(),
           )),
@@ -903,8 +928,8 @@ class DemandePubScreen extends StatelessWidget {
             return RefreshIndicator(
               onRefresh: () async {
                 context.read<DemandePubBloc>().add(InitBloc(
-                      modeVIPOnly: isTarifVIPOnlyMode,
-                      idMenu: idMenu,
+                      modeVIPOnly: widget.isTarifVIPOnlyMode,
+                      idMenu: widget.idMenu,
                       annonceBLoc: context.read<AnnonceBloc>(),
                     ));
               },
@@ -942,7 +967,7 @@ class DemandePubScreen extends StatelessWidget {
                                   ? context.appLoc.ann_title_validation_error
                                   : null,
                             ),
-                            if (isExtendValidityMode)
+                            if (widget.isExtendValidityMode)
                               _buildOptionsDePublicationSection(context, state,
                                   selectableNonDisponible: true),
                             const SizedBox(

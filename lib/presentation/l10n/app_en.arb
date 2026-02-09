@@ -8,6 +8,7 @@
       "count": {}
     }
   },
+  "delete_all": "Delete all",
   "you_earned_kara_bonus": "You have earned a KARA bonus!",
   "optional": "Optional",
   "ad_id": "Ad ID",

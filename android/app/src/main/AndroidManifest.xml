@@ -8,7 +8,7 @@
         <!-- android:label="Mahafaka" -->
 
     <application
-        android:label="MIPS - Announces Madagascar"
+        android:label="MIPS"
         android:allowBackup="false"
         android:fullBackupContent="false"
         android:name="${applicationName}"

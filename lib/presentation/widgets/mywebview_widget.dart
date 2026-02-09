@@ -37,6 +37,7 @@ class _MyWebviewWidgetState extends State<MyWebviewWidget> {
             },
             onNavigationRequest: (request) {
               AppUtils.showDebugLog(runtimeType, "HTML URI : ${request.url}");
+              print("REQUEST URL : ${widget.htmlData}");
               return NavigationDecision.navigate;
             },
           ),

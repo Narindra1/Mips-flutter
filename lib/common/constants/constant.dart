@@ -24,7 +24,6 @@ const String defaultAnnonceEmptyImageUrl =
     "https://random.imagecdn.app/500/500";
 
 const String urlCUG = "https://dev.mips.mg/CGU";
-// const String urlCUG = "https://admin.mips.mg/CGU";
 const String urlDownloadAppUpdate = "https://dev.mips.mg/app/downloadLatest";
 // const String urlDownloadAppUpdate = "https://admin.mips.mg/app/downloadLatest";
 const List<String> mahaNouvelleDefaultImage = [
