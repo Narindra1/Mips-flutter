@@ -81,7 +81,11 @@ class MessagesScreen extends StatelessWidget {
                                     context
                                         .read<AppBloc>()
                                         .add(ViewAllMessageEvent());
-                                  } else if (index == 1) {}
+                                  } else if (index == 1) {
+                                    context
+                                        .read<AppBloc>()
+                                        .add(DeleteAllMessageEvent());
+                                  }
                                   context.pop();
                                 },
                                 child: _buildOptionSettings(context, index),

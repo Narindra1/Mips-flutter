@@ -202,11 +202,11 @@ class AppBloc extends Bloc<AppEvent, AppState> {
     emit(state.copyWith(statusMessageDetail: StatusMessageDetail.loading));
     var result = await deleteAllMessageUsecase();
     if (result.isSuccess()) {
-      // /// Recupere le nombre de message non lu
-      // add(GetUnreadMessageCountEvent());
+      /// Recupere le nombre de message non lu
+      add(GetUnreadMessageCountEvent());
 
-      // /// Recharge tous les messages
-      // add(LoadUserMessageListEvent());
+      /// Recharge tous les messages
+      add(LoadUserMessageListEvent());
       emit(state.copyWith(statusMessageDetail: StatusMessageDetail.loaded));
     } else {
       emit(state.copyWith(statusMessageDetail: StatusMessageDetail.error));
