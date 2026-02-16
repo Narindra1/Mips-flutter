@@ -1,5 +1,6 @@
 import 'package:MIPS/presentation/configurations/colors_list.dart';
 import 'package:MIPS/presentation/configurations/extension_for_localization.dart';
+import 'package:easy_localization/easy_localization.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:go_router/go_router.dart';
@@ -737,8 +738,15 @@ class RegisterScreenState extends State<RegisterScreen> {
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(1920),
-      lastDate: DateTime.now(), // No future dates
+      lastDate: DateTime.now(),
       locale: Localizations.localeOf(context),
+      confirmText: context.appLoc.confirm,
+      cancelText: context.appLoc.cancel,
+      helpText: Localizations.localeOf(context).languageCode == "af"
+          ? 'Fidio daty'
+          : null,
+      fieldLabelText:
+          Localizations.localeOf(context).languageCode == "af" ? 'Daty' : null,
     );
 
     if (picked != null && context.mounted) {
