@@ -368,8 +368,10 @@ class BaseContentItem extends StatelessWidget {
                             style: Theme.of(context).textTheme.titleSmall,
                           ),
                         ),
-                        if (menuItem.annoncesTodayCount > 0 &&
-                            !menuItem.reference.startsWith("I"))
+                        if (menuItem.annoncesTodayCount > 0
+                            // &&
+                            //     !menuItem.reference.startsWith("I")
+                            )
                           Container(
                             decoration: BoxDecoration(
                                 color: secondaryColor,

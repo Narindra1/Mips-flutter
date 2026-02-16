@@ -1,12 +1,12 @@
 /// Classe permettant de stocker toutes les valeurs constantes.
 enum Language { fr, en, mg }
 
-// const String baseUrlAPI_PROD = "https://admin.mips.mg/api";
-// const String baseUrl_PROD = "https://admin.mips.mg/";
-// const String hostName_PROD = "admin.mips.mg";
-const String baseUrlAPI_PROD = "https://dev.mips.mg/api";
-const String baseUrl_PROD = "https://dev.mips.mg";
-const String hostName_PROD = "dev.mips.mg";
+const String baseUrlAPI_PROD = "https://admin.mips.mg/api";
+const String baseUrl_PROD = "https://admin.mips.mg/";
+const String hostName_PROD = "admin.mips.mg";
+// const String baseUrlAPI_PROD = "https://dev.mips.mg/api";
+// const String baseUrl_PROD = "https://dev.mips.mg";
+// const String hostName_PROD = "dev.mips.mg";
 
 const String baseUrlAPI_Preprod = "https://dev.mips.mg/api";
 const String baseUrl_Preprod = "https://dev.mips.mg/";
@@ -23,9 +23,10 @@ const maxMdpLenght = 8;
 const String defaultAnnonceEmptyImageUrl =
     "https://random.imagecdn.app/500/500";
 
-const String urlCUG = "https://dev.mips.mg/CGU";
-const String urlDownloadAppUpdate = "https://dev.mips.mg/app/downloadLatest";
-// const String urlDownloadAppUpdate = "https://admin.mips.mg/app/downloadLatest";
+const String urlCUG = "https://admin.mips.mg/CGU";
+// const String urlCUG = "https://dev.mips.mg/CGU";
+// const String urlDownloadAppUpdate = "https://dev.mips.mg/app/downloadLatest";
+const String urlDownloadAppUpdate = "https://admin.mips.mg/app/downloadLatest";
 const List<String> mahaNouvelleDefaultImage = [
   'assets/imgs/maha_nouvelle_imgs/001.jpg',
   'assets/imgs/maha_nouvelle_imgs/002.jpg',

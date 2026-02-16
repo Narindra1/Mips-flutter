@@ -26,6 +26,7 @@ class ModifyUserInfoScreenState extends State<ModifyUserInfoScreen> {
   final _formKey = GlobalKey<FormState>();
   final _pseudoController = TextEditingController();
   final _mailController = TextEditingController();
+  final _contactController = TextEditingController();
   final _lieu_de_residenceController = TextEditingController();
   // String? _selectedProvince;
   bool? _userInfoModified = false;
@@ -36,6 +37,8 @@ class ModifyUserInfoScreenState extends State<ModifyUserInfoScreen> {
     _mailController.text = context.read<AppBloc>().state.user?.mail ?? "";
     _lieu_de_residenceController.text =
         context.read<AppBloc>().state.user?.lieuResidence ?? "";
+    _contactController.text =
+        context.read<AppBloc>().state.user?.contactFormatted ?? "";
     // _selectedProvince = provinces.contains(
     //         context.read<AppBloc>().state.user?.lieuResidence ?? "Nowhere")
     //     ? context.read<AppBloc>().state.user?.lieuResidence ?? "Nowhere"
@@ -181,6 +184,49 @@ class ModifyUserInfoScreenState extends State<ModifyUserInfoScreen> {
                     hintText: "${context.appLoc.exemple_pref_hint}Andry",
                     suffixIcon: const Icon(
                       Ionicons.person,
+                      color: Colors.grey,
+                    ),
+                    fillColor: Colors.grey.shade300,
+                    filled: false,
+                    border: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16),
+                    ),
+                    focusedBorder: OutlineInputBorder(
+                      borderRadius: BorderRadius.circular(16),
+                      borderSide: BorderSide(color: tertiaryColor),
+                    ),
+                    // border: InputBorder.none,
+                  ),
+                  validator: (value) {
+                    if ((value == null || value.isEmpty)) {
+                      return context.appLoc.register_pseudo_validation;
+                    }
+                    return null;
+                  },
+                ),
+              ),
+              const SizedBox(height: largePadding),
+              Container(
+                // padding: const EdgeInsets.symmetric(
+                //     horizontal: largePadding, vertical: smallPadding),
+                // decoration: BoxDecoration(
+                //     color: Colors.grey.shade100,
+                //     borderRadius: BorderRadius.circular(mediumPadding)),
+                child: TextFormField(
+                  autovalidateMode: AutovalidateMode.disabled,
+                  readOnly: true,
+                  enabled: false,
+                  controller: _contactController,
+                  decoration: InputDecoration(
+                    errorStyle: const TextStyle(fontWeight: FontWeight.bold),
+                    errorMaxLines: 3,
+                    label: Text(context.appLoc.ann_contact_title),
+                    labelStyle: TextStyle(color: Colors.grey.shade700),
+                    floatingLabelStyle: const TextStyle(color: tertiaryColor),
+                    hintStyle: TextStyle(color: Colors.grey.shade700),
+                    hintText: "${context.appLoc.exemple_pref_hint}Andry",
+                    suffixIcon: const Icon(
+                      Ionicons.phone_portrait,
                       color: Colors.grey,
                     ),
                     fillColor: Colors.grey.shade300,

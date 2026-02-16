@@ -221,73 +221,149 @@ class RegisterScreenState extends State<RegisterScreen> {
                   height: largePadding,
                 ),
                 Container(
-                  // padding: const EdgeInsets.symmetric(
-                  //     horizontal: largePadding, vertical: smallPadding),
-                  // decoration: BoxDecoration(
-                  //     color: Colors.grey.shade100,
-                  //     borderRadius: BorderRadius.circular(mediumPadding)),
                   child: TextFormField(
-                      readOnly: true,
-                      autovalidateMode: AutovalidateMode.onUserInteraction,
-                      keyboardType: TextInputType.datetime,
-                      controller: _anneDeNaissanceController,
-                      onTap: () {
-                        _selectDate(context, _anneDeNaissanceController);
-                      },
-                      decoration: InputDecoration(
-                        errorStyle:
-                            const TextStyle(fontWeight: FontWeight.bold),
-                        errorMaxLines: 3,
-                        label: Text(context.appLoc.register_yearofbirth_hint),
-                        labelStyle: TextStyle(color: Colors.grey.shade700),
-                        floatingLabelStyle:
-                            const TextStyle(color: tertiaryColor),
-                        suffixIcon: const Icon(
-                          Icons.calendar_today,
-                          color: Colors.grey,
-                        ),
-                        fillColor: Colors.grey.shade300,
-                        filled: false,
-                        border: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16),
-                        ),
-                        focusedBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16),
-                          borderSide: BorderSide(color: tertiaryColor),
-                        ),
-                        // border: InputBorder.none,
+                    readOnly: true,
+                    autovalidateMode: AutovalidateMode.onUserInteraction,
+                    keyboardType: TextInputType.datetime,
+                    controller: _anneDeNaissanceController,
+                    onTap: () {
+                      _selectDate(context, _anneDeNaissanceController);
+                    },
+                    decoration: InputDecoration(
+                      errorStyle: const TextStyle(fontWeight: FontWeight.bold),
+                      errorMaxLines: 3,
+                      label: Text(context.appLoc.register_yearofbirth_hint),
+                      labelStyle: TextStyle(color: Colors.grey.shade700),
+                      floatingLabelStyle: const TextStyle(color: tertiaryColor),
+                      suffixIcon: const Icon(
+                        Icons.calendar_today,
+                        color: Colors.grey,
                       ),
-                      validator: (String? value) {
-                        if (value == null || value.isEmpty) {
-                          return context.appLoc.register_yearofbirth_validation;
-                        } else {
-                          try {
-                            DateFormat format = DateFormat('dd/MM/yyyy');
-                            DateTime birthDate = format.parse(value);
+                      fillColor: Colors.grey.shade300,
+                      filled: false,
+                      border: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16),
+                      ),
+                      focusedBorder: OutlineInputBorder(
+                        borderRadius: BorderRadius.circular(16),
+                        borderSide: BorderSide(color: tertiaryColor),
+                      ),
+                    ),
+                    validator: (String? value) {
+                      if (value == null || value.isEmpty) {
+                        return context.appLoc.register_yearofbirth_validation;
+                      }
 
-                            // Get today's date
-                            DateTime today = DateTime.now();
+                      try {
+                        // Parse the date (now expecting dd/MM/yyyy format)
+                        DateFormat format = DateFormat('dd/MM/yyyy');
+                        DateTime birthDate = format.parse(value);
 
-                            // Calculate age
-                            int age = today.year - birthDate.year;
-                            // Adjust age if the birthday hasn't occurred yet this year
-                            if (today.month < birthDate.month ||
-                                (today.month == birthDate.month &&
-                                    today.day < birthDate.day)) {
-                              age--;
-                            }
-                            if (age < 13) {
-                              return context
-                                  .appLoc.register_yearofbirth_validation;
-                            }
-                          } catch (e) {
-                            return context
-                                .appLoc.register_yearofbirth_validation;
-                          }
+                        // Get today's date
+                        DateTime today = DateTime.now();
+
+                        // Calculate age
+                        int age = today.year - birthDate.year;
+
+                        // Adjust age if birthday hasn't occurred yet this year
+                        if (today.month < birthDate.month ||
+                            (today.month == birthDate.month &&
+                                today.day < birthDate.day)) {
+                          age--;
                         }
-                        return null;
-                      }),
+
+                        print("AGE: $age");
+                        print(
+                            "Birth date: ${birthDate.day}/${birthDate.month}/${birthDate.year}");
+                        print(
+                            "Today: ${today.day}/${today.month}/${today.year}");
+
+                        if (age < 13) {
+                          return context.appLoc.register_yearofbirth_validation;
+                        }
+                      } catch (e) {
+                        print("Date parsing error: $e");
+                        return context.appLoc.register_yearofbirth_validation;
+                      }
+
+                      return null;
+                    },
+                  ),
                 ),
+                // Container(
+                //   // padding: const EdgeInsets.symmetric(
+                //   //     horizontal: largePadding, vertical: smallPadding),
+                //   // decoration: BoxDecoration(
+                //   //     color: Colors.grey.shade100,
+                //   //     borderRadius: BorderRadius.circular(mediumPadding)),
+                //   child: TextFormField(
+                //       readOnly: true,
+                //       autovalidateMode: AutovalidateMode.onUserInteraction,
+                //       keyboardType: TextInputType.datetime,
+                //       controller: _anneDeNaissanceController,
+                //       onTap: () {
+                //         _selectDate(context, _anneDeNaissanceController);
+                //       },
+                //       decoration: InputDecoration(
+                //         errorStyle:
+                //             const TextStyle(fontWeight: FontWeight.bold),
+                //         errorMaxLines: 3,
+                //         label: Text(context.appLoc.register_yearofbirth_hint),
+                //         labelStyle: TextStyle(color: Colors.grey.shade700),
+                //         floatingLabelStyle:
+                //             const TextStyle(color: tertiaryColor),
+                //         suffixIcon: const Icon(
+                //           Icons.calendar_today,
+                //           color: Colors.grey,
+                //         ),
+                //         fillColor: Colors.grey.shade300,
+                //         filled: false,
+                //         border: OutlineInputBorder(
+                //           borderRadius: BorderRadius.circular(16),
+                //         ),
+                //         focusedBorder: OutlineInputBorder(
+                //           borderRadius: BorderRadius.circular(16),
+                //           borderSide: BorderSide(color: tertiaryColor),
+                //         ),
+                //         // border: InputBorder.none,
+                //       ),
+                //       validator: (String? value) {
+                //         if (value == null || value.isEmpty) {
+                //           return context.appLoc.register_yearofbirth_validation;
+                //         } else {
+                //           try {
+                //             DateFormat format = DateFormat('dd/MM/yyyy');
+                //             DateTime birthDate = format.parse(value);
+
+                //             // Get today's date
+                //             DateTime today = DateTime.now();
+
+                //             // Calculate age
+                //             int age = today.year - birthDate.year;
+                //             // Adjust age if the birthday hasn't occurred yet this year
+                //             print("AGE : ${age}");
+                //             print(
+                //                 "TODAY MONTH ${today.month}, BIRTHDATE MONTH ${birthDate.month}");
+                //             print(
+                //                 "TODAY DAY ${today.day}, BIRTHDATE DAY ${birthDate.day}");
+
+                //             if (today.month < birthDate.month ||
+                //                 (today.month == birthDate.month &&
+                //                     today.day < birthDate.day)) {
+                //               age--;
+                //             }
+                //             if (age < 13) {
+                //               return context
+                //                   .appLoc.register_yearofbirth_validation;
+                //             }
+                //           } catch (e) {
+                //             return context
+                //                 .appLoc.register_yearofbirth_validation;
+                //           }
+                //         }
+                //         return null;
+                //       }),
+                // ),
                 const SizedBox(
                   height: largePadding,
                 ),
@@ -661,17 +737,35 @@ class RegisterScreenState extends State<RegisterScreen> {
       context: context,
       initialDate: DateTime.now(),
       firstDate: DateTime(1920),
-      // Allow dates from 1900
-      lastDate: DateTime.now(),
-      // No future dates
-      locale: Localizations.localeOf(context), // Localize the date picker
+      lastDate: DateTime.now(), // No future dates
+      locale: Localizations.localeOf(context),
     );
-    if (picked != null) {
-      if (context.mounted) {
-        textEditingController.text =
-            DateFormat.yMd(Localizations.localeOf(context).languageCode)
-                .format(picked);
-      }
+
+    if (picked != null && context.mounted) {
+      // Format the date as dd/MM/yyyy to match the validator
+      textEditingController.text = "${picked.day.toString().padLeft(2, '0')}/"
+          "${picked.month.toString().padLeft(2, '0')}/"
+          "${picked.year}";
     }
   }
+
+  // Future<void> _selectDate(
+  //     BuildContext context, TextEditingController textEditingController) async {
+  //   final DateTime? picked = await showDatePicker(
+  //     context: context,
+  //     initialDate: DateTime.now(),
+  //     firstDate: DateTime(1920),
+  //     // Allow dates from 1900
+  //     lastDate: DateTime.now(),
+  //     // No future dates
+  //     locale: Localizations.localeOf(context), // Localize the date picker
+  //   );
+  //   if (picked != null) {
+  //     if (context.mounted) {
+  //       textEditingController.text =
+  //           DateFormat.yMd(Localizations.localeOf(context).languageCode)
+  //               .format(picked);
+  //     }
+  //   }
+  // }
 }
