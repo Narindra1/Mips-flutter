@@ -739,7 +739,9 @@ class RegisterScreenState extends State<RegisterScreen> {
       initialDate: DateTime.now(),
       firstDate: DateTime(1920),
       lastDate: DateTime.now(),
-      locale: Localizations.localeOf(context),
+      locale: Localizations.localeOf(context).languageCode == "af"
+          ? Locale("fr")
+          : Localizations.localeOf(context),
       confirmText: context.appLoc.confirm,
       cancelText: context.appLoc.cancel,
       helpText: Localizations.localeOf(context).languageCode == "af"
