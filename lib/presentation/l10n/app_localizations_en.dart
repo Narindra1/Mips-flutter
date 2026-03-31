@@ -124,10 +124,19 @@ class AppLocalizationsEn extends AppLocalizations {
   String get announce_sent => 'Ad sent';
 
   @override
+  String get more_informations => 'More informations';
+
+  @override
   String get free => 'Free';
 
   @override
-  String get login_intro => 'MIPS offers you thousands of article publications';
+  String get claim => 'Claim';
+
+  @override
+  String get empty_news => 'No news.';
+
+  @override
+  String get login_intro => 'MIPS offers you various advertisements';
 
   @override
   String get register_intro => 'MIPS is waiting for you!';
@@ -960,6 +969,70 @@ class AppLocalizationsEn extends AppLocalizations {
   String transfer_amount_send_error_validation(String solde) {
     return 'Error: Enter a value between 1 and $solde';
   }
+
+  @override
+  String bonus_from_announce(String slug) {
+    return 'Bonus from the announcement $slug';
+  }
+
+  @override
+  String get password_forget_title => 'Don\'t panic! You can easily regain access to your MIPS account.';
+
+  @override
+  String get password_forget_option1 => 'Option 1: By email';
+
+  @override
+  String password_forget_text1(String email) {
+    return 'Send us a message to $email indicating your name and the telephone number used when you registered.';
+  }
+
+  @override
+  String get password_forget_option2 => 'Option 2: By phone';
+
+  @override
+  String get password_forget_text2 => 'Call MIPS Customer Service directly on 038 28 309 29.';
+
+  @override
+  String get what_next_title => 'What happens next?';
+
+  @override
+  String get what_next_text => 'Our team will send you a new password via SMS to your registered number within 24 hours.';
+
+  @override
+  String get connexion_temporary_title => 'Once logged in with this temporary password:';
+
+  @override
+  String get connexion_temporary_text1 => '1. Go to My MIPS Account';
+
+  @override
+  String get connexion_temporary_text2 => '2. Click on Change Password';
+
+  @override
+  String get connexion_temporary_text3 => '3. Choose a new, personal, and secure password';
+
+  @override
+  String get friend => 'Friend';
+
+  @override
+  String get mips_bonus => 'MIPS has offered you a bonus';
+
+  @override
+  String get kara_partner => 'KARA Partner';
+
+  @override
+  String get bonus_announce => 'Announcement Bonus';
+
+  @override
+  String get survey => 'Survey';
+
+  @override
+  String get take_surveys => 'Take surveys';
+
+  @override
+  String get claim_kara_bonuses_popup_ads => 'Claim KARA bonuses in PopUp ads';
+
+  @override
+  String get claim_bonuses_partner_sponsor_pubs => 'Claim KARA bonuses in partner and sponsor ads';
 
   @override
   String get transfer_id_receiver_error_validation => 'Error: Recipient\'s phone number';

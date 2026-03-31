@@ -489,12 +489,14 @@ Widget _buildListHistory(BuildContext context, AppState state, int value) {
     } else if (value == 1) {
       return [
         "CONNEXION_QUOTIDIENNE",
+        "BONUS_ANNONCE",
         "CONSULTER_ANNONCE",
         "DONATION_GRANT",
-        "PARTICIPER_SONDAGE"
+        "PARTICIPER_SONDAGE",
+        "ADMIN_GRANT",
       ].contains(tx.type);
     } else if (value == 2) {
-      return ["PROLONGER_OFFRE", "ACHAT_OFFRE_FAKA"].contains(tx.type);
+      return ["PROLONGER_OFFRE", "ACHAT_OFFRE_KARA"].contains(tx.type);
     } else if (value == 3) {
       return ["USER_TRANSFER"].contains(tx.type);
     }

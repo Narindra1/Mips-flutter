@@ -1,11 +1,13 @@
 import 'package:MIPS/common/constants/constant.dart';
-import 'package:MIPS/presentation/configurations/colors_list.dart';
 import 'package:MIPS/presentation/configurations/extension_for_localization.dart';
 import 'package:MIPS/presentation/presentation.dart';
 import 'package:MIPS/presentation/routes/route.dart';
 import 'package:MIPS/presentation/routes/router.dart';
 import 'package:MIPS/presentation/screens/base/base_screen.dart';
 import 'package:MIPS/presentation/screens/mips_info/bloc/mips_info_bloc.dart';
+import 'package:MIPS/presentation/widgets/empty_list_widget.dart';
+import 'package:MIPS/presentation/widgets/more_info_widget.dart';
+import 'package:MIPS/presentation/widgets/sondage_info_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -19,8 +21,9 @@ class MipsInfoScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          GetIt.instance<MipsInfoBloc>()..add(LoadMipsInfoListEvent()),
+      create: (context) => GetIt.instance<MipsInfoBloc>()
+        ..add(LoadMipsInfoListEvent())
+        ..add(LoadMoreInfoListEvent()),
       child: BaseScreen(
         useDefaultAnnonceSponsPart: true,
         content: BlocBuilder<MipsInfoBloc, MipsInfoState>(
@@ -35,6 +38,9 @@ class MipsInfoScreen extends StatelessWidget {
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   children: [
+                    state.avisList.isEmpty && state.moreInfoList.isEmpty
+                        ? EmptyListWidget(listType: ListType.news)
+                        : SizedBox(),
                     state.avisList.isEmpty
                         ? SizedBox()
                         : Column(
@@ -56,14 +62,8 @@ class MipsInfoScreen extends StatelessWidget {
                                 itemCount: state.avisList.length,
                                 itemBuilder: (context, index) {
                                   return MaterialButton(
-                                    child: Text(
-                                      state.avisList[index].title,
-                                      style: Theme.of(context)
-                                          .textTheme
-                                          .titleSmall
-                                          ?.copyWith(
-                                            color: tertiaryColor,
-                                          ),
+                                    child: SondageInfoWidget(
+                                      title: state.avisList[index].title,
                                     ),
                                     onPressed: () {
                                       AppRouter.go(
@@ -81,20 +81,46 @@ class MipsInfoScreen extends StatelessWidget {
                                   );
                                 },
                                 separatorBuilder: (context, index) {
-                                  return Column(
-                                    children: [
-                                      Divider(
-                                        color: Colors.grey.shade400,
-                                        indent: 50,
-                                        endIndent: 15,
-                                      ),
-                                      const SizedBox(height: smallPadding),
-                                    ],
-                                  );
+                                  return const SizedBox(height: mediumPadding);
                                 },
                               ),
                             ],
-                          )
+                          ),
+                    const SizedBox(height: largePadding),
+                    state.moreInfoList.isEmpty
+                        ? SizedBox()
+                        : Column(
+                            crossAxisAlignment: CrossAxisAlignment.start,
+                            children: [
+                              Text(
+                                context.appLoc.more_informations,
+                                style: Theme.of(context)
+                                    .textTheme
+                                    .titleMedium!
+                                    .copyWith(fontWeight: FontWeight.bold),
+                                textAlign: TextAlign.start,
+                                overflow: TextOverflow.ellipsis,
+                              ),
+                              SizedBox(height: mediumPadding),
+                              ListView.separated(
+                                shrinkWrap: true,
+                                physics: NeverScrollableScrollPhysics(),
+                                itemCount: state.moreInfoList.length,
+                                padding: const EdgeInsets.symmetric(
+                                    horizontal: mediumPadding),
+                                itemBuilder: (context, index) {
+                                  return MoreInfoWidget(
+                                    title: state.moreInfoList[index].title,
+                                    content: state.moreInfoList[index].content,
+                                  );
+                                },
+                                separatorBuilder: (context, index) {
+                                  return const SizedBox(height: mediumPadding);
+                                },
+                              ),
+                            ],
+                          ),
+                    const SizedBox(height: largePadding)
                   ],
                 ),
               );
@@ -102,7 +128,9 @@ class MipsInfoScreen extends StatelessWidget {
             return RefreshIndicator(
               child: content,
               onRefresh: () async {
-                context.read<MipsInfoBloc>().add(LoadMipsInfoListEvent());
+                context.read<MipsInfoBloc>()
+                  ..add(LoadMipsInfoListEvent())
+                  ..add(LoadMoreInfoListEvent());
               },
             );
           },

@@ -4,12 +4,14 @@ import 'package:MIPS/data/data.dart';
 import 'package:MIPS/data/repositories/exchange_rate_repository_impl.dart';
 import 'package:MIPS/data/repositories/follow_repository_impl.dart';
 import 'package:MIPS/data/repositories/kara_partner_repository_impl.dart';
+import 'package:MIPS/data/repositories/more_info_repository_impl.dart';
 import 'package:MIPS/data/repositories/profil_repository_impl.dart';
 import 'package:MIPS/data/repositories/reward_repository_impl.dart';
 import 'package:MIPS/data/repositories/update_repository_impl.dart';
 import 'package:MIPS/domain/contracts/exchange_rate_repository.dart';
 import 'package:MIPS/domain/contracts/follow_repository.dart';
 import 'package:MIPS/domain/contracts/kara_partner_repository.dart';
+import 'package:MIPS/domain/contracts/more_info_repository.dart';
 import 'package:MIPS/domain/contracts/profil_repository.dart';
 import 'package:MIPS/domain/contracts/reward_repository.dart';
 import 'package:MIPS/domain/domain.dart';
@@ -31,6 +33,7 @@ import 'package:MIPS/domain/usecases/follow/unfollow_user_usecase.dart';
 import 'package:MIPS/domain/usecases/kara_partner/get_kara_list_by_province_usecase.dart';
 import 'package:MIPS/domain/usecases/kara_partner/get_kara_province_list_usecase.dart';
 import 'package:MIPS/domain/usecases/kara_partner/kara_subscription_usecase.dart';
+import 'package:MIPS/domain/usecases/more_info/get_all_more_info_usecase.dart';
 import 'package:MIPS/domain/usecases/profil/get_annonces_user_profil_count_usecase.dart';
 import 'package:MIPS/domain/usecases/profil/get_annonces_user_profil_usecase.dart';
 import 'package:MIPS/domain/usecases/profil/get_user_info_profil_by_id_usecase.dart';
@@ -94,6 +97,8 @@ Future<void> init() async {
       () => SondageRepositoryImpl(remoteDataSource: getIt()));
   getIt.registerLazySingleton<AvisRepository>(
       () => AvisRepositoryImpl(remoteDataSource: getIt()));
+  getIt.registerLazySingleton<MoreInfoRepository>(
+      () => MoreInfoRepositoryImpl(remoteDataSource: getIt()));
   getIt.registerLazySingleton<UpdateRepository>(
       () => UpdateRepositoryImpl(remoteDataSource: getIt()));
   getIt.registerLazySingleton<AvatarRepository>(
@@ -196,6 +201,8 @@ Future<void> init() async {
       () => GetAllAvisUseCase(avisRepository: getIt()));
   getIt.registerLazySingleton<GetAllMipsInfoUsecase>(
       () => GetAllMipsInfoUsecase(avisRepository: getIt()));
+  getIt.registerLazySingleton<GetAllMoreInfoUsecase>(
+      () => GetAllMoreInfoUsecase(moreInfoRepository: getIt()));
   getIt.registerLazySingleton<GetAnnoncePopupUseCase>(() =>
       GetAnnoncePopupUseCase(
           annonceRepository: getIt(), userPrefRepository: getIt()));
@@ -351,5 +358,6 @@ Future<void> init() async {
       ));
   getIt.registerFactory<MipsInfoBloc>(() => MipsInfoBloc(
         getAllMipsInfoUsecase: getIt(),
+        getAllMoreInfoUsecase: getIt(),
       ));
 }

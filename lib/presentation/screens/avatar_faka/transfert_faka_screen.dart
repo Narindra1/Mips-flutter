@@ -28,11 +28,11 @@ class _TransfertFakaScreenState extends State<TransfertFakaScreen> {
   Widget build(BuildContext context) {
     List<Widget> motifs = <Widget>[
       Text(
-        "Ami(e)",
+        context.appLoc.friend,
         style: Theme.of(context).textTheme.titleSmall,
       ),
       Text(
-        "Kara Partenaire",
+        context.appLoc.kara_partner,
         style: Theme.of(context).textTheme.titleSmall,
       ),
       Text(

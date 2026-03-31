@@ -59,8 +59,11 @@
   "toast_disconnected": "Vous êtes actuellement hors-ligne.",
   "recents_announces": "Annonces récentes",
   "announce_sent": "Annonce envoyée",
+  "more_informations": "Plus d'informations",
   "free": "Gratuit",
-  "login_intro": "MIPS vous offre des milliers de publications d'articles",
+  "claim": "Récupérer",
+  "empty_news": "Pas de nouvelles",
+  "login_intro": "MIPS vous offre diverses publicités",
   "register_intro": "MIPS vous attend!",
   "notifications": "Notifications",
   "ad_modified": "Modifiée",
@@ -475,6 +478,40 @@
       }
     }
   },
+  "bonus_from_announce": "Bonus de l'annonce {slug}",
+  "@bonus_from_announce": {
+    "placeholders": {
+      "slug": {
+        "type": "String"
+      }
+    }
+  },
+  "password_forget_title": "Pas de panique! Vous pouvez récupérer l’accès à votre compte MIPS facilement.",
+  "password_forget_option1": "Option 1 : Par e-mail",
+  "password_forget_text1": "Envoyez-nous un message à {email} en indiquant votre nom et le numéro de téléphone utilisé lors de votre inscription.",
+  "@password_forget_text1": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "password_forget_option2": "Option 2 : Par téléphone",
+  "password_forget_text2": "Appelez directement le Service Client MIPS au 038 28 309 29.",
+  "what_next_title": "Que se passe-t-il ensuite ?",
+  "what_next_text": "Notre équipe vous enverra un nouveau mot de passe par SMS sur votre numéro enregistré, sous 24 heures.",
+  "connexion_temporary_title": "Une fois connecté avec ce mot de passe temporaire :",
+  "connexion_temporary_text1": "1. Allez dans Mon Compte MIPS",
+  "connexion_temporary_text2": "2. Cliquez sur Modifier le mot de passe",
+  "connexion_temporary_text3": "3. Choisissez un nouveau mot de passe personnel et sécurisé",
+  "friend": "Ami(e)",
+  "mips_bonus": "MIPS vous a offert un bonus",
+  "kara_partner": "Partenaire KARA",
+  "bonus_announce": "Bonus d'annonce",
+  "survey": "Sondage",
+  "take_surveys": "Répondez à des sondages",
+  "claim_kara_bonuses_popup_ads": "Réclamez des bonus KARA dans les pubs PopUps",
+  "claim_bonuses_partner_sponsor_pubs": "Réclamez des bonus KARA dans les pubs partenaires et sponsors",
   "transfer_id_receiver_error_validation": "Erreur: Tel du destinataire",
   "thanks_btn_text": "Merci !",
   "like_btn_text": "J'aime",

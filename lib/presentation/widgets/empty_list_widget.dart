@@ -4,6 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 
 enum ListType {
+  news,
   annonce,
   mesAnnonces,
   favoris,
@@ -72,6 +73,13 @@ class EmptyListWidget extends StatelessWidget {
             width: 250,
             height: 250,
             child: SvgPicture.asset("assets/imgs/illu_search.svg"));
+        break;
+      case ListType.news:
+        labelText = "Pas de nouvelles";
+        illustrationWidget = SizedBox(
+            width: 250,
+            height: 250,
+            child: SvgPicture.asset("assets/imgs/illu_news.svg"));
         break;
       default:
         labelText = context.appLoc.empty_list_announce;

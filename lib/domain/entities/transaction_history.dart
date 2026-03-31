@@ -10,6 +10,7 @@
 /// - montant en KARA transféré ([montantFaka])
 /// - type de transaction ([type])
 /// - message associé à la transaction ([message])
+/// - slug qui correspondant à l'annonce ([slug])
 /// - date de la transaction ([date])
 class TransactionHistory {
   final int id;
@@ -20,6 +21,7 @@ class TransactionHistory {
   final String numReceiver;
   final int montantFaka;
   final String type;
+  final String slug;
   final String message;
   final String date;
 
@@ -31,6 +33,7 @@ class TransactionHistory {
     required this.numReceiver,
     required this.montantFaka,
     required this.type,
+    required this.slug,
     required this.message,
     required this.isIncome,
     required this.date,

@@ -703,22 +703,22 @@ class ProfilScreen extends StatelessWidget {
                                     return BlocBuilder<AppBloc, AppState>(
                                       builder: (context, appState) {
                                         return NormalAdsGlobalWidget(
-                                          isFree: state
-                                              .annonces[index].isWebsitePub,
+                                          isFree:
+                                              mesAnnonces[index].isWebsitePub,
                                           dateLimit: authorID ==
                                                   (appState.user?.id ?? -1)
                                               ? mesAnnonces[index].dateLimit
                                               : "",
-                                          reactionCount: state
-                                              .annonces[index].reactionCount,
+                                          reactionCount:
+                                              mesAnnonces[index].reactionCount,
                                           isPremium:
                                               mesAnnonces[index].annonceType ==
                                                   AnnonceType.premium,
                                           isVIP:
                                               mesAnnonces[index].annonceType ==
                                                   AnnonceType.vip,
-                                          dateCreation: state
-                                              .annonces[index].dateDeCreation,
+                                          dateCreation:
+                                              mesAnnonces[index].dateDeCreation,
                                           id: mesAnnonces[index].id,
                                           urlImage: (mesAnnonces[index]
                                                   .photos
@@ -732,8 +732,8 @@ class ProfilScreen extends StatelessWidget {
                                           description: mesAnnonces[index]
                                               .descriptionCourte,
                                           lieu: mesAnnonces[index].emplacement,
-                                          authorID: state.user.id,
-                                          authorName: state.user.name,
+                                          authorID: mesAnnonces[index].authorID,
+                                          authorName: mesAnnonces[index].author,
                                           menuRacineRef:
                                               mesAnnonces[index].menuRacineRef,
                                           menuRacineName:
@@ -751,15 +751,14 @@ class ProfilScreen extends StatelessWidget {
                                                   "id": mesAnnonces[index]
                                                       .id
                                                       .toString(),
-                                                  "name": state
-                                                      .annonces[index].title,
+                                                  "name":
+                                                      mesAnnonces[index].title,
                                                 },
                                                 extra: context
                                                     .read<AnnonceBloc>()
                                                   ..add(
                                                       LoadAnnonceWithPartnerSponsor(
-                                                          id: state
-                                                              .annonces[index]
+                                                          id: mesAnnonces[index]
                                                               .id
                                                               .toString())));
                                             // AppRouter.go(

@@ -22,6 +22,43 @@
       "count": {}
     }
   },
+  "bonus_from_announce": "Bonus avy amin'ny fanambarana {slug}",
+  "@bonus_from_announce": {
+    "placeholders": {
+      "slug": {
+        "type": "String"
+      }
+    }
+  },
+  "password_forget_title": "Aza matahotra! Azonao atao mora foana ny miditra indray amin'ny kaontinao MIPS.",
+  "password_forget_option1": "Safidy 1: Amin'ny alàlan'ny mailaka",
+  "password_forget_text1": "Mandefasa hafatra any amin'ny {email} ary lazao ny anaranao sy ny laharan-telefaona nampiasainao tamin'ny fisoratana anarana.",
+  "@password_forget_text1": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "password_forget_option2": "Safidy 2: Amin'ny alalan'ny telefaona",
+  "password_forget_text2": "Antsoy mivantana ny Sampan-draharahan'ny Mpanjifa MIPS amin'ny 038 28 309 29.",
+  "what_next_title": "Inona no hitranga manaraka?",
+  "what_next_text": "Handefa tenimiafina vaovao amin'ny alalan'ny SMS any amin'ny nomeraon-telefaoninao voasoratra anarana ao anatin'ny 24 ora ny ekipanay.",
+  "connexion_temporary_title": "Rehefa tafiditra amin'ity tenimiafina vonjimaika ity ianao:",
+  "connexion_temporary_text1": "1. Mandehana any amin'ny Kaonty MIPS",
+  "connexion_temporary_text2": "2. Tsindrio ny Hanova ny tenimiafina",
+  "connexion_temporary_text3": "3. Misafidiana tenimiafina vaovao, manokana ary azo antoka",
+  "more_informations": "Fampahalalana bebe kokoa",
+  "friend": "Namana",
+  "claim": "Maka",
+  "empty_news": "Tsy misy vaovao.",
+  "mips_bonus": "Nanolotra bonus ho anao ny MIPS",
+  "kara_partner": "Mpiara-miasa amin'ny KARA",
+  "bonus_announce": "Bonus fanambarana",
+  "survey": "Fanadihadiana",
+  "take_surveys": "Mandraisa fanadihadiana",
+  "claim_kara_bonuses_popup_ads": "Makà bonus KARA amin'ny doka PopUp",
+  "claim_bonuses_partner_sponsor_pubs": "Makà bonus KARA amin'ny doka ho an'ny mpiara-miasa sy mpanohana",
   "delete_all": "Fafana daholo",
   "you_earned_kara_bonus": "Nahazo bonus KARA ianao!",
   "optional": "Tsy voatery",
@@ -37,7 +74,7 @@
   "recents_announces": "Filazana vao haingana",
   "announce_sent": "Nalefa ny filazana",
   "free": "Maimaim-poana",
-  "login_intro": "MIPS dia manolotra lahatsoratra an'arivony ho anao",
+  "login_intro": "Manolotra dokam-barotra isan-karazany ho anao ny MIPS",
   "register_intro": "MIPS miandry anao!",
   "notifications": "Fampandrenesana",
   "ad_modified": "Nohavaozina",

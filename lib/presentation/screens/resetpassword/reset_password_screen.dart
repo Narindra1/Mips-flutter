@@ -1,11 +1,13 @@
 import 'package:MIPS/presentation/configurations/extension_for_localization.dart';
 import 'package:MIPS/presentation/presentation.dart';
 import 'package:MIPS/presentation/screens/base/base_screen.dart';
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:MIPS/common/common.dart';
 import 'package:go_router/go_router.dart';
 import 'package:ionicons/ionicons.dart';
+import 'package:url_launcher/url_launcher.dart';
 
 import '../../configurations/colors_list.dart';
 import '../../routes/route.dart';
@@ -85,102 +87,282 @@ class _ResetPassScreenState extends State<ResetPasswordScreen> {
           MessageDisplayerUtils.showErrorDialog(context, state.errorMessage);
         }
       },
-      child: Form(
-        key: _formKey,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              context.appLoc.forgot_password_title,
-              style: Theme.of(context).textTheme.titleLarge,
-            ),
-            const SizedBox(height: mediumPadding),
-            Text(
-              context.appLoc.reset_password_email_prompt,
-              style: Theme.of(context)
-                  .textTheme
-                  .bodyMedium
-                  ?.copyWith(color: Colors.grey),
-            ),
-            const SizedBox(height: largePadding * 2),
-            SizedBox(
-              // padding: const EdgeInsets.symmetric(
-              //     horizontal: largePadding, vertical: smallPadding),
-              // decoration: BoxDecoration(
-              //     color: Colors.grey.shade100,
-              //     borderRadius: BorderRadius.circular(mediumPadding)),
-              child: TextFormField(
-                autovalidateMode: AutovalidateMode.onUnfocus,
-                readOnly: (context.read<AppBloc>().state.statusForgotPassword ==
-                    StatusForgotPassword.validationCodeInprogress),
-                controller: _emailController,
-                decoration: InputDecoration(
-                  errorStyle: const TextStyle(fontWeight: FontWeight.bold),
-                  errorMaxLines: 3,
-                  label: Text(context.appLoc.register_mail_hint),
-                  labelStyle: TextStyle(color: Colors.grey.shade700),
-                  floatingLabelStyle: const TextStyle(color: tertiaryColor),
-                  hintStyle: TextStyle(color: Colors.grey.shade700),
-                  hintText:
-                      "${context.appLoc.exemple_pref_hint}adresse@gmail.com",
-                  suffixIcon: const Icon(
-                    Ionicons.mail,
-                    color: Colors.grey,
-                  ),
-                  fillColor: Colors.grey.shade300,
-                  filled: false,
-                  border: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                  ),
-                  focusedBorder: OutlineInputBorder(
-                    borderRadius: BorderRadius.circular(16),
-                    borderSide: BorderSide(color: tertiaryColor),
-                  ),
-                  // border: InputBorder.none,
+      child:
+          // Form(
+          //   key: _formKey,
+          //   child:
+          Row(
+        children: [
+          Flexible(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.start,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  context.appLoc.forgot_password_title,
+                  style: Theme.of(context).textTheme.titleLarge,
                 ),
-                validator: (value) {
-                  if ((value == null || value.isEmpty) ||
-                      !InputValidator.isValidEmail(value)) {
-                    return context.appLoc.register_mail_validation;
-                  }
-                  return null;
-                },
-              ),
-            ),
-            const SizedBox(height: 20),
-            SizedBox(
-              height: 40,
-              child: FilledButton(
-                style: ButtonStyle(
-                    shape: WidgetStatePropertyAll(RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(16.0)))),
-                onPressed: () async {
-                  if (_formKey.currentState!.validate()) {
-                    // Implement forgot password logic
-                    context
-                        .read<AppBloc>()
-                        .add(ForgotPasswordEvent(email: _emailController.text));
-                  }
-                },
-                child: (context.read<AppBloc>().state.statusForgotPassword ==
-                        StatusForgotPassword.validationCodeInprogress)
-                    ? const AppLoadingWidget(
-                        size: 16,
-                      )
-                    : Center(
-                        child: Text(
-                        context.appLoc.reset_password_submit_button,
+                const SizedBox(height: mediumPadding),
+                Text(
+                  context.appLoc.password_forget_title,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(color: Colors.grey),
+                ),
+                // Text(
+                //   context.appLoc.reset_password_email_prompt,
+                //   style: Theme.of(context)
+                //       .textTheme
+                //       .bodyMedium
+                //       ?.copyWith(color: Colors.grey),
+                // ),
+                const SizedBox(height: largePadding),
+                Text(
+                  context.appLoc.password_forget_option1,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const SizedBox(height: mediumPadding),
+                Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: context.appLoc
+                            .password_forget_text1("contact@mips.mg")
+                            .split("contact@mips.mg")
+                            .first,
                         style: Theme.of(context)
                             .textTheme
-                            .titleSmall
-                            ?.copyWith(color: Colors.white),
-                      )),
-              ),
+                            .bodyMedium
+                            ?.copyWith(color: Colors.grey),
+                      ),
+                      TextSpan(
+                        text: "contact@mips.mg",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () async {
+                            try {
+                              final Uri url = Uri(
+                                scheme: 'mailto',
+                                path: 'contact@mips.mg',
+                              );
+
+                              if (await canLaunchUrl(url)) {
+                                await launchUrl(url,
+                                    mode: LaunchMode.externalApplication);
+                              } else {
+                                throw 'Could not launch $url';
+                              }
+                            } catch (e) {
+                              if (context.mounted) {
+                                MessageDisplayerUtils.showToastMessage(
+                                    context.appLoc.not_supported);
+                              }
+                            }
+                          },
+                      ),
+                      // const TextSpan(
+                      //   text: "contact@mips.mg",
+                      //   style: TextStyle(fontWeight: FontWeight.bold),
+                      // ),
+                      TextSpan(
+                        text: context.appLoc
+                            .password_forget_text1("contact@mips.mg")
+                            .split("contact@mips.mg")
+                            .last,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: largePadding),
+                Text(
+                  context.appLoc.password_forget_option2,
+                  style: Theme.of(context).textTheme.titleMedium,
+                ),
+                const SizedBox(height: mediumPadding),
+                Text.rich(
+                  TextSpan(
+                    children: [
+                      TextSpan(
+                        text: context.appLoc.password_forget_text2
+                            .split("038 28 309 29")
+                            .first,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Colors.grey),
+                      ),
+                      TextSpan(
+                        text: "038 28 309 29",
+                        style: TextStyle(fontWeight: FontWeight.bold),
+                        recognizer: TapGestureRecognizer()
+                          ..onTap = () async {
+                            try {
+                              final Uri url = Uri(
+                                scheme: 'tel',
+                                path: '0382830929',
+                              );
+
+                              if (await canLaunchUrl(url)) {
+                                await launchUrl(url,
+                                    mode: LaunchMode.externalApplication);
+                              } else {
+                                throw 'Could not launch $url';
+                              }
+                            } catch (e) {
+                              if (context.mounted) {
+                                MessageDisplayerUtils.showToastMessage(
+                                    context.appLoc.not_supported);
+                              }
+                            }
+                          },
+                      ),
+                      TextSpan(
+                        text: context.appLoc.password_forget_text2
+                            .split("038 28 309 29")
+                            .last,
+                        style: Theme.of(context)
+                            .textTheme
+                            .bodyMedium
+                            ?.copyWith(color: Colors.grey),
+                      ),
+                    ],
+                  ),
+                ),
+                const SizedBox(height: largePadding * 2),
+                Text(
+                  context.appLoc.what_next_title,
+                  style: Theme.of(context).textTheme.titleLarge,
+                ),
+                const SizedBox(height: mediumPadding),
+                Text(
+                  context.appLoc.what_next_text,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(color: Colors.grey),
+                ),
+                const SizedBox(height: mediumPadding),
+                Text(
+                  context.appLoc.connexion_temporary_title,
+                  style: Theme.of(context).textTheme.titleSmall,
+                ),
+                const SizedBox(height: mediumPadding),
+                Text(
+                  context.appLoc.connexion_temporary_text1,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(color: Colors.grey),
+                ),
+                const SizedBox(height: mediumPadding),
+                Text(
+                  context.appLoc.connexion_temporary_text2,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(color: Colors.grey),
+                ),
+                const SizedBox(height: mediumPadding),
+                Text(
+                  context.appLoc.connexion_temporary_text3,
+                  style: Theme.of(context)
+                      .textTheme
+                      .bodyMedium
+                      ?.copyWith(color: Colors.grey),
+                ),
+                const SizedBox(height: 50),
+                // Text(
+                //   context.appLoc.password_forget_text1("contact@mips.mg"),
+                //   style: Theme.of(context)
+                //       .textTheme
+                //       .bodyMedium
+                //       ?.copyWith(color: Colors.grey),
+                // ),
+                // SizedBox(
+                //   // padding: const EdgeInsets.symmetric(
+                //   //     horizontal: largePadding, vertical: smallPadding),
+                //   // decoration: BoxDecoration(
+                //   //     color: Colors.grey.shade100,
+                //   //     borderRadius: BorderRadius.circular(mediumPadding)),
+                //   child: TextFormField(
+                //     autovalidateMode: AutovalidateMode.onUnfocus,
+                //     readOnly: (context.read<AppBloc>().state.statusForgotPassword ==
+                //         StatusForgotPassword.validationCodeInprogress),
+                //     controller: _emailController,
+                //     decoration: InputDecoration(
+                //       errorStyle: const TextStyle(fontWeight: FontWeight.bold),
+                //       errorMaxLines: 3,
+                //       label: Text(context.appLoc.register_mail_hint),
+                //       labelStyle: TextStyle(color: Colors.grey.shade700),
+                //       floatingLabelStyle: const TextStyle(color: tertiaryColor),
+                //       hintStyle: TextStyle(color: Colors.grey.shade700),
+                //       hintText:
+                //           "${context.appLoc.exemple_pref_hint}adresse@gmail.com",
+                //       suffixIcon: const Icon(
+                //         Ionicons.mail,
+                //         color: Colors.grey,
+                //       ),
+                //       fillColor: Colors.grey.shade300,
+                //       filled: false,
+                //       border: OutlineInputBorder(
+                //         borderRadius: BorderRadius.circular(16),
+                //       ),
+                //       focusedBorder: OutlineInputBorder(
+                //         borderRadius: BorderRadius.circular(16),
+                //         borderSide: BorderSide(color: tertiaryColor),
+                //       ),
+                //       // border: InputBorder.none,
+                //     ),
+                //     validator: (value) {
+                //       if ((value == null || value.isEmpty) ||
+                //           !InputValidator.isValidEmail(value)) {
+                //         return context.appLoc.register_mail_validation;
+                //       }
+                //       return null;
+                //     },
+                //   ),
+                // ),
+                // const SizedBox(height: 20),
+                // SizedBox(
+                //   height: 40,
+                //   child: FilledButton(
+                //     style: ButtonStyle(
+                //         shape: WidgetStatePropertyAll(RoundedRectangleBorder(
+                //             borderRadius: BorderRadius.circular(16.0)))),
+                //     onPressed: () async {
+                //       if (_formKey.currentState!.validate()) {
+                //         // Implement forgot password logic
+                //         context
+                //             .read<AppBloc>()
+                //             .add(ForgotPasswordEvent(email: _emailController.text));
+                //       }
+                //     },
+                //     child: (context.read<AppBloc>().state.statusForgotPassword ==
+                //             StatusForgotPassword.validationCodeInprogress)
+                //         ? const AppLoadingWidget(
+                //             size: 16,
+                //           )
+                //         : Center(
+                //             child: Text(
+                //             context.appLoc.reset_password_submit_button,
+                //             style: Theme.of(context)
+                //                 .textTheme
+                //                 .titleSmall
+                //                 ?.copyWith(color: Colors.white),
+                //           )),
+                //   ),
+                // ),
+              ],
             ),
-          ],
-        ),
+          ),
+        ],
       ),
+      // ),
     );
   }
 

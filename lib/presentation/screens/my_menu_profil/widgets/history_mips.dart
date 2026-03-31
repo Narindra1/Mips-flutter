@@ -57,7 +57,7 @@ class HistoryMips extends StatelessWidget {
                   Text(
                     "${appState.transactionHistory[index].isIncome ? "+" : "-"}${appState.transactionHistory[index].montantFaka}",
                     style: const TextStyle(color: Colors.white),
-                  ),
+                  )
                 ],
               ),
             )
@@ -66,10 +66,11 @@ class HistoryMips extends StatelessWidget {
         subtitle: Column(
           crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Text(
-              appState.transactionHistory[index].message,
-              maxLines: 3,
-              overflow: TextOverflow.ellipsis,
+            matchTransactionMessageByType(
+              context,
+              appState.transactionHistory[index].type,
+              appState.transactionHistory[index].slug,
+              message: appState.transactionHistory[index].message,
             ),
             Row(
               children: [
@@ -100,22 +101,77 @@ class HistoryMips extends StatelessWidget {
       case "DONATION_GRANT":
         transaction = context.appLoc.first_connection;
         break;
+      case "ADMIN_GRANT":
+        transaction = context.appLoc.mips_bonus;
+        break;
       case "PARTICIPER_SONDAGE":
         transaction = context.appLoc.survey_participation;
         break;
       case "PROLONGER_OFFRE":
         transaction = context.appLoc.announcement_extension;
         break;
-      case "ACHAT_OFFRE_FAKA":
+      case "ACHAT_OFFRE_KARA":
         transaction = context.appLoc.using_kara;
         break;
       case "USER_TRANSFER":
         transaction = context.appLoc.kara_transfer;
+        break;
+      case "BONUS_ANNONCE":
+        transaction = context.appLoc.bonus_announce;
         break;
       default:
         transaction = "";
         break;
     }
     return transaction;
+  }
+
+  Widget matchTransactionMessageByType(
+      BuildContext context, String type, String slug,
+      {String message = ""}) {
+    String messageToSend = "";
+    switch (type) {
+      case "CONNEXION_QUOTIDIENNE":
+        messageToSend = "";
+        break;
+      case "CONSULTER_ANNONCE":
+        messageToSend = context.appLoc.bonus_from_announce(slug);
+        break;
+      case "DONATION_GRANT":
+        messageToSend = "";
+        break;
+      case "ADMIN_GRANT":
+        messageToSend = "";
+        break;
+      case "PARTICIPER_SONDAGE":
+        messageToSend = "";
+        break;
+      case "PROLONGER_OFFRE":
+        messageToSend = "";
+        break;
+      case "ACHAT_OFFRE_KARA":
+        messageToSend = "";
+        break;
+      case "USER_TRANSFER":
+        messageToSend = message == "Ami(e)"
+            ? context.appLoc.friend
+            : message == "Partenaire KARA"
+                ? context.appLoc.kara_partner
+                : message;
+        break;
+      case "BONUS_ANNONCE":
+        messageToSend = context.appLoc.bonus_from_announce(slug);
+        break;
+      default:
+        messageToSend = "";
+        break;
+    }
+    return messageToSend == ""
+        ? SizedBox()
+        : Text(
+            messageToSend,
+            maxLines: 3,
+            overflow: TextOverflow.ellipsis,
+          );
   }
 }

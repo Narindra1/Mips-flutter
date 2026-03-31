@@ -263,16 +263,34 @@ abstract class AppLocalizations {
   /// **'Annonce envoyée'**
   String get announce_sent;
 
+  /// No description provided for @more_informations.
+  ///
+  /// In fr, this message translates to:
+  /// **'Plus d\'informations'**
+  String get more_informations;
+
   /// No description provided for @free.
   ///
   /// In fr, this message translates to:
   /// **'Gratuit'**
   String get free;
 
+  /// No description provided for @claim.
+  ///
+  /// In fr, this message translates to:
+  /// **'Récupérer'**
+  String get claim;
+
+  /// No description provided for @empty_news.
+  ///
+  /// In fr, this message translates to:
+  /// **'Pas de nouvelles'**
+  String get empty_news;
+
   /// No description provided for @login_intro.
   ///
   /// In fr, this message translates to:
-  /// **'MIPS vous offre des milliers de publications d\'articles'**
+  /// **'MIPS vous offre diverses publicités'**
   String get login_intro;
 
   /// No description provided for @register_intro.
@@ -1858,6 +1876,126 @@ abstract class AppLocalizations {
   /// In fr, this message translates to:
   /// **'Erreur: Entrer une valeur entre 1 et {solde}'**
   String transfer_amount_send_error_validation(String solde);
+
+  /// No description provided for @bonus_from_announce.
+  ///
+  /// In fr, this message translates to:
+  /// **'Bonus de l\'annonce {slug}'**
+  String bonus_from_announce(String slug);
+
+  /// No description provided for @password_forget_title.
+  ///
+  /// In fr, this message translates to:
+  /// **'Pas de panique! Vous pouvez récupérer l’accès à votre compte MIPS facilement.'**
+  String get password_forget_title;
+
+  /// No description provided for @password_forget_option1.
+  ///
+  /// In fr, this message translates to:
+  /// **'Option 1 : Par e-mail'**
+  String get password_forget_option1;
+
+  /// No description provided for @password_forget_text1.
+  ///
+  /// In fr, this message translates to:
+  /// **'Envoyez-nous un message à {email} en indiquant votre nom et le numéro de téléphone utilisé lors de votre inscription.'**
+  String password_forget_text1(String email);
+
+  /// No description provided for @password_forget_option2.
+  ///
+  /// In fr, this message translates to:
+  /// **'Option 2 : Par téléphone'**
+  String get password_forget_option2;
+
+  /// No description provided for @password_forget_text2.
+  ///
+  /// In fr, this message translates to:
+  /// **'Appelez directement le Service Client MIPS au 038 28 309 29.'**
+  String get password_forget_text2;
+
+  /// No description provided for @what_next_title.
+  ///
+  /// In fr, this message translates to:
+  /// **'Que se passe-t-il ensuite ?'**
+  String get what_next_title;
+
+  /// No description provided for @what_next_text.
+  ///
+  /// In fr, this message translates to:
+  /// **'Notre équipe vous enverra un nouveau mot de passe par SMS sur votre numéro enregistré, sous 24 heures.'**
+  String get what_next_text;
+
+  /// No description provided for @connexion_temporary_title.
+  ///
+  /// In fr, this message translates to:
+  /// **'Une fois connecté avec ce mot de passe temporaire :'**
+  String get connexion_temporary_title;
+
+  /// No description provided for @connexion_temporary_text1.
+  ///
+  /// In fr, this message translates to:
+  /// **'1. Allez dans Mon Compte MIPS'**
+  String get connexion_temporary_text1;
+
+  /// No description provided for @connexion_temporary_text2.
+  ///
+  /// In fr, this message translates to:
+  /// **'2. Cliquez sur Modifier le mot de passe'**
+  String get connexion_temporary_text2;
+
+  /// No description provided for @connexion_temporary_text3.
+  ///
+  /// In fr, this message translates to:
+  /// **'3. Choisissez un nouveau mot de passe personnel et sécurisé'**
+  String get connexion_temporary_text3;
+
+  /// No description provided for @friend.
+  ///
+  /// In fr, this message translates to:
+  /// **'Ami(e)'**
+  String get friend;
+
+  /// No description provided for @mips_bonus.
+  ///
+  /// In fr, this message translates to:
+  /// **'MIPS vous a offert un bonus'**
+  String get mips_bonus;
+
+  /// No description provided for @kara_partner.
+  ///
+  /// In fr, this message translates to:
+  /// **'Partenaire KARA'**
+  String get kara_partner;
+
+  /// No description provided for @bonus_announce.
+  ///
+  /// In fr, this message translates to:
+  /// **'Bonus d\'annonce'**
+  String get bonus_announce;
+
+  /// No description provided for @survey.
+  ///
+  /// In fr, this message translates to:
+  /// **'Sondage'**
+  String get survey;
+
+  /// No description provided for @take_surveys.
+  ///
+  /// In fr, this message translates to:
+  /// **'Répondez à des sondages'**
+  String get take_surveys;
+
+  /// No description provided for @claim_kara_bonuses_popup_ads.
+  ///
+  /// In fr, this message translates to:
+  /// **'Réclamez des bonus KARA dans les pubs PopUps'**
+  String get claim_kara_bonuses_popup_ads;
+
+  /// No description provided for @claim_bonuses_partner_sponsor_pubs.
+  ///
+  /// In fr, this message translates to:
+  /// **'Réclamez des bonus KARA dans les pubs partenaires et sponsors'**
+  String get claim_bonuses_partner_sponsor_pubs;
 
   /// No description provided for @transfer_id_receiver_error_validation.
   ///

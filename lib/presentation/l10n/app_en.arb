@@ -8,6 +8,40 @@
       "count": {}
     }
   },
+  "password_forget_title": "Don't panic! You can easily regain access to your MIPS account.",
+  "password_forget_option1": "Option 1: By email",
+  "password_forget_text1": "Send us a message to {email} indicating your name and the telephone number used when you registered.",
+  "@password_forget_text1": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "password_forget_option2": "Option 2: By phone",
+  "password_forget_text2": "Call MIPS Customer Service directly on 038 28 309 29.",
+  "what_next_title": "What happens next?",
+  "what_next_text": "Our team will send you a new password via SMS to your registered number within 24 hours.",
+  "connexion_temporary_title": "Once logged in with this temporary password:",
+  "connexion_temporary_text1": "1. Go to My MIPS Account",
+  "connexion_temporary_text2": "2. Click on Change Password",
+  "connexion_temporary_text3": "3. Choose a new, personal, and secure password",
+  "bonus_from_announce": "Bonus from the announcement {slug}",
+  "@bonus_from_announce": {
+    "placeholders": {
+      "slug": {
+        "type": "String"
+      }
+    }
+  },
+  "kara_partner": "KARA Partner",
+  "mips_bonus": "MIPS has offered you a bonus",
+  "friend": "Friend",
+  "bonus_announce": "Announcement Bonus",
+  "survey": "Survey",
+  "take_surveys": "Take surveys",
+  "claim_kara_bonuses_popup_ads": "Claim KARA bonuses in PopUp ads",
+  "claim_bonuses_partner_sponsor_pubs": "Claim KARA bonuses in partner and sponsor ads",
   "delete_all": "Delete all",
   "you_earned_kara_bonus": "You have earned a KARA bonus!",
   "optional": "Optional",
@@ -268,7 +302,7 @@
       }
     }
   },
-  "login_intro": "MIPS offers you thousands of article publications",
+  "login_intro": "MIPS offers you various advertisements",
   "register_intro": "MIPS is waiting for you!",
   "add_photo_label": "Photo",
   "send": "Send",
@@ -532,7 +566,10 @@
   "home": "Home",
   "empty_list_announce": "No ads have been published yet.",
   "empty_result": "No results found.",
+  "claim": "Claim",
+  "empty_news": "No news.",
   "annonce_deleted_succesfully": "The ad has been deleted.",
+  "more_informations": "More informations",
   "error_loading_image": "Unable to load the image.",
   "favorite": "Favorites",
   "my_ads": "My Ads",

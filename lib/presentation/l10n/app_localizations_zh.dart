@@ -118,10 +118,19 @@ class AppLocalizationsZh extends AppLocalizations {
   String get announce_sent => '广告已发送';
 
   @override
+  String get more_informations => '更多信息';
+
+  @override
   String get free => '自由的';
 
   @override
-  String get login_intro => 'MIPS 为您提供数千篇论文出版物';
+  String get claim => '要求';
+
+  @override
+  String get empty_news => '没有消息。';
+
+  @override
+  String get login_intro => 'MIPS 为您提供各种广告。';
 
   @override
   String get register_intro => 'MIPS 等你來體驗！';
@@ -954,6 +963,70 @@ class AppLocalizationsZh extends AppLocalizations {
   String transfer_amount_send_error_validation(String solde) {
     return '错误：输入 1 到 $solde 之间的值';
   }
+
+  @override
+  String bonus_from_announce(String slug) {
+    return '公告中的额外奖励 $slug';
+  }
+
+  @override
+  String get password_forget_title => '别慌！您可以轻松重新获得对 MIPS 账户的访问权限。';
+
+  @override
+  String get password_forget_option1 => '选项 1：通过电子邮件';
+
+  @override
+  String password_forget_text1(String email) {
+    return '请发送邮件至 $email，告知您的姓名和注册时使用的电话号码。';
+  }
+
+  @override
+  String get password_forget_option2 => '选项二：通过电话';
+
+  @override
+  String get password_forget_text2 => '直接拨打 MIPS 客户服务热线 038 28 309 29。';
+
+  @override
+  String get what_next_title => '接下来会发生什么？';
+
+  @override
+  String get what_next_text => '我们的团队将在24小时内通过短信向您注册的手机号码发送新密码。';
+
+  @override
+  String get connexion_temporary_title => '使用此临时密码登录后：';
+
+  @override
+  String get connexion_temporary_text1 => '1. 前往我的 MIPS 账户';
+
+  @override
+  String get connexion_temporary_text2 => '2. 点击“更改密码”';
+
+  @override
+  String get connexion_temporary_text3 => '3. 选择一个新的、个性化的、安全的密码';
+
+  @override
+  String get friend => '朋友';
+
+  @override
+  String get mips_bonus => 'MIPS 为您提供了一项奖励';
+
+  @override
+  String get kara_partner => 'KARA合作伙伴';
+
+  @override
+  String get bonus_announce => '公告奖励';
+
+  @override
+  String get survey => '民意调查';
+
+  @override
+  String get take_surveys => '参与调查';
+
+  @override
+  String get claim_kara_bonuses_popup_ads => '在弹出式广告中领取 KARA 奖励';
+
+  @override
+  String get claim_bonuses_partner_sponsor_pubs => '在合作伙伴和赞助商广告中领取 KARA 奖励';
 
   @override
   String get transfer_id_receiver_error_validation => '错误：收件人电话号码';

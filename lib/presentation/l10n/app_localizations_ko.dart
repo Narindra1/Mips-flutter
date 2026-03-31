@@ -124,10 +124,19 @@ class AppLocalizationsKo extends AppLocalizations {
   String get announce_sent => '광고 전송됨';
 
   @override
+  String get more_informations => '더 자세한 정보';
+
+  @override
   String get free => '무료';
 
   @override
-  String get login_intro => 'MIPS는 수천 개의 논문 출판을 제공합니다.';
+  String get claim => '요구하다';
+
+  @override
+  String get empty_news => '무소식.';
+
+  @override
+  String get login_intro => 'MIPS는 여러분에게 다양한 광고를 제공합니다';
 
   @override
   String get register_intro => 'MIPS가 당신을 기다리고 있습니다!';
@@ -960,6 +969,70 @@ class AppLocalizationsKo extends AppLocalizations {
   String transfer_amount_send_error_validation(String solde) {
     return '오류: 1에서 $solde 사이의 값을 입력하세요';
   }
+
+  @override
+  String bonus_from_announce(String slug) {
+    return '공지사항 보너스 $slug';
+  }
+
+  @override
+  String get password_forget_title => '당황하지 마세요! MIPS 계정에 쉽게 다시 접속할 수 있습니다.';
+
+  @override
+  String get password_forget_option1 => '옵션 1: 이메일로';
+
+  @override
+  String password_forget_text1(String email) {
+    return '$email로 이름과 등록 시 사용하신 전화번호를 적어서 메시지를 보내주세요.';
+  }
+
+  @override
+  String get password_forget_option2 => '옵션 2: 전화';
+
+  @override
+  String get password_forget_text2 => 'MIPS 고객 서비스 센터(038 28 309 29)로 직접 전화하십시오.';
+
+  @override
+  String get what_next_title => '그 다음에는 무슨 일이 일어날까요?';
+
+  @override
+  String get what_next_text => '저희 팀에서 24시간 이내에 등록된 전화번호로 새 비밀번호를 문자 메시지로 보내드리겠습니다.';
+
+  @override
+  String get connexion_temporary_title => '이 임시 비밀번호로 로그인하면 다음과 같습니다.';
+
+  @override
+  String get connexion_temporary_text1 => '1. 내 MIPS 계정으로 이동하세요.';
+
+  @override
+  String get connexion_temporary_text2 => '2. 비밀번호 변경을 클릭하세요.';
+
+  @override
+  String get connexion_temporary_text3 => '3. 새롭고 개인적이며 안전한 비밀번호를 선택하세요.';
+
+  @override
+  String get friend => '친구';
+
+  @override
+  String get mips_bonus => 'MIPS에서 보너스를 제공해 드렸습니다.';
+
+  @override
+  String get kara_partner => 'KARA 파트너';
+
+  @override
+  String get bonus_announce => '발표 보너스';
+
+  @override
+  String get survey => '조사';
+
+  @override
+  String get take_surveys => '설문조사에 참여하세요';
+
+  @override
+  String get claim_kara_bonuses_popup_ads => '팝업 광고에서 KARA 보너스를 받으세요';
+
+  @override
+  String get claim_bonuses_partner_sponsor_pubs => '파트너 및 스폰서 광고에서 KARA 보너스를 받으세요';
 
   @override
   String get transfer_id_receiver_error_validation => '오류: 수신자의 전화번호';

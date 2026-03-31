@@ -118,10 +118,19 @@ class AppLocalizationsAf extends AppLocalizations {
   String get announce_sent => 'Nalefa ny filazana';
 
   @override
+  String get more_informations => 'Fampahalalana bebe kokoa';
+
+  @override
   String get free => 'Maimaim-poana';
 
   @override
-  String get login_intro => 'MIPS dia manolotra lahatsoratra an\'arivony ho anao';
+  String get claim => 'Maka';
+
+  @override
+  String get empty_news => 'Tsy misy vaovao.';
+
+  @override
+  String get login_intro => 'Manolotra dokam-barotra isan-karazany ho anao ny MIPS';
 
   @override
   String get register_intro => 'MIPS miandry anao!';
@@ -954,6 +963,70 @@ class AppLocalizationsAf extends AppLocalizations {
   String transfer_amount_send_error_validation(String solde) {
     return 'Hadisoana: Ampidiro ny sandany eo anelanelan\'ny 1 sy $solde';
   }
+
+  @override
+  String bonus_from_announce(String slug) {
+    return 'Bonus avy amin\'ny fanambarana $slug';
+  }
+
+  @override
+  String get password_forget_title => 'Aza matahotra! Azonao atao mora foana ny miditra indray amin\'ny kaontinao MIPS.';
+
+  @override
+  String get password_forget_option1 => 'Safidy 1: Amin\'ny alàlan\'ny mailaka';
+
+  @override
+  String password_forget_text1(String email) {
+    return 'Mandefasa hafatra any amin\'ny $email ary lazao ny anaranao sy ny laharan-telefaona nampiasainao tamin\'ny fisoratana anarana.';
+  }
+
+  @override
+  String get password_forget_option2 => 'Safidy 2: Amin\'ny alalan\'ny telefaona';
+
+  @override
+  String get password_forget_text2 => 'Antsoy mivantana ny Sampan-draharahan\'ny Mpanjifa MIPS amin\'ny 038 28 309 29.';
+
+  @override
+  String get what_next_title => 'Inona no hitranga manaraka?';
+
+  @override
+  String get what_next_text => 'Handefa tenimiafina vaovao amin\'ny alalan\'ny SMS any amin\'ny nomeraon-telefaoninao voasoratra anarana ao anatin\'ny 24 ora ny ekipanay.';
+
+  @override
+  String get connexion_temporary_title => 'Rehefa tafiditra amin\'ity tenimiafina vonjimaika ity ianao:';
+
+  @override
+  String get connexion_temporary_text1 => '1. Mandehana any amin\'ny Kaonty MIPS';
+
+  @override
+  String get connexion_temporary_text2 => '2. Tsindrio ny Hanova ny tenimiafina';
+
+  @override
+  String get connexion_temporary_text3 => '3. Misafidiana tenimiafina vaovao, manokana ary azo antoka';
+
+  @override
+  String get friend => 'Namana';
+
+  @override
+  String get mips_bonus => 'Nanolotra bonus ho anao ny MIPS';
+
+  @override
+  String get kara_partner => 'Mpiara-miasa amin\'ny KARA';
+
+  @override
+  String get bonus_announce => 'Bonus fanambarana';
+
+  @override
+  String get survey => 'Fanadihadiana';
+
+  @override
+  String get take_surveys => 'Mandraisa fanadihadiana';
+
+  @override
+  String get claim_kara_bonuses_popup_ads => 'Makà bonus KARA amin\'ny doka PopUp';
+
+  @override
+  String get claim_bonuses_partner_sponsor_pubs => 'Makà bonus KARA amin\'ny doka ho an\'ny mpiara-miasa sy mpanohana';
 
   @override
   String get transfer_id_receiver_error_validation => 'Hadisoana: Nomeraon\'ny mpandray';

@@ -8,3 +8,5 @@ sealed class MipsInfoEvent extends Equatable {
 }
 
 class LoadMipsInfoListEvent extends MipsInfoEvent {}
+
+class LoadMoreInfoListEvent extends MipsInfoEvent {}

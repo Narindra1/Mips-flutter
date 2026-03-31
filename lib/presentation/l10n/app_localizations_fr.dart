@@ -124,10 +124,19 @@ class AppLocalizationsFr extends AppLocalizations {
   String get announce_sent => 'Annonce envoyée';
 
   @override
+  String get more_informations => 'Plus d\'informations';
+
+  @override
   String get free => 'Gratuit';
 
   @override
-  String get login_intro => 'MIPS vous offre des milliers de publications d\'articles';
+  String get claim => 'Récupérer';
+
+  @override
+  String get empty_news => 'Pas de nouvelles';
+
+  @override
+  String get login_intro => 'MIPS vous offre diverses publicités';
 
   @override
   String get register_intro => 'MIPS vous attend!';
@@ -960,6 +969,70 @@ class AppLocalizationsFr extends AppLocalizations {
   String transfer_amount_send_error_validation(String solde) {
     return 'Erreur: Entrer une valeur entre 1 et $solde';
   }
+
+  @override
+  String bonus_from_announce(String slug) {
+    return 'Bonus de l\'annonce $slug';
+  }
+
+  @override
+  String get password_forget_title => 'Pas de panique! Vous pouvez récupérer l’accès à votre compte MIPS facilement.';
+
+  @override
+  String get password_forget_option1 => 'Option 1 : Par e-mail';
+
+  @override
+  String password_forget_text1(String email) {
+    return 'Envoyez-nous un message à $email en indiquant votre nom et le numéro de téléphone utilisé lors de votre inscription.';
+  }
+
+  @override
+  String get password_forget_option2 => 'Option 2 : Par téléphone';
+
+  @override
+  String get password_forget_text2 => 'Appelez directement le Service Client MIPS au 038 28 309 29.';
+
+  @override
+  String get what_next_title => 'Que se passe-t-il ensuite ?';
+
+  @override
+  String get what_next_text => 'Notre équipe vous enverra un nouveau mot de passe par SMS sur votre numéro enregistré, sous 24 heures.';
+
+  @override
+  String get connexion_temporary_title => 'Une fois connecté avec ce mot de passe temporaire :';
+
+  @override
+  String get connexion_temporary_text1 => '1. Allez dans Mon Compte MIPS';
+
+  @override
+  String get connexion_temporary_text2 => '2. Cliquez sur Modifier le mot de passe';
+
+  @override
+  String get connexion_temporary_text3 => '3. Choisissez un nouveau mot de passe personnel et sécurisé';
+
+  @override
+  String get friend => 'Ami(e)';
+
+  @override
+  String get mips_bonus => 'MIPS vous a offert un bonus';
+
+  @override
+  String get kara_partner => 'Partenaire KARA';
+
+  @override
+  String get bonus_announce => 'Bonus d\'annonce';
+
+  @override
+  String get survey => 'Sondage';
+
+  @override
+  String get take_surveys => 'Répondez à des sondages';
+
+  @override
+  String get claim_kara_bonuses_popup_ads => 'Réclamez des bonus KARA dans les pubs PopUps';
+
+  @override
+  String get claim_bonuses_partner_sponsor_pubs => 'Réclamez des bonus KARA dans les pubs partenaires et sponsors';
 
   @override
   String get transfer_id_receiver_error_validation => 'Erreur: Tel du destinataire';

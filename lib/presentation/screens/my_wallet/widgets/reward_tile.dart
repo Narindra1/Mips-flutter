@@ -1,6 +1,7 @@
 import 'package:MIPS/common/constants/constant.dart';
 import 'package:MIPS/domain/entities/reward.dart';
 import 'package:MIPS/presentation/configurations/colors_list.dart';
+import 'package:MIPS/presentation/configurations/extension_for_localization.dart';
 import 'package:MIPS/presentation/routes/route.dart';
 import 'package:MIPS/presentation/routes/router.dart';
 import 'package:flutter/material.dart';
@@ -16,10 +17,10 @@ class RewardTile extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     Map<RewardType, String> requests = {
-      RewardType.connexion: "Connexion quotidienne",
-      RewardType.pub: "Regarder differentes publicités",
-      RewardType.popUp: "Regarder des PopUps",
-      RewardType.sondage: "Réponder des sondages",
+      RewardType.connexion: context.appLoc.daily_connection,
+      RewardType.pub: context.appLoc.claim_bonuses_partner_sponsor_pubs,
+      RewardType.popUp: context.appLoc.claim_kara_bonuses_popup_ads,
+      RewardType.sondage: context.appLoc.take_surveys,
     };
     if (reward.rewardType != RewardType.none) {
       return MaterialButton(
@@ -31,7 +32,7 @@ class RewardTile extends StatelessWidget {
                 }
                 if (reward.rewardType == RewardType.sondage) {
                   AppRouter.go(context, RoutesNames.sondageList,
-                      queryParameters: {"title": "Sondage"});
+                      queryParameters: {"title": context.appLoc.survey});
                 }
               },
         child: Container(
@@ -89,7 +90,7 @@ class RewardTile extends StatelessWidget {
                     Flexible(
                       child: Text(
                         "${requests[reward.rewardType]} ${reward.rewardType == RewardType.connexion ? "" : "(${reward.counted}/${reward.counts})"}",
-                        maxLines: 2,
+                        maxLines: 4,
                         style: Theme.of(context).textTheme.bodyMedium,
                         overflow: TextOverflow.ellipsis,
                       ),

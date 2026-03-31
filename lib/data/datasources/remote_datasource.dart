@@ -6,6 +6,7 @@ import 'package:MIPS/common/services/environment_wrapper.dart';
 import 'package:MIPS/data/data.dart';
 import 'package:MIPS/data/models/devise_model.dart';
 import 'package:MIPS/data/models/exchange_rate_model.dart';
+import 'package:MIPS/data/models/more_info_model.dart';
 import 'package:MIPS/data/models/province_model.dart';
 import 'package:MIPS/data/models/reward_model.dart';
 import 'package:MIPS/data/models/user_menu_profil_model.dart';
@@ -147,6 +148,18 @@ class RemoteDataSource {
             .map((e) => AvisModel.fromJson(e, avisType: AvisType.normal))
             .toList();
         return ret;
+      },
+    );
+  }
+
+  /// Récupère la liste des informations.
+  /// Retourne une liste de [MoreInfoModel].
+  Future<List<MoreInfoModel>> getAllMoreInfo() async {
+    return requestHandler(
+      () async {
+        Response response = await dio.get("/mips-infos");
+        List<dynamic> resultList = _json(response.data);
+        return resultList.map((e) => MoreInfoModel.fromJson(e)).toList();
       },
     );
   }

@@ -19,6 +19,40 @@
       }
     }
   },
+  "bonus_from_announce": "公告中的额外奖励 {slug}",
+  "@bonus_from_announce": {
+    "placeholders": {
+      "slug": {
+        "type": "String"
+      }
+    }
+  },
+  "password_forget_title": "别慌！您可以轻松重新获得对 MIPS 账户的访问权限。",
+  "password_forget_option1": "选项 1：通过电子邮件",
+  "password_forget_text1": "请发送邮件至 {email}，告知您的姓名和注册时使用的电话号码。",
+  "@password_forget_text1": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "password_forget_option2": "选项二：通过电话",
+  "password_forget_text2": "直接拨打 MIPS 客户服务热线 038 28 309 29。",
+  "what_next_title": "接下来会发生什么？",
+  "what_next_text": "我们的团队将在24小时内通过短信向您注册的手机号码发送新密码。",
+  "connexion_temporary_title": "使用此临时密码登录后：",
+  "connexion_temporary_text1": "1. 前往我的 MIPS 账户",
+  "connexion_temporary_text2": "2. 点击“更改密码”",
+  "connexion_temporary_text3": "3. 选择一个新的、个性化的、安全的密码",
+  "friend": "朋友",
+  "mips_bonus": "MIPS 为您提供了一项奖励",
+  "kara_partner": "KARA合作伙伴",
+  "bonus_announce": "公告奖励",
+  "survey": "民意调查",
+  "take_surveys": "参与调查",
+  "claim_kara_bonuses_popup_ads": "在弹出式广告中领取 KARA 奖励",
+  "claim_bonuses_partner_sponsor_pubs": "在合作伙伴和赞助商广告中领取 KARA 奖励",
   "delete_all": "全部删除",
   "you_earned_kara_bonus": "您已获得 KARA 奖励！",
   "optional": "选修的",
@@ -87,9 +121,12 @@
       }
     }
   },
+  "claim": "要求",
+  "empty_news": "没有消息。",
+  "more_informations": "更多信息",
   "announces": "广告",
   "followeds": "随后",
-  "login_intro": "MIPS 为您提供数千篇论文出版物",
+  "login_intro": "MIPS 为您提供各种广告。",
   "register_intro": "MIPS 等你來體驗！",
   "read_all": "全部已读 ✓",
   "download_dialog_title": "更新",

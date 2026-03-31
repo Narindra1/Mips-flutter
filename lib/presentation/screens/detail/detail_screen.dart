@@ -574,7 +574,7 @@ class DetailScreen extends StatelessWidget {
                               // Divider(color: Colors.grey.shade300),
                               const SizedBox(height: mediumPadding),
                               Text(
-                                "Description",
+                                context.appLoc.description,
                                 style: Theme.of(context).textTheme.titleMedium,
                               ),
                             ],
@@ -678,19 +678,48 @@ class DetailScreen extends StatelessWidget {
                                             GetBonusStatus.got) {
                                           return SizedBox();
                                         }
-                                        return IconButton(
-                                          onPressed: () {
-                                            context.read<AnnonceBloc>().add(
-                                                GetBonusFromAnnonceEvent(
-                                                    idAnnonce: state
-                                                        .selectedAnnonce!.id));
-                                          },
-                                          constraints: BoxConstraints(),
-                                          icon: Image(
-                                            height: 24,
-                                            width: 24,
-                                            image: AssetImage(
-                                                "assets/imgs/mips_coin.png"),
+                                        return SizedBox(
+                                          child: IconButton(
+                                            style: ButtonStyle(
+                                              shape: WidgetStatePropertyAll(
+                                                  RoundedRectangleBorder(
+                                                      borderRadius:
+                                                          BorderRadius.circular(
+                                                              largePadding))),
+                                              backgroundColor:
+                                                  WidgetStatePropertyAll(
+                                                      tertiaryColor),
+                                            ),
+                                            onPressed: () {
+                                              context.read<AnnonceBloc>().add(
+                                                  GetBonusFromAnnonceEvent(
+                                                      idAnnonce: state
+                                                          .selectedAnnonce!
+                                                          .id));
+                                            },
+                                            constraints: BoxConstraints(),
+                                            icon: Row(
+                                              children: [
+                                                Text(
+                                                  context.appLoc.claim,
+                                                  style: Theme.of(context)
+                                                      .textTheme
+                                                      .bodySmall!
+                                                      .copyWith(
+                                                        color: Colors.white,
+                                                        fontWeight:
+                                                            FontWeight.bold,
+                                                      ),
+                                                ),
+                                                SizedBox(width: 2),
+                                                Image(
+                                                  height: 24,
+                                                  width: 24,
+                                                  image: AssetImage(
+                                                      "assets/imgs/mips_coin.png"),
+                                                ),
+                                              ],
+                                            ),
                                           ),
                                         );
                                       },
