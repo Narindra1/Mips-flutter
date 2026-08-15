@@ -390,8 +390,8 @@ class _MyWalletScreenState extends State<MyWalletScreen> {
             floating: false,
             pinned: true,
             delegate: _SliverAppBarDelegate(
-              minHeight: 125,
-              maxHeight: 125,
+              minHeight: 155,
+              maxHeight: 155,
               child: Container(
                 decoration: BoxDecoration(
                   color: Colors.white,

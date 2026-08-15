@@ -4,11 +4,9 @@ import 'dart:convert';
 import 'package:mips/presentation/configurations/extension_for_localization.dart';
 import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_image_compress/flutter_image_compress.dart';
-
+import 'package:image/image.dart' as img;
 import 'dart:io';
 
-// import 'package:image_compression_flutter/image_compression_flutter.dart';
 import 'package:intl/intl.dart';
 
 import '../constants/constant.dart';
@@ -49,33 +47,32 @@ class AppUtils {
 
   static Future<Uint8List?> compressImageFile(File file) async {
     try {
-      // Get original size
       final fileInputSize = await file.length() / 1024;
 
-      // Compress using flutter_image_compress
-      final result = await FlutterImageCompress.compressWithFile(
-        file.absolute.path,
-        quality: 25, // quality between 0–100
-        format: CompressFormat.jpeg,
-      );
+      // Decode in an isolate to avoid jank on large images
+      final bytes = await compute(_compressBytes, file.readAsBytesSync());
 
-      if (result == null) return null;
+      if (bytes == null) return null;
 
-      // Show debug log
-      final compressedSize = result.length / 1024;
+      final compressedSize = bytes.length / 1024;
       if (kDebugMode) {
         print(
           "compression : compressed ${compressedSize.toStringAsFixed(2)}KB original ${fileInputSize.toStringAsFixed(2)}KB",
         );
       }
 
-      return Uint8List.fromList(result);
+      return bytes;
     } catch (e) {
-      if (kDebugMode) {
-        print("Image compression failed: $e");
-      }
+      if (kDebugMode) print("Image compression failed: $e");
       return null;
     }
+  }
+
+  // Runs off the main isolate — decoding/encoding is CPU heavy
+  static Uint8List? _compressBytes(Uint8List inputBytes) {
+    final image = img.decodeImage(inputBytes);
+    if (image == null) return null;
+    return Uint8List.fromList(img.encodeJpg(image, quality: 25));
   }
 
   static String formatTodaysDate(BuildContext context, String dateString) {

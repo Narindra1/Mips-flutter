@@ -507,39 +507,41 @@ class _DemandePubScreenState extends State<DemandePubScreen> {
                   ),
                 ),
                 const SizedBox(height: smallPadding),
-                Column(
-                  children: List.generate(
-                    state.annonceTarif.length,
-                    (index) => RadioListTile(
-                      value: index,
-                      isThreeLine:
-                          (selectableNonDisponible ||
-                              state.annonceTarif[index].isAvailable)
-                          ? false
-                          : true,
-                      groupValue: state.indexTarifSelected,
-                      title: Text(state.annonceTarif[index].tarifTitle),
-                      subtitle:
-                          (selectableNonDisponible ||
-                              state.annonceTarif[index].isAvailable)
-                          ? null
-                          : Text(
-                              state.annonceTarif[index].getReadableAvailability(
-                                context,
+                Material(
+                  type: MaterialType.transparency,
+                  child: Column(
+                    children: List.generate(
+                      state.annonceTarif.length,
+                      (index) => RadioListTile(
+                        value: index,
+                        isThreeLine:
+                            (selectableNonDisponible ||
+                                state.annonceTarif[index].isAvailable)
+                            ? false
+                            : true,
+                        groupValue: state.indexTarifSelected,
+                        title: Text(state.annonceTarif[index].tarifTitle),
+                        subtitle:
+                            (selectableNonDisponible ||
+                                state.annonceTarif[index].isAvailable)
+                            ? null
+                            : Text(
+                                state.annonceTarif[index]
+                                    .getReadableAvailability(context),
+                                style: const TextStyle(color: Colors.red),
                               ),
-                              style: const TextStyle(color: Colors.red),
-                            ),
-                      onChanged:
-                          (!selectableNonDisponible &&
-                              !state.annonceTarif[index].isAvailable)
-                          ? null
-                          : (value) {
-                              if (value != null) {
-                                context.read<DemandePubBloc>().add(
-                                  AnnonceTarifSelectEvent(index: index),
-                                );
-                              }
-                            },
+                        onChanged:
+                            (!selectableNonDisponible &&
+                                !state.annonceTarif[index].isAvailable)
+                            ? null
+                            : (value) {
+                                if (value != null) {
+                                  context.read<DemandePubBloc>().add(
+                                    AnnonceTarifSelectEvent(index: index),
+                                  );
+                                }
+                              },
+                      ),
                     ),
                   ),
                 ),
@@ -554,44 +556,50 @@ class _DemandePubScreenState extends State<DemandePubScreen> {
                   ),
                 ),
                 const SizedBox(height: smallPadding),
-                Column(
-                  children: List.generate(
-                    state.annonceTarif[state.indexTarifSelected].tarifs.length,
-                    (index) => RadioListTile(
-                      value: index,
-                      groupValue: state.indexAnnonceTarifOptionSelected,
-                      title: Row(
-                        children: [
-                          Text(
-                            state
-                                .annonceTarif[state.indexTarifSelected]
-                                .tarifs[index]
-                                .getReadablePeriode(),
-                          ),
-                          const Spacer(),
-                          Image.asset(
-                            width: 24,
-                            height: 24,
-                            mipsCoin,
-                            fit: BoxFit.cover,
-                          ),
-                          const SizedBox(width: smallPadding),
-                          Text(
-                            (state
-                                .annonceTarif[state.indexTarifSelected]
-                                .tarifs[index]
-                                .priceInFakaFormatted()),
-                          ),
-                        ],
+                Material(
+                  type: MaterialType.transparency,
+                  child: Column(
+                    children: List.generate(
+                      state
+                          .annonceTarif[state.indexTarifSelected]
+                          .tarifs
+                          .length,
+                      (index) => RadioListTile(
+                        value: index,
+                        groupValue: state.indexAnnonceTarifOptionSelected,
+                        title: Row(
+                          children: [
+                            Text(
+                              state
+                                  .annonceTarif[state.indexTarifSelected]
+                                  .tarifs[index]
+                                  .getReadablePeriode(),
+                            ),
+                            const Spacer(),
+                            Image.asset(
+                              width: 24,
+                              height: 24,
+                              mipsCoin,
+                              fit: BoxFit.cover,
+                            ),
+                            const SizedBox(width: smallPadding),
+                            Text(
+                              (state
+                                  .annonceTarif[state.indexTarifSelected]
+                                  .tarifs[index]
+                                  .priceInFakaFormatted()),
+                            ),
+                          ],
+                        ),
+                        // subtitle:
+                        onChanged: (value) {
+                          if (value != null) {
+                            context.read<DemandePubBloc>().add(
+                              AnnonceTarifOptionSelectEvent(index: index),
+                            );
+                          }
+                        },
                       ),
-                      // subtitle:
-                      onChanged: (value) {
-                        if (value != null) {
-                          context.read<DemandePubBloc>().add(
-                            AnnonceTarifOptionSelectEvent(index: index),
-                          );
-                        }
-                      },
                     ),
                   ),
                 ),

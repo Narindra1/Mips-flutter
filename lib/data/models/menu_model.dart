@@ -223,25 +223,25 @@ class MenuItemModel extends Equatable {
         case "MENU":
           menuTypeRoute = MenuTypeRoute.menuScroll;
           break;
-        case "mahaSondage":
+        case "MAHA_SONDAGE":
           menuTypeRoute = MenuTypeRoute.mahaSondage;
           break;
-        case "mahaPartenaire":
+        case "MAHA_PARTENAIRE":
           menuTypeRoute = MenuTypeRoute.mahaPartenaire;
           break;
-        case "mahaPlainteSuggestion":
+        case "MAHA_PLAINTE_SUGGESTION":
           menuTypeRoute = MenuTypeRoute.mahaPlainteSuggestion;
           break;
-        case "mahaAvis":
+        case "MAHA_AVIS":
           menuTypeRoute = MenuTypeRoute.mahaAvis;
           break;
-        case "exchangeRate":
+        case "EXCHANGE_RATE":
           menuTypeRoute = MenuTypeRoute.exchangeRate;
           break;
-        case "karaPartner":
+        case "KARA_PARTNER":
           menuTypeRoute = MenuTypeRoute.karaPartner;
           break;
-        case "mipsInfo":
+        case "MIPS_INFO":
           menuTypeRoute = MenuTypeRoute.mipsInfo;
           break;
         default:

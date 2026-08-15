@@ -17,11 +17,8 @@ import 'package:get_it/get_it.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'dart:io';
 
-import 'package:terminate_restart/terminate_restart.dart';
-
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
-  TerminateRestart.instance.initialize();
   // await EasyLocalization.ensureInitialized();
   await init();
 
