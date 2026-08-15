@@ -1,0 +1,583 @@
+{
+  "loading_error": "An error occurred, please try again later.",
+  "error_operation": "An error occurred, please try again.",
+  "duration_week": "{count, plural, one{{count} week} other{{count} weeks}}",
+  "@duration_week": {
+    "description": "Duration in weeks with plural forms",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "password_forget_title": "Don't panic! You can easily regain access to your MIPS account.",
+  "password_forget_option1": "Option 1: By email",
+  "password_forget_text1": "Send us a message to {email} indicating your name and the telephone number used when you registered.",
+  "@password_forget_text1": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "password_forget_option2": "Option 2: By phone",
+  "password_forget_text2": "Call MIPS Customer Service directly on 038 28 309 29.",
+  "what_next_title": "What happens next?",
+  "what_next_text": "Our team will send you a new password via SMS to your registered number within 24 hours.",
+  "connexion_temporary_title": "Once logged in with this temporary password:",
+  "connexion_temporary_text1": "1. Go to My MIPS Account",
+  "connexion_temporary_text2": "2. Click on Change Password",
+  "connexion_temporary_text3": "3. Choose a new, personal, and secure password",
+  "bonus_from_announce": "Bonus from the announcement {slug}",
+  "@bonus_from_announce": {
+    "placeholders": {
+      "slug": {
+        "type": "String"
+      }
+    }
+  },
+  "kara_partner": "KARA Partner",
+  "mips_bonus": "MIPS has offered you a bonus",
+  "friend": "Friend",
+  "bonus_announce": "Announcement Bonus",
+  "survey": "Survey",
+  "take_surveys": "Take surveys",
+  "claim_kara_bonuses_popup_ads": "Claim KARA bonuses in PopUp ads",
+  "claim_bonuses_partner_sponsor_pubs": "Claim KARA bonuses in partner and sponsor ads",
+  "delete_all": "Delete all",
+  "you_earned_kara_bonus": "You have earned a KARA bonus!",
+  "optional": "Optional",
+  "ad_id": "Ad ID",
+  "ad_id_is_required": "Ad ID is required",
+  "add_the_ad_id": "Add the ad ID",
+  "ad_id_doesnt_exist": "Ad ID doesn't exist",
+  "ad_is_already_pending": "Ad is already pending",
+  "survey_results": "Survey results",
+  "choose_province": "Choose province(s)",
+  "read_all": "All read ✓",
+  "load_more_messages": "Load more messages",
+  "phone_duplicate_error": "Phone number already used",
+  "bonus": "Bonus:",
+  "download_dialog_title": "Update",
+  "download_dialog_desc": "Downloading...",
+  "download_dialog_error": "Download failed",
+  "selftransfert_error": "You cannot transfer to yourself",
+  "avatar": "Avatar",
+  "total": "Total",
+  "faka_bonus": "KARA bonus",
+  "option_paiement": "Payment options",
+  "new_version_available": "New version available: {version}",
+  "@new_version_available": {
+    "description": "Message indicating a new app version is available, with the version number as a placeholder",
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "complaints_and_suggestions": "Complaints and suggestions",
+  "kara_transfer": "KARA Transfer",
+  "using_kara": "Using KARA",
+  "announcement_extension": "Announcement extension",
+  "survey_participation": "Survey participation",
+  "first_connection": "First connection",
+  "ad_consultation": "Ad consultation",
+  "daily_connection": "Daily connection",
+  "some_may_be_hidden": "Some ads may be hidden",
+  "submit_your_request": "Submit your request",
+  "followed": "Followed",
+  "connexion_security": "Connection and Security",
+  "notice": "Notice",
+  "enter_the_validation_code": "Enter the validation code",
+  "create_new_more_secure_password": "Create a new, more secure password",
+  "enter_old_pass": "Enter the old password",
+  "attention": "Attention",
+  "delete_title1": "Are you sure you want to delete your account ?",
+  "delete_subtitle1": "Deleting your account will result in the permanent deletion of your personal data and your activity on the platform.",
+  "delete_title2": "Do you still wish to continue ?",
+  "delete_subtitle2": "Please confirm this action if you wish to proceed.",
+  "confirm": "Confirm",
+  "found_ad_that_might_interest_you": "I found an ad on MIPS that might interest you",
+  "request_successfully_sent": "Request successfully sent",
+  "become_kara_partner": "Become a KARA partner",
+  "announcements_of_follow_ups": "Announcements of follow-ups",
+  "online_ads_from": "Online ads from {name}",
+  "@online_ads_from": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "member_since": "Member since {date}",
+  "@member_since": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "count_annonces": "{count} ads",
+  "@count_annonces": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "followed_by_count_member": "Followed by {count} members",
+  "@followed_by_count_member": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "you_follow_count_member": "You follow {count} members",
+  "@you_follow_count_member": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "announces": "Ads",
+  "followeds": "Followed",
+  "verified_phone": "Verified phone number",
+  "rewards_description": "The KARA you earn from these quests will be added to your balance; you can use them to post your ads.",
+  "description": "Description",
+  "rewards_subtitle1": "Watch all the ads, earn an extra",
+  "rewards_subtitle2": "50KARA",
+  "rewards_subtitle3": "",
+  "rewards_title": "Watch ads, earn KARA",
+  "conversion": "Conversion",
+  "publish_annoucement": "Publish the ad",
+  "please_contact_us": "Please contact us at contact@mips.mg",
+  "currency": "Currency",
+  "source": "Source",
+  "note": "Note",
+  "note_exchange_description": "This information represents the previous day's closing data provided by the Source. Our company accepts no responsibility for any errors.",
+  "estimate": "Estimate",
+  "calculation": "Calculation",
+  "exchange_rate": "Exchange rate",
+  "follow": "Follow",
+  "followers": "Followers",
+  "noone_follow_me_title": "You do not have any followers at the moment",
+  "noone_follow_me_description": "Members can subscribe to your profile so they don't miss any of your announcements.",
+  "followings": "Followings",
+  "follow_anyone_title": "You are not following any members yet",
+  "follow_anyone_description": "Click \"Follow\" on a member's profile to make sure you don't miss any of their announcements.",
+  "delete_account": "Delete account",
+  "delete_your_account": "Delete your account",
+  "create_new_strong_password": "Create a new more secure password",
+  "account": "Account",
+  "my_account": "My account",
+  "wallet": "Wallet",
+  "my_wallet": "My Wallet",
+  "rewards": "Rewards",
+  "get_mips": "Get KARA",
+  "list_of_operations": "List of operations",
+  "earnings": "Earnings",
+  "all": "All",
+  "expenses": "Expenses",
+  "transfers": "Transfers",
+  "payer": "Pay",
+  "extend_validity": "Extend",
+  "update": "Update",
+  "empty_mes_annonces_list": "You haven't posted any ads yet",
+  "empty_mes_favoris_list": "You haven't added any favorites yet",
+  "voirDetail": "More details",
+  "transferMessagePart1": "You are going to transfer",
+  "transferMessagePart2": "KARA to the account",
+  "recommander_by": "Recommended by (optional)",
+  "recommander_agent_hint": "Referrer's phone number",
+  "announce_count": "{count, plural, one{{count} ad} other{{count} ads}}",
+  "@announce_count": {
+    "description": "Announce in plural",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "duration_year": "{count, plural, one{{count} year} other{{count} years}}",
+  "@duration_year": {
+    "description": "Duration in years with plural forms",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "duration_month": "{count, plural, one{{count} month} other{{count} months}}",
+  "@duration_month": {
+    "description": "Duration in months with plural forms",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "available_date_prompt": "Available on: {date}",
+  "@available_date_prompt": {
+    "description": "Prompt indicating the availability date",
+    "placeholders": {
+      "date": {
+        "type": "String",
+        "format": "dd MMMM yyyy"
+      }
+    }
+  },
+  "todays_date_prompt": "Date : {date}",
+  "@todays_date_prompt": {
+    "description": "Prompt indicating today's date",
+    "placeholders": {
+      "date": {
+        "type": "String",
+        "format": "dd MMMM yyyy"
+      }
+    }
+  },
+  "format_date_ddmmyy": "{date}",
+  "@format_date_ddmmyy": {
+    "description": "Prompt indicating today's date",
+    "placeholders": {
+      "date": {
+        "type": "String",
+        "format": "dd MMMM yyyy"
+      }
+    }
+  },
+  "auth_guard_screen_title": "Authentication required",
+  "auth_guard_screen_prompt": "Enter your password to continue",
+  "transfer_screen_title": "KARA Transfer",
+  "transfer_faka_send_title": "Transfer Sent",
+  "transfer_available_amount": "Available Balance",
+  "transfer_section_title": "Transfer KARA to Another Account",
+  "transfer_insufficient": "Insufficient Balance",
+  "transfer_id_receiver_hint": "Recipient's phone number",
+  "transfer_id_receiver_error_validation": "Error: Recipient's phone number",
+  "transfer_amount_send_hint": "Amount",
+  "transfer_amount_send_error_validation": "Error: Enter a value between 1 and {solde}",
+  "@transfer_amount_send_error_validation": {
+    "placeholders": {
+      "solde": {
+        "type": "String"
+      }
+    }
+  },
+  "thanks_btn_text": "Thank you!",
+  "like_btn_text": "Like",
+  "ads_default_title": "MIPS - Super App",
+  "recents_announces": "Recents announces",
+  "toast_disconnected": "You are currently offline.",
+  "announce_sent": "Ad sent",
+  "announce_sent_extedendtext": "Your ad has been successfully published!",
+  "categoris": "Category",
+  "announce_detail": "Ad details",
+  "title": "Title",
+  "ann_title_hint": "Enter the ad title here",
+  "ann_title_validation_error": "Error: Please add a title for the ad",
+  "ann_desc_title": "Brief description",
+  "ann_desc_hint": "Add a very short description here",
+  "ann_desc_validation_error": "Error: Please add a brief description",
+  "ann_desc_long_title": "Detailed description",
+  "ann_desc_long_hint": "Add a detailed description of your ad here",
+  "ann_desc_long_validation_error": "Error: Please add the details of your ad",
+  "ann_emplacement_title": "Location",
+  "ann_emplacement_hint": "Location (e.g., Ankorondrano Antananarivo, Antsirabe)",
+  "ann_emplacement_validation_error": "Error: Please specify a location",
+  "ann_contact_title": "Contact",
+  "ann_contact_hint": "Ex: 034 00 000 00",
+  "exemple_pref_hint": "Ex: ",
+  "plainte_sent": "Submission successful",
+  "plainte_sent_extendedtext": "Thank you, your feedback will help us improve MIPS.",
+  "add_images_titles": "Add images ({imagecount} max)",
+  "@add_images_titles": {
+    "placeholders": {
+      "imagecount": {
+        "type": "int"
+      }
+    }
+  },
+  "add_images_capture_titles": "Screenshot ({imagecount} max)",
+  "@add_images_capture_titles": {
+    "placeholders": {
+      "imagecount": {
+        "type": "int"
+      }
+    }
+  },
+  "login_intro": "MIPS offers you various advertisements",
+  "register_intro": "MIPS is waiting for you!",
+  "add_photo_label": "Photo",
+  "send": "Send",
+  "send_announce": "Send ad",
+  "notifications": "Notifications",
+  "modify_announce": "Edit ad",
+  "ad_modified": "Modified",
+  "announce_partner": "Partner Ad",
+  "announce_sponsor": "Sponsor Ad",
+  "become_sponsor": "Become a Sponsor",
+  "become_partner": "Become a Partner",
+  "available_soon": "Coming soon!",
+  "ann_option_title": "Publication options",
+  "ann_option_choose_type": "Choose the type of your ad",
+  "ann_option_choose_duration": "Choose the publication duration",
+  "ann_total_amount": "Total",
+  "ann_mod_title": "Edit your ad",
+  "ann_mod_done": "Changes saved",
+  "alert_diag_title_error": "Error",
+  "alert_diag_title_message": "An error occurred, please try again.",
+  "alert_dial_auth_requiered_title": "Login required",
+  "alert_dial_auth_requiered_text": "Log in to fully enjoy the MIPS app! Post, comment, and interact with ads easily.",
+  "continuer": "Continue",
+  "fermer": "Close",
+  "connexion": "Login",
+  "please_wait": "Please wait...",
+  "inscription": "Sign up",
+  "cgu_title": "Terms and Conditions (T&C)",
+  "cgu_section1_title": "1. About the Application",
+  "cgu_section1_text": "The MIPS app is a platform for posting and viewing ads using the FAKA Token. These Terms and Conditions (T&C) define the rules for using the app, for both registered and non-registered users.",
+  "cgu_section2_title": "2. Acceptance of the T&C",
+  "cgu_section2_text": "By accessing the MAHAFAKA app, the user acknowledges having read these T&C and agrees to comply with them.",
+  "cgu_section3_title": "3. Registration and User Account",
+  "cgu_section3_text": "To access certain features, the user must create an account by providing the following information:\n- Username\n- Gender\n- Year of birth\n- Place of residence\n- Password\n- Email\n- Phone number\n\nThe user agrees to provide accurate and up-to-date information. If inaccurate information is provided, MAHAFAKA reserves the right to suspend or delete the account.",
+  "cgu_section4_title": "4. Use Without Login (No Authentication)",
+  "cgu_section4_text": "Non-registered users can access certain features of the app, such as viewing ads. However, posting and some interactions require a user account.",
+  "cgu_section5_title": "5. FAKA Token",
+  "cgu_section5_text": "The FAKA Token is used for posting ads. The terms for obtaining and using the FAKA Token are defined in MAHAFAKA’s specific conditions.",
+  "cgu_section6_title": "6. Personal Data Protection",
+  "cgu_section6_text": "Information provided during registration is processed in accordance with our privacy policy. No personal data will be sold or shared with third parties without the user’s consent.",
+  "cgu_section7_title": "7. User Responsibilities",
+  "cgu_section7_text": "The user agrees to:\n- Not post ads containing false, illegal, or offensive information.\n- Comply with applicable laws and third-party rights.\n- Not use the app for fraudulent or malicious purposes.",
+  "cgu_section8_title": "8. Changes to the T&C",
+  "cgu_section8_text": "MAHAFAKA reserves the right to modify these T&C at any time. Users will be notified of changes via the app.",
+  "cgu_section9_title": "9. Contact",
+  "cgu_section9_text": "For any questions about the T&C, users can contact the MAHAFAKA team via the app or by email.",
+  "diag_auth_error_title": "Authentication error",
+  "diag_auth_error_text": "Please check that the information you entered is correct.",
+  "diag_register_error_title": "Registration error",
+  "diag_register_error_text": "An error occurred during registration.\nError: [{errorMessage}]",
+  "@diag_register_error_text": {
+    "placeholders": {
+      "errorMessage": {
+        "type": "String"
+      }
+    }
+  },
+  "profil_change_pass_text": "Change password",
+  "change_password_title": "Password Change",
+  "old_password_hint": "Old password",
+  "modify_profil_title": "Information du compte",
+  "changer": "Change",
+  "tips_mahaol_title": "[Notice]",
+  "tips_mahaol_desc": "Please share any news that might interest other members. Defamation and any sensationalist content will result in sanctions. For each post, the author will receive a credit equivalent to <the number of 'Thank you' received during one week * 20 KARA>.",
+  "login_text_intro": "Log in to MIPS to fully enjoy the app",
+  "data_managing": "Security and data management",
+  "login_username_hint": "Phone number or email",
+  "login_username_validation_error": "Enter your phone number or email address",
+  "login_password_hint": "Password",
+  "login_password_validation_error": "Enter your password",
+  "login_stayconnected": "Stay logged in",
+  "login_forgot_password": "Forgot password?",
+  "login_not_member": "Not a member yet?",
+  "login_signup": "Sign up",
+  "menu_profil_account_info": "Account Information",
+  "menu_profil_myavatar": "My Avatar / KARA",
+  "menu_profil_delete_data_texte": "Request the deletion of your account and personal information.",
+  "menu_profil_avatar_desc": "Your current avatar",
+  "menu_profil_solde_disponible": "Available Balance",
+  "logout": "Log out",
+  "free": "Free",
+  "gerer": "Manage",
+  "annonce": "Ad",
+  "setting_langue": "Language",
+  "setting_font_size": "Text size",
+  "setting_about": "About",
+  "messages_screen_title": "Messages",
+  "choose_langue": "Choose language",
+  "empty_message_list": "No messages received yet",
+  "setting_about_app_title": "About the Application",
+  "setting_about_app_desc1": "MIPS is an intuitive platform designed to simplify the posting and browsing of ads. Whether you want to sell, buy, or explore, the application offers a wide variety of categories, including everyday items, furniture, vehicles, and much more.",
+  "setting_about_app_desc2": "With MIPS, you can use the KARA token to post your ads or boost their visibility. Earn tokens for free by engaging with the community directly from the application, making the experience both accessible and dynamic.",
+  "setting_about_propriete_title": "Intellectual Property",
+  "setting_about_propriete_annonce": "Ads",
+  "setting_about_propriete_annonce_text": "Users who post ads own the rights to their publications and are responsible for the accuracy of the information provided. Any inappropriate content can be reported to our team via the email address contact@mips.mg",
+  "setting_about_propriete_app": "Application",
+  "setting_about_propriete_app_text": "The icons used in MIPS are sourced from the website Icons8.fr.",
+  "setting_about_propriete_data_title": "Data Collection and Privacy",
+  "setting_about_propriete_data_text": "MIPS is committed to protecting your privacy by collecting minimal personal information, namely: your age, phone number, email address, and province of residence. You can request the deletion of this data at any time through your profile menu.",
+  "setting_about_propriete_contact_title": "Contact",
+  "setting_about_propriete_contact_text": "For any questions, suggestions, or assistance, please contact us at the following email address: contact@mips.mg / +261 38 28 309 29",
+  "setting_title": "Settings",
+  "forgot_password_title": "Forgot password",
+  "transferer_faka": "Transfer",
+  "acheter_faka": "Buy",
+  "welcome_user": "Welcome {pseudo}!",
+  "@welcome_user": {
+    "placeholders": {
+      "pseudo": {
+        "type": "String"
+      }
+    }
+  },
+  "sondage_theme_title": "Theme {numero}",
+  "@sondage_theme_title": {
+    "placeholders": {
+      "numero": {
+        "type": "int"
+      }
+    }
+  },
+  "available_premium_date_prompt": "Premium ads are limited to a maximum of 3, so they will be available after {date}.",
+  "@available_premium_date_prompt": {
+    "description": "Prompt indicating when Premium ads will be available due to a limit of 3",
+    "placeholders": {
+      "date": {
+        "type": "String",
+        "format": "dd MMMM yyyy"
+      }
+    }
+  },
+  "available_vip_date_prompt": "VIP ads are limited to a maximum of 3, so they will be available after {date}.",
+  "@available_vip_date_prompt": {
+    "description": "Prompt indicating when VIP ads will be available due to a limit of 3",
+    "placeholders": {
+      "date": {
+        "type": "String",
+        "format": "dd MMMM yyyy"
+      }
+    }
+  },
+  "sondage_submit_response": "Submit response",
+  "sondage_validation_error": "Error: Please choose an option",
+  "sondage_submit_success": "Your response has been recorded, thank you for your participation.",
+  "sondage_fin": "End: {datelimit}",
+  "@sondage_fin": {
+    "description": "Text indicating the end date of a survey",
+    "placeholders": {
+      "datelimit": {
+        "type": "String"
+      }
+    }
+  },
+  "reserver": "Reserve",
+  "announce_mahapartenaire_sent_extendedtext": "The administration team will review your request.",
+  "ads_up": "Advertisement at the top",
+  "ads_down": "Advertisement at the bottom",
+  "logout_done": "Logged out successfully.",
+  "register_title": "Sign up",
+  "register_text": "Join MIPS to create and post your ads, and much more!",
+  "register_pseudo_hint": "Username",
+  "register_pseudo_validation": "Error: Enter your username.",
+  "register_mail_hint": "Email",
+  "register_mail_validation": "Error: Enter a valid email address.",
+  "reset_password_title": "Account Recovery",
+  "reset_password_email_prompt": "Enter your email address to reset your password",
+  "reset_password_submit_button": "Send",
+  "validation_code_prompt": "Validation Code",
+  "password_change_title": "Password Change",
+  "password_reset_success_toast": "Your password has been successfully reset.",
+  "reset_password_confirm_button": "Reset",
+  "register_password_hint": "Password",
+  "transfert_dialog_confirm_title": "Do you want to continue the transfer?",
+  "transfert_dialog_number": "Recipient number",
+  "transfert_dialog_amount": "Amount to send",
+  "maha_partenaire_title": "Our Partners / Ad Registration",
+  "register_new_password_hint": "New password",
+  "validation_email_sent": "An email has been sent to the address {emailAddress}. Please enter the validation code and provide your new password.",
+  "@validation_email_sent": {
+    "placeholders": {
+      "emailAddress": {
+        "type": "String"
+      }
+    }
+  },
+  "diag_error_title": "Error",
+  "diag_error_text": "An error has occurred.\nError: [{errorMessage}]",
+  "@diag_error_text": {
+    "placeholders": {
+      "errorMessage": {
+        "type": "String"
+      }
+    }
+  },
+  "register_password_validation": "Error: Enter a password (6-8 characters).",
+  "register_password2_hint": "Confirm your password",
+  "register_password2_validation": "Error: Re-enter your password.",
+  "register_genre_masculin": "Male",
+  "register_genre_feminin": "Female",
+  "register_yearofbirth_hint": "Date of birth",
+  "register_yearofbirth_validation": "Error: Only members aged 13 and older can register",
+  "delete_account_dialog_confirm_title": "Do you really want to delete your account?",
+  "delete_done": "Account deleted.",
+  "respond_count": "<Cumulative number of respondents: {count}>",
+  "@respond_count": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "or_text": "OR",
+  "choose_img": "Choose an image",
+  "browse_image": "Browse an image",
+  "register_tel_hint": "Phone number",
+  "faka_history": "Historique FAKA",
+  "view": "View",
+  "conseil_tip": "< To protect the personal information of the advisor who posted the message, we do not disclose their personal details. >",
+  "register_tel_validation": "Error: Enter 03* ** *** **/ 02* ** *** **",
+  "choose_option": "Choose",
+  "register_address_hint": "Province",
+  "register_address_validation": "Error: Enter a valid address",
+  "register_accept_cgu": "I accept the ",
+  "cgu": "T&C",
+  "btn_register": "Sign up",
+  "connection_error": "Connection error",
+  "try_again": "Try again",
+  "item_favs_removed": "Removed from your favorites!",
+  "item_favs_added": "Added to your favorites!",
+  "confirmation": "Confirmation",
+  "amount_deduct": " will be deducted from your balance to publish the ad.",
+  "wanna_continue": "Do you want to continue?",
+  "publish": "Publish",
+  "cancel": "Cancel",
+  "modify": "Edit",
+  "delete": "Delete",
+  "add": "Add",
+  "error_upload": "Upload error",
+  "new_announce": "New ad",
+  "not_supported": "Action not supported on your device.",
+  "call": "Call",
+  "comments": "Comments",
+  "login_required_to_comment": "You must log in to comment.",
+  "comment_validation_error": "Error: Add a comment.",
+  "load_more_coms": "More comments",
+  "comment_hint": "Write a comment...",
+  "announce_by": "By {pseudo}",
+  "@announce_by": {
+    "placeholders": {
+      "pseudo": {
+        "type": "String"
+      }
+    }
+  },
+  "become_spons_title": "Become a Sponsor or Partner",
+  "become_spons_text": "Contact us to add your ads here as a partner or sponsor.",
+  "incomplete_info": "Incomplete information",
+  "incomplete_info_text": "Please fill in / verify all the information provided.",
+  "announce_favs": "Favorite ads",
+  "menu_favs": "Favorite menus",
+  "home": "Home",
+  "empty_list_announce": "No ads have been published yet.",
+  "empty_result": "No results found.",
+  "claim": "Claim",
+  "empty_news": "No news.",
+  "annonce_deleted_succesfully": "The ad has been deleted.",
+  "more_informations": "More informations",
+  "error_loading_image": "Unable to load the image.",
+  "favorite": "Favorites",
+  "my_ads": "My Ads",
+  "page_not_found": "Page not found",
+  "profil": "Profile",
+  "text_very_small": "Very small",
+  "text_small": "Small",
+  "text_medium": "Normal",
+  "text_large": "Large",
+  "text_very_large": "Very large"
+}

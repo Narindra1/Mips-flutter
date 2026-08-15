@@ -1,0 +1,581 @@
+{
+  "loading_error": "Nisy olana nitranga, andramo indray azafady.",
+  "error_operation": "Nisy olana nitranga, andramo azafady.",
+  "duration_week": "{count, plural, one{{count} herinandro} other{{count} herinandro}}",
+  "@duration_week": {
+    "description": "Duration in weeks with plural forms",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "duration_month": "{count, plural, one{{count} volana} other{{count} volana}}",
+  "@duration_month": {
+    "description": "Duration in months with plural forms",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "duration_year": "{count, plural, one{{count} taona} other{{count} taona}}",
+  "@duration_year": {
+    "description": "Duration in years with plural forms",
+    "placeholders": {
+      "count": {}
+    }
+  },
+  "bonus_from_announce": "Bonus avy amin'ny fanambarana {slug}",
+  "@bonus_from_announce": {
+    "placeholders": {
+      "slug": {
+        "type": "String"
+      }
+    }
+  },
+  "password_forget_title": "Aza matahotra! Azonao atao mora foana ny miditra indray amin'ny kaontinao MIPS.",
+  "password_forget_option1": "Safidy 1: Amin'ny alàlan'ny mailaka",
+  "password_forget_text1": "Mandefasa hafatra any amin'ny {email} ary lazao ny anaranao sy ny laharan-telefaona nampiasainao tamin'ny fisoratana anarana.",
+  "@password_forget_text1": {
+    "placeholders": {
+      "email": {
+        "type": "String"
+      }
+    }
+  },
+  "password_forget_option2": "Safidy 2: Amin'ny alalan'ny telefaona",
+  "password_forget_text2": "Antsoy mivantana ny Sampan-draharahan'ny Mpanjifa MIPS amin'ny 038 28 309 29.",
+  "what_next_title": "Inona no hitranga manaraka?",
+  "what_next_text": "Handefa tenimiafina vaovao amin'ny alalan'ny SMS any amin'ny nomeraon-telefaoninao voasoratra anarana ao anatin'ny 24 ora ny ekipanay.",
+  "connexion_temporary_title": "Rehefa tafiditra amin'ity tenimiafina vonjimaika ity ianao:",
+  "connexion_temporary_text1": "1. Mandehana any amin'ny Kaonty MIPS",
+  "connexion_temporary_text2": "2. Tsindrio ny Hanova ny tenimiafina",
+  "connexion_temporary_text3": "3. Misafidiana tenimiafina vaovao, manokana ary azo antoka",
+  "more_informations": "Fampahalalana bebe kokoa",
+  "friend": "Namana",
+  "claim": "Maka",
+  "empty_news": "Tsy misy vaovao.",
+  "mips_bonus": "Nanolotra bonus ho anao ny MIPS",
+  "kara_partner": "Mpiara-miasa amin'ny KARA",
+  "bonus_announce": "Bonus fanambarana",
+  "survey": "Fanadihadiana",
+  "take_surveys": "Mandraisa fanadihadiana",
+  "claim_kara_bonuses_popup_ads": "Makà bonus KARA amin'ny doka PopUp",
+  "claim_bonuses_partner_sponsor_pubs": "Makà bonus KARA amin'ny doka ho an'ny mpiara-miasa sy mpanohana",
+  "delete_all": "Fafana daholo",
+  "you_earned_kara_bonus": "Nahazo bonus KARA ianao!",
+  "optional": "Tsy voatery",
+  "ad_id": "ID ny doka",
+  "ad_id_is_required": "Ilaina ny ID doka",
+  "add_the_ad_id": "Ampio ny ID doka",
+  "ad_id_doesnt_exist": "Tsy misy ny ID doka",
+  "ad_is_already_pending": "Efa misy fangatahana miandry",
+  "survey_results": "Vokatra fanadihadiana",
+  "choose_province": "Mifidiana faritany",
+  "ads_default_title": "MIPS - Super App",
+  "toast_disconnected": "Tsy misy connexion amin'izao fotoana izao.",
+  "recents_announces": "Filazana vao haingana",
+  "announce_sent": "Nalefa ny filazana",
+  "free": "Maimaim-poana",
+  "login_intro": "Manolotra dokam-barotra isan-karazany ho anao ny MIPS",
+  "register_intro": "MIPS miandry anao!",
+  "notifications": "Fampandrenesana",
+  "ad_modified": "Nohavaozina",
+  "announce_sent_extedendtext": "Voapetraka soa aman-tsara ny filazanao!",
+  "plainte_sent": "Nalefa soa aman-tsara",
+  "plainte_sent_extendedtext": "Misaotra! Hanampy anay hanatsara an'i MIPS ny hevitrao.",
+  "announce_mahapartenaire_sent_extendedtext": "Hodinihin'ny ekipan'ny administrasiona ny fangatahanao.",
+  "categoris": "Sokajy",
+  "announce_detail": "Antsipirihan’ny filazana",
+  "title": "Lohateny",
+  "ann_title_hint": "Soraty eto ny lohatenin’ny filazana",
+  "ann_title_validation_error": "Hadisoana: Ampidiro azafady ny lohatenin’ny filazana",
+  "ann_desc_title": "Famaritana fohy",
+  "ann_desc_hint": "Ampidiro eto ny famaritana fohy dia fohy",
+  "ann_desc_validation_error": "Hadisoana: Ampidiro azafady ny famaritana fohy",
+  "ann_desc_long_title": "Famaritana amin’ny antsipiriany",
+  "ann_desc_long_hint": "Ampidiro eto ny antsipirihan’ny filazanao",
+  "ann_desc_long_validation_error": "Hadisoana: Ampidiro azafady ny antsipirihan’ny filazana",
+  "ann_emplacement_title": "Toerana",
+  "ann_emplacement_hint": "Toerana (oh: Ankorondrano Antananarivo, Antsirabe)",
+  "ann_emplacement_validation_error": "Hadisoana: Lazao azafady ny toerana",
+  "ann_contact_title": "Fifandraisana",
+  "ann_contact_hint": "Oh: 034 00 000 00",
+  "exemple_pref_hint": "Oh: ",
+  "found_ad_that_might_interest_you": "Nahita doka tao amin'ny MIPS aho izay mety hahaliana anao",
+  "announce_count": "{count} dokambarotra",
+  "@announce_count": {
+    "description": "Announce in plural",
+    "placeholders": {
+      "count": {
+        "type": "num"
+      }
+    }
+  },
+  "announcements_of_follow_ups": "Fanambarana momba ny fanaraha-maso",
+  "submit_your_request": "Alefaso ny fangatahanao",
+  "request_successfully_sent": "Nalefa soa aman-tsara ny fangatahana",
+  "become_kara_partner": "Tonga mpiara-miasa amin'ny KARA",
+  "online_ads_from": "Dokambarotra an-tserasera avy amin'i {name}",
+  "@online_ads_from": {
+    "placeholders": {
+      "name": {
+        "type": "String"
+      }
+    }
+  },
+  "add_images_titles": "Ampio sary (hatramin’ny {imagecount})",
+  "@add_images_titles": {
+    "placeholders": {
+      "imagecount": {
+        "type": "int"
+      }
+    }
+  },
+  "add_photo_label": "Sary",
+  "add_images_capture_titles": "Capture d’écran (hatramin’ny {imagecount})",
+  "@add_images_capture_titles": {
+    "placeholders": {
+      "imagecount": {
+        "type": "int"
+      }
+    }
+  },
+  "send": "Alefa",
+  "sondage_theme_title": "Lohahevitra {numero}",
+  "@sondage_theme_title": {
+    "placeholders": {
+      "numero": {
+        "type": "int"
+      }
+    }
+  },
+  "sondage_fin": "Farany: {datelimit}",
+  "@sondage_fin": {
+    "placeholders": {
+      "datelimit": {
+        "type": "String"
+      }
+    }
+  },
+  "followed": "Narahina",
+  "connexion_security": "Connexion sy fiarovana",
+  "notice": "Filazana",
+  "enter_the_validation_code": "Ampidiro ny kaody fanamarinana",
+  "create_new_more_secure_password": "Mamòna tenimiafina vaovao sy azo antoka kokoa",
+  "enter_old_pass": "Ampidiro ny tenimiafina taloha",
+  "attention": "Fampitandremana",
+  "delete_title1": "Tena te-hamafa ny kaontinao ve ianao ?",
+  "delete_subtitle1": "Ny famafana ny kaontinao dia hiteraka famafana tanteraka ny mombamomba anao sy ny asanao rehetra ao amin’ny sehatra.",
+  "delete_title2": "Te hanohy ihany ve ianao ?",
+  "delete_subtitle2": "Azafady, hamafiso ity hetsika ity raha mbola te hanohy ianao.",
+  "confirm": "Hamafiso",
+  "member_since": "Mpikambana hatramin’ny {date}",
+  "@member_since": {
+    "placeholders": {
+      "date": {
+        "type": "String"
+      }
+    }
+  },
+  "verified_phone": "Voamarina ny laharana finday",
+  "count_annonces": "{count} filazana",
+  "@count_annonces": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "followed_by_count_member": "Arahin'ny mpikambana {count}",
+  "@followed_by_count_member": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "you_follow_count_member": "Manaraka mpikambana {count} ianao",
+  "@you_follow_count_member": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "complaints_and_suggestions": "Fitarainana sy soso-kevitra",
+  "kara_transfer": "Famindrana KARA",
+  "using_kara": "Mampiasa KARA",
+  "announcement_extension": "Fanitarana ny fanambarana",
+  "survey_participation": "Fandraisana anjara amin'ny fanadihadiana",
+  "first_connection": "Fifandraisana voalohany",
+  "ad_consultation": "Fifampidinihana momba ny dokam-barotra",
+  "daily_connection": "Fifandraisana isan'andro",
+  "some_are_hidden": "Mety ho miafina ny doka sasany",
+  "announces": "Dokambarotra",
+  "followeds": "Narahina",
+  "estimate": "Tombana",
+  "extend_validity": "Hanitatra",
+  "send_announce": "Alefa ny filazana",
+  "modify_announce": "Hanova ny filazana",
+  "modify_profil_title": "Mombamomba ny kaonty",
+  "announce_partner": "Filazana mpiara-miombona antoka",
+  "announce_sponsor": "Filazana sponsor",
+  "become_sponsor": "Ho lasa Sponsor",
+  "become_partner": "Ho lasa Mpiara-miombon’antoka",
+  "available_soon": "Ho avy tsy ho ela !",
+  "ann_option_title": "Safidy famoahana",
+  "choose_langue": "Hisafidy fiteny",
+  "ann_option_choose_type": "Misafidiana ny karazana filazanao",
+  "ann_option_choose_duration": "Misafidiana ny faharetan’ny famoahana",
+  "ann_total_amount": "Totaly",
+  "ann_mod_title": "Hanova ny filazanao",
+  "ann_mod_done": "Voarakitra ny fanovana",
+  "sondage_submit_response": "Alefa ny valiny",
+  "sondage_validation_error": "Hadisoana: Misafidiana safidy iray azafady",
+  "sondage_submit_success": "Voarakitra ny valin-teninao, misaotra tamin’ny fandraisanao anjara.",
+  "alert_diag_title_error": "Hadisoana",
+  "alert_diag_title_message": "Nisy olana nitranga, andramo indray azafady.",
+  "alert_dial_auth_requiered_title": "Mila miditra ianao",
+  "alert_dial_auth_requiered_text": "Midira ao amin’ny MIPS mba hahazoanao manararaotra tanteraka ny fampiharana ! Afaka mametraka, manome hevitra ary miara-mifandray amin’ny filazana ianao.",
+  "continuer": "Hanohy",
+  "fermer": "Hidio",
+  "avatar": "Avatar",
+  "voirDetail": "Antsipirihany bebe kokoa",
+  "total": "Totaly",
+  "faka_bonus": "KARA bonus",
+  "bonus": "Bonus:",
+  "phone_duplicate_error": "Efa nampiasaina io laharana finday io.",
+  "option_paiement": "Safidy fandoavana",
+  "recommander_by": "Nolazain’ny (tsy voatery)",
+  "recommander_agent_hint": "Laharan’ny mpanoro hevitra",
+  "connexion": "Fidirana",
+  "please_wait": "Andraso azafady...",
+  "inscription": "Fisoratana anarana",
+  "cgu_title": "Fepetra sy fepetra fampiasana (CGU)",
+  "cgu_section1_title": "1. Fampahafantarana ny Fampiharana",
+  "cgu_section1_text": "Ny fampiharana MIPS dia sehatra ahafahan’ny mpampiasa mamoaka sy mijery filazana amin’ny alalan’ny Jeton FAKA. Ity CGU ity dia mamaritra ny fitsipika amin’ny fampiasana ny fampiharana ho an’ny mpampiasa voasoratra anarana sy ireo miditra tsy misy kaonty.",
+  "cgu_section2_title": "2. Fankatoavana ny CGU",
+  "cgu_section2_text": "Amin’ny fidirana ao amin’ny fampiharana MAHAFAKA dia manaiky ny mpampiasa fa namaky sy nanaiky ireo fepetra voalaza ao amin’ny CGU.",
+  "cgu_section3_title": "3. Fisoratana anarana sy Kaonty mpampiasa",
+  "cgu_section3_text": "Mba hahazoana miditra amin’ny fiasa sasany dia tsy maintsy mamorona kaonty ny mpampiasa amin’ny fanomezana ireto fampahalalana ireto:\n- Solon’anarana\n- Lahy/Vavy\n- Taona nahaterahana\n- Toerana onenana\n- Tenimiafina\n- Email\n- Laharana finday\n\nNy mpampiasa dia tokony hanome vaovao marina sy havaozina. Raha misy vaovao diso dia manan-jo hanakana na hamafa ny kaonty i MAHAFAKA.",
+  "cgu_section4_title": "4. Fampiasana tsy misy Fidirana (Tsy misy Kaonty)",
+  "cgu_section4_text": "Afaka mijery filazana ny mpampiasa tsy voasoratra anarana, saingy ny famoahana sy fiasa sasany dia mitaky kaonty.",
+  "cgu_section5_title": "5. Jeton FAKA",
+  "cgu_section5_text": "Ny Jeton FAKA dia ampiasaina amin’ny famoahana filazana. Ny fitsipika momba ny fahazoana sy fampiasana azy dia voafaritra amin’ny fepetra manokana an’i MAHAFAKA.",
+  "cgu_section6_title": "6. Fiarovana ny Mombamomba manokana",
+  "cgu_section6_text": "Ny vaovao omena mandritra ny fisoratana anarana dia karakaraina araka ny politikanay momba ny tsiambaratelo. Tsy misy data manokana amidy na zaraina amin’ny antoko fahatelo raha tsy amin’ny fankatoavan’ny mpampiasa.",
+  "cgu_section7_title": "7. Andraikitry ny Mpampiasa",
+  "cgu_section7_text": "Ny mpampiasa dia manaiky ny:\n- Tsy hametraka filazana misy vaovao diso, tsy ara-dalàna na manevateva.\n- Hanaja ny lalàna sy ny zon’ny hafa.\n- Tsy hampiasa ny fampiharana amin’ny tanjona hosoka na ratsy.",
+  "cgu_section8_title": "8. Fanovana ny CGU",
+  "cgu_section8_text": "Manan-jo hanova ny CGU i MAHAFAKA amin’ny fotoana rehetra. Hampandrenesina ao amin’ny fampiharana ny mpampiasa raha misy fanovana.",
+  "cgu_section9_title": "9. Fifandraisana",
+  "cgu_section9_text": "Raha misy fanontaniana momba ny CGU dia afaka mifandray amin’ny ekipan’i MAHAFAKA ao amin’ny fampiharana na amin’ny email ny mpampiasa.",
+  "diag_auth_error_title": "Hadisoana amin’ny fidirana",
+  "diag_auth_error_text": "Hamarino tsara ny angon-drakitra nampidirinao.",
+  "diag_register_error_title": "Hadisoana nandritra ny fisoratana anarana",
+  "diag_register_error_text": "Nisy olana nitranga nandritra ny fisoratana anarana.\nHadisoana: [{errorMessage}]",
+  "@diag_register_error_text": {
+    "placeholders": {
+      "errorMessage": {
+        "type": "String"
+      }
+    }
+  },
+  "diag_error_title": "Hadisoana",
+  "diag_error_text": "Nisy olana nitranga.\nHadisoana: [{errorMessage}]",
+  "@diag_error_text": {
+    "placeholders": {
+      "errorMessage": {
+        "type": "String"
+      }
+    }
+  },
+  "profil_change_pass_text": "Hanova tenimiafina",
+  "changer": "Hanova",
+  "tips_mahaol_title": "[Fampahafantarana]",
+  "tips_mahaol_desc": "Zarao eto ireo vaovao mety hahasoa ny mpiara-miasa ao amin'ny vondrom-piarahamonina. Ny fanendrikendrehana sy votoaty manafintohina dia mety hiteraka sazy. Ho an’ny lahatsoratra tsirairay dia hahazo isa ny mpanoratra, araka ny <isan’ny \"Misaotra\" azony ao anatin’ny herinandro * 20 KARA>.",
+  "data_managing": "Fiarovana sy fitantanana angona",
+  "login_text_intro": "Midira ao amin'ny MIPS mba hahazoana fidirana feno amin'ny fampiharana",
+  "login_username_hint": "Laharana finday na mailaka",
+  "login_username_validation_error": "Hadisoana: Ampidiro ny laharana finday na ny adiresy mailakao",
+  "login_password_hint": "Tenimiafina",
+  "login_password_validation_error": "Hadisoana: Ampidiro ny tenimiafinao",
+  "login_stayconnected": "Hijanon-kifandray",
+  "login_forgot_password": "Hadino ny tenimiafina?",
+  "login_not_member": "Tsy mbola mpikambana?",
+  "login_signup": "Hisoratra anarana",
+  "menu_profil_account_info": "Mombamomba ny kaonty",
+  "menu_profil_myavatar": "Avatara / KARA-ko",
+  "menu_profil_delete_data_texte": "Mangataka ny famafana ny kaontinao sy ny mombamomba anao manokana.",
+  "menu_profil_avatar_desc": "Ny avataranao ankehitriny",
+  "menu_profil_solde_disponible": "Solde misy",
+  "logout": "Hivoaka",
+  "gerer": "Hitantana",
+  "annonce": "Filazana",
+  "setting_langue": "Fiteny",
+  "setting_font_size": "Haben’ny soratra",
+  "setting_about": "Mombamomba",
+  "empty_message_list": "Tsy mbola naharay hafatra ianao",
+  "new_version_available": "Misy kinova vaovao: {version}",
+  "@new_version_available": {
+    "placeholders": {
+      "version": {
+        "type": "String"
+      }
+    }
+  },
+  "description": "Famaritana",
+  "rewards_description": "Ny KARA azonao avy amin'ireto asa ireto dia ampiana ao amin’ny solde-nao, azonao ampiasaina hanoratana na hampiroboroboana ny filazanao.",
+  "rewards_title": "Hijery dokambarotra, hahazo KARA",
+  "rewards_subtitle1": "Hijery ny dokambarotra rehetra, mahazoa",
+  "rewards_subtitle2": "50 KARA",
+  "rewards_subtitle3": "fanampiny",
+  "conversion": "Fiovam-bola",
+  "publish_annoucement": "Hamoaka filazana",
+  "please_contact_us": "Azafady, mifandraisa aminay amin'ny contact@mips.mg",
+  "currency": "Vola",
+  "source": "Loharano",
+  "note": "Fanamarihana",
+  "note_exchange_description": "Ireo vaovao ireo dia avy amin’ny tahirin-kevitry ny andro lasa nalefan’ny Loharano. Tsy tompon’andraikitra izahay raha misy tsy fahatomombanana.",
+  "calculation": "Kajy",
+  "exchange_rate": "Tahan'ny fifanakalozana",
+  "follow": "Hanara-dia",
+  "followers": "Mpankasitraka",
+  "noone_follow_me_title": "Tsy mbola misy manaraka anao",
+  "noone_follow_me_description": "Afaka manara-dia ny mombamomba anao ny mpikambana mba hahazo vaovao rehefa misy filazanao",
+  "followings": "Fanarahanao",
+  "follow_anyone_title": "Tsy mbola manara-dia olona ianao",
+  "follow_anyone_description": "Tsindrio ny \"Hanara-dia\" amin’ny mombamomba ny mpikambana iray mba hahazo vaovao amin’ny filazany rehetra",
+  "delete_account": "Hamafa kaonty",
+  "delete_your_account": "Hamafa ny kaontinao",
+  "create_new_strong_password": "Hamorona tenimiafina mafy kokoa",
+  "account": "Kaonty",
+  "my_account": "Kaontiko",
+  "wallet": "Kitapo",
+  "my_wallet": "Kitapoko",
+  "rewards": "Valisoa",
+  "get_mips": "Mahazo KARA",
+  "list_of_operations": "Lisitr'ireo hetsika",
+  "earnings": "Vola miditra",
+  "all": "Rehetra",
+  "expenses": "Fandaniana",
+  "transfers": "Famindram-bola",
+  "payer": "Handoa",
+  "update": "Havaozina",
+  "empty_mes_annonces_list": "Tsy mbola nanoratra filazana ianao",
+  "empty_mes_favoris_list": "Tsy mbola nanampy favoris ianao",
+  "messages_screen_title": "Hafatra",
+  "setting_about_app_title": "Mombamomba ny fampiharana",
+  "setting_about_app_desc1": "MIPS dia sehatra tsotra ampiasaina hanamorana ny famoahana sy fijerena filazana. Raha hivarotra, hividy na hitady zavatra ianao, dia misy sokajy maro: fitaovana isan’andro, fanaka, fiara ary maro hafa.",
+  "setting_about_app_desc2": "Azo ampiasaina hanoratana na hampiakatra ny filazanao ny token KARA. Azonao atao ihany koa ny mahazo KARA maimaim-poana amin’ny fandraisana anjara ao amin’ny vondrom-piarahamonina, mahatonga ny traikefa ho mora sy mavitrika.",
+  "setting_about_propriete_title": "Zon'ny asa soratra",
+  "setting_about_propriete_annonce": "Filazana",
+  "setting_about_propriete_annonce_text": "Ny mpampiasa manoratra filazana dia tompon’ny zon’ny votoatiny ary tompon’andraikitra amin’ny fahamarinan’ny vaovao arosony. Raha misy votoaty tsy mety dia azo atorohana amin’ny contact@mips.mg.",
+  "setting_about_propriete_app": "Fampiharana",
+  "setting_about_propriete_app_text": "Ny sary famantarana ampiasaina ao amin'ny MIPS dia avy amin'ny Icons8.fr.",
+  "setting_about_propriete_data_title": "Fangonana sy fiarovana angona",
+  "setting_about_propriete_data_text": "MIPS dia manolo-tena hiaro ny tsiambaratelonao ka manangona ny mombamomba tena ilaina ihany: taona, laharana finday, mailaka ary faritra onenana. Azonao angatahina ny famafana azy ireo amin’ny alalan’ny menio ao amin’ny mombamomba anao.",
+  "setting_about_propriete_contact_title": "Fifandraisana",
+  "setting_about_propriete_contact_text": "Raha misy fanontaniana, soso-kevitra na fangatahana fanampiana, azafady mifandraisa aminay amin'ny contact@mips.mg / +261 38 28 309 29",
+  "setting_title": "Fikirakirana",
+  "forgot_password_title": "Hadino ny tenimiafina",
+  "acheter_faka": "Hividy",
+  "transferer_faka": "Hamindra",
+  "password_reset_success_toast": "Vita soa aman-tsara ny famerenana ny tenimiafinao.",
+  "delete_account_dialog_confirm_title": "Tianao tokoa ve hofafana ny kaontinao ?",
+  "transfert_dialog_confirm_title": "Hanohy ny famindrana ve ianao ?",
+  "transfert_dialog_number": "Laharan'ny mpandray",
+  "transfert_dialog_amount": "Vola halefa",
+  "maha_partenaire_title": "Namana / Fisoratana Pub",
+  "welcome_user": "Tongasoa {pseudo} !",
+  "@welcome_user": {
+    "placeholders": {
+      "pseudo": {
+        "type": "String"
+      }
+    }
+  },
+  "or_text": "NA",
+  "choose_img": "Misafidiana sary",
+  "browse_image": "Mitady sary",
+  "conseil_tip": "< Mba hiarovana ny mombamomba manokana ny mpanolotsaina nandefa ny hafatra, dia tsy havoaka ny angon-drakitra manokana azy. >",
+  "reserver": "Manendry",
+  "respond_count": "<Isan'ny olona namaly hatramin'izao : {count}>",
+  "@respond_count": {
+    "placeholders": {
+      "count": {
+        "type": "String"
+      }
+    }
+  },
+  "ads_up": "Dokambarotra ambony",
+  "ads_down": "Dokambarotra ambany",
+  "transferMessagePart1": "Hampita ianao ",
+  "transferMessagePart2": " KARA mankany amin'ny kaonty ",
+  "logout_done": "Niala soa aman-tsara.",
+  "delete_done": "Voafafa ny kaonty.",
+  "register_title": "Fisoratana anarana",
+  "register_text": "Midira ao MIPS mba hamoronana sy handefa ny dokambarotrao, ary zavatra maro hafa!",
+  "register_pseudo_hint": "Anarana",
+  "register_pseudo_validation": "Hadisoana: Ampidiro ny anaranao.",
+  "register_mail_hint": "Mailaka",
+  "register_mail_validation": "Hadisoana: Ampidiro ny adiresy mailaka marina.",
+  "register_password_hint": "Teny miafina",
+  "register_new_password_hint": "Teny miafina vaovao",
+  "reset_password_title": "Famerenana ny kaonty",
+  "change_password_title": "Fanovana ny teny miafina",
+  "old_password_hint": "Teny miafina taloha",
+  "reset_password_submit_button": "Alefaso",
+  "validation_code_prompt": "Kaody fanamarinana",
+  "password_change_title": "Fanovana ny teny miafina",
+  "reset_password_confirm_button": "Avereno",
+  "reset_password_email_prompt": "Ampidiro ny adiresy mailaka mba hamerenana ny teny miafina",
+  "validation_email_sent": "Nalefa tamin'ny adiresy {emailAddress} ny mailaka. Ampidiro ny kaody fanamarinana ary soraty ny teny miafina vaovao.",
+  "@validation_email_sent": {
+    "placeholders": {
+      "emailAddress": {
+        "type": "String"
+      }
+    }
+  },
+  "auth_guard_screen_title": "Takiana ny fanamarinana",
+  "auth_guard_screen_prompt": "Ampidiro ny teny miafinao mba hanohy",
+  "available_date_prompt": "Hita amin'ny : {date}",
+  "@available_date_prompt": {
+    "description": "Prompt indicating the availability date",
+    "placeholders": {
+      "date": {
+        "type": "String",
+        "format": "dd MMMM yyyy"
+      }
+    }
+  },
+  "todays_date_prompt": "Daty : {date}",
+  "@todays_date_prompt": {
+    "description": "Prompt indicating today's date",
+    "placeholders": {
+      "date": {
+        "type": "String",
+        "format": "dd MMMM yyyy"
+      }
+    }
+  },
+  "format_date_ddmmyy": "{date}",
+  "@format_date_ddmmyy": {
+    "description": "Prompt indicating today's date",
+    "placeholders": {
+      "date": {
+        "type": "String",
+        "format": "dd MMMM yyyy"
+      }
+    }
+  },
+  "available_premium_date_prompt": "Voafetra hatramin'ny 3 ny dokambarotra Premium, ka azo atao aorian'ny {date}.",
+  "@available_premium_date_prompt": {
+    "description": "Prompt indicating when Premium ads will be available due to a limit of 3",
+    "placeholders": {
+      "date": {
+        "type": "String",
+        "format": "dd MMMM yyyy"
+      }
+    }
+  },
+  "available_vip_date_prompt": "Voafetra hatramin'ny 3 ny dokambarotra VIP, ka azo atao aorian'ny {date}.",
+  "@available_vip_date_prompt": {
+    "description": "Prompt indicating when VIP ads will be available due to a limit of 3",
+    "placeholders": {
+      "date": {
+        "type": "String",
+        "format": "dd MMMM yyyy"
+      }
+    }
+  },
+  "transfer_screen_title": "Famindrana KARA",
+  "transfer_faka_send_title": "Nalefa ny famindrana",
+  "transfer_available_amount": "Saldo azo ampiasaina",
+  "transfer_section_title": "Famindrana KARA mankany amin'ny kaonty hafa",
+  "transfer_insufficient": "Tsy ampy ny saldo",
+  "transfer_id_receiver_hint": "Nomeraon'ny mpandray",
+  "transfer_amount_send_hint": "Habe",
+  "transfer_amount_send_error_validation": "Hadisoana: Ampidiro ny sandany eo anelanelan'ny 1 sy {solde}",
+  "@transfer_amount_send_error_validation": {
+    "placeholders": {
+      "solde": {
+        "type": "String"
+      }
+    }
+  },
+  "transfer_id_receiver_error_validation": "Hadisoana: Nomeraon'ny mpandray",
+  "thanks_btn_text": "Misaotra !",
+  "like_btn_text": "Tiako",
+  "register_password_validation": "Hadisoana: Ampidiro ny teny miafina (6-8 tarehintsoratra).",
+  "register_password2_hint": "Hamarino ny teny miafinao",
+  "register_password2_validation": "Hadisoana: Avereno ny teny miafinao.",
+  "register_genre_masculin": "Lehilahy",
+  "register_genre_feminin": "Vehivavy",
+  "register_yearofbirth_hint": "Daty nahaterahana",
+  "register_yearofbirth_validation": "Hadisoana: Ny mpikambana 13 taona sy miakatra ihany no afaka misoratra anarana",
+  "register_tel_hint": "Nomeraon-telefaona",
+  "register_tel_validation": "Hadisoana: Ampidiro 03* ** *** **/ 02* ** *** **",
+  "choose_option": "Misafidiana",
+  "register_address_hint": "Faritra",
+  "register_address_validation": "Hadisoana: Ampidiro adiresy marina",
+  "register_accept_cgu": "Ekeo ny ",
+  "read_all": "Vakiana rehetra ✓",
+  "cgu": "CGU",
+  "btn_register": "Misoratra anarana",
+  "connection_error": "Hadisoana tamin'ny fifandraisana",
+  "try_again": "Andramo indray",
+  "item_favs_removed": "Esorina amin'ny tianao!",
+  "item_favs_added": "Ampiana amin'ny tianao!",
+  "confirmation": "Fanamafisana",
+  "amount_deduct": " hoesorina amin'ny saldonao mba handefasana ny dokambarotra.",
+  "wanna_continue": "Te hanohy ve ianao?",
+  "publish": "Alefaso",
+  "cancel": "Hanafoana",
+  "modify": "Hanova",
+  "delete": "Hamafa",
+  "add": "Hampiana",
+  "error_upload": "Hadisoana tamin'ny fandefasana",
+  "new_announce": "Dokambarotra vaovao",
+  "not_supported": "Tsy tohanana amin'ny fitaovanao ity hetsika ity.",
+  "call": "Antsoy",
+  "comments": "Hevitra",
+  "login_required_to_comment": "Tsy maintsy miditra ianao vao afaka manoratra hevitra.",
+  "comment_validation_error": "Hadisoana: Ampidiro hevitra.",
+  "load_more_coms": "Hevitra fanampiny",
+  "load_more_messages": "Hafatra fanampiny",
+  "comment_hint": "Soraty hevitra...",
+  "announce_by": "Avy amin'i {pseudo}",
+  "@announce_by": {
+    "placeholders": {
+      "pseudo": {
+        "type": "String"
+      }
+    }
+  },
+  "become_spons_title": "Mivadika ho Sponsor na Mpiara-miasa",
+  "become_spons_text": "Mifandraisa aminay mba hanampiana ny dokambarotrao eto ho mpiara-miasa na sponsor.",
+  "incomplete_info": "Misy tsy feno ny mombamomba",
+  "incomplete_info_text": "Fenoy / Hamarino ny mombamomba rehetra.",
+  "announce_favs": "Dokambarotra tiana",
+  "menu_favs": "Menu tiana",
+  "home": "Fandraisana",
+  "empty_list_announce": "Tsy mbola misy dokambarotra nalefa.",
+  "empty_result": "Tsy misy valiny hita.",
+  "annonce_deleted_succesfully": "Voafafa ny dokambarotra.",
+  "error_loading_image": "Tsy afaka nampiditra ny sary.",
+  "favorite": "Tiako",
+  "my_ads": "Ny dokambarotrako",
+  "page_not_found": "Pejy tsy hita",
+  "profil": "Mombamomba",
+  "view": "Jereo",
+  "download_dialog_title": "Fanavaozana",
+  "download_dialog_desc": "Misintona...",
+  "download_dialog_error": "Tsy tafavoaka ny fisintomana",
+  "text_very_small": "Kely be",
+  "text_small": "Kely",
+  "text_medium": "Mahazatra",
+  "text_large": "Lehibe",
+  "faka_history": "Tantaran'ny FAKA",
+  "selftransfert_error": "Tsy afaka mandefa any amin'ny tenanao ianao",
+  "text_very_large": "Lehibe be"
+}
