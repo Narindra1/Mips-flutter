@@ -585,9 +585,16 @@ class _DemandePubScreenState extends State<DemandePubScreen> {
                             const SizedBox(width: smallPadding),
                             Text(
                               (state
-                                  .annonceTarif[state.indexTarifSelected]
-                                  .tarifs[index]
-                                  .priceInFakaFormatted()),
+                                          .annonceTarif[state
+                                              .indexTarifSelected]
+                                          .tarifs[index]
+                                          .priceInFaka >
+                                      0)
+                                  ? (state
+                                        .annonceTarif[state.indexTarifSelected]
+                                        .tarifs[index]
+                                        .priceInFakaFormatted())
+                                  : context.appLoc.free,
                             ),
                           ],
                         ),
@@ -606,8 +613,19 @@ class _DemandePubScreenState extends State<DemandePubScreen> {
               ],
             ),
           ),
-        if (state.annonceTarif.isNotEmpty) const SizedBox(height: 30.0),
-        if (state.annonceTarif.isNotEmpty)
+        if (state.annonceTarif.isNotEmpty &&
+            state
+                    .annonceTarif[state.indexTarifSelected]
+                    .tarifs[state.indexAnnonceTarifOptionSelected]
+                    .priceInFaka >
+                0)
+          const SizedBox(height: 30.0),
+        if (state.annonceTarif.isNotEmpty &&
+            state
+                    .annonceTarif[state.indexTarifSelected]
+                    .tarifs[state.indexAnnonceTarifOptionSelected]
+                    .priceInFaka >
+                0)
           AppPanelWidget(
             child: Row(
               children: [
@@ -625,6 +643,7 @@ class _DemandePubScreenState extends State<DemandePubScreen> {
                       .annonceTarif[state.indexTarifSelected]
                       .tarifs[state.indexAnnonceTarifOptionSelected]
                       .priceInFakaFormatted()),
+
                   style: Theme.of(
                     context,
                   ).textTheme.titleLarge?.copyWith(fontWeight: FontWeight.bold),
