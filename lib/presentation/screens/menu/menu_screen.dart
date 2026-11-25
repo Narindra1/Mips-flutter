@@ -14,6 +14,7 @@ import 'package:mips/presentation/screens/base/base_content_item.dart';
 import 'package:mips/presentation/screens/base/base_screen.dart';
 import 'package:mips/presentation/screens/base/menu_item.dart';
 import 'package:mips/presentation/screens/list/list_global_content.dart';
+import 'package:mips/presentation/screens/menu/menu_tabs_content.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
@@ -205,40 +206,33 @@ class _MenuScreenState extends State<MenuScreen> {
                                     ),
                                   )
                                 : Expanded(
-                                    child: SingleChildScrollView(
-                                      padding: const EdgeInsets.symmetric(
-                                        horizontal: 3,
-                                      ),
-                                      child: Column(
-                                        crossAxisAlignment:
-                                            CrossAxisAlignment.start,
-                                        children: state.status == Status.loading
-                                            ? [AppLoadingWidget()]
-                                            : [
-                                                _buildMenuGroup(
-                                                  context,
-                                                  subMenus,
+                                    child: state.status == Status.loading
+                                        ? const Center(
+                                            child: AppLoadingWidget(),
+                                          )
+                                        : MenuTabsContent(
+                                            // Réinitialise l'onglet quand on change de menu principal
+                                            key: ValueKey(
+                                              'menu-tabs-${state.screenEntity?.id}',
+                                            ),
+                                            items: subMenus,
+                                            onOpenItem: (item) {
+                                              _navigateScreenRoute(
+                                                context,
+                                                item,
+                                                Menu(
+                                                  annonceSponsor: null,
+                                                  annoncePartner: null,
+                                                  id: item.id,
+                                                  title: item.name,
+                                                  menusChildList: [],
+                                                  isFavs: item.isFav,
+                                                  isFree: item.isFree,
+                                                  reference: item.reference,
                                                 ),
-                                              ],
-                                        // : [
-                                        //     _menuItems.isEmpty
-                                        //         ? const SizedBox()
-                                        //         : Text(
-                                        //             _menuItems[_menuMainIndex]
-                                        //                 .name),
-                                        //     ...List.generate(subMenus.length,
-                                        //         (index) {
-                                        //       return Text(
-                                        //           "//${subMenus[index].subMenu.length}");
-                                        //     }),
-                                        //     // ...List.generate(menuCombined.length, (index) {
-                                        //     //   return BaseContentItem(
-                                        //     //     menuItem: menuCombined[index],
-                                        //     //   );
-                                        //     // }),
-                                        //   ],
-                                      ),
-                                    ),
+                                              );
+                                            },
+                                          ),
                                   ),
                           ],
                         ),
@@ -480,162 +474,6 @@ class _MenuScreenState extends State<MenuScreen> {
         AppRouter.go(context, routeNames);
       }
     }
-  }
-
-  Widget _buildMenuGroup(BuildContext context, List<MenuItem> menuItems) {
-    List<MenuItemHolder> leftMenuItems = [];
-    List<MenuItemHolder> rigthMenuItems = [];
-    List<MenuItemHolder> allItems = [];
-
-    for (int i = 0; i < menuItems.length; i++) {
-      MenuItemHolder menuItem;
-
-      switch (menuItems[i].screenMenuItemType) {
-        case MenuItemType.menuGroup:
-          List<MenuItemHolder> subMenu = [];
-          List<MenuItem>? subElement = menuItems[i].subMenu;
-          if (subElement.isNotEmpty) {
-            for (int j = 0; j < subElement.length; j++) {
-              subMenu.add(
-                MenuItemHolder(
-                  reference: menuItems[i].reference,
-                  isFav: menuItems[i].isFav,
-                  isFree: menuItems[i].isFree,
-                  menuItemType: MenuItemHolderType.normal,
-                  title: subElement[j].name,
-                  id: subElement[j].id,
-                  annoncesTodayCount: subElement[j].annoncesTodayCount,
-                  color: AppUtils.stringToColor(
-                    colorsStringList[j % colorsStringList.length],
-                  ),
-                  onClick: () {
-                    _navigateScreenRoute(
-                      context,
-                      subElement[j],
-                      Menu(
-                        annonceSponsor: null,
-                        annoncePartner: null,
-                        id: subElement[j].id,
-                        title: subElement[j].name,
-                        menusChildList: [],
-                        isFavs: subElement[j].isFav,
-                        isFree: subElement[j].isFree,
-                        reference: subElement[j].reference,
-                      ),
-                    );
-                  },
-                  iconPath: subElement[j].iconPath,
-                ),
-              );
-            }
-          }
-          menuItem = MenuItemHolder(
-            annoncesTodayCount: menuItems[i].annoncesTodayCount,
-            reference: menuItems[i].reference,
-            menuItemType: MenuItemHolderType.group,
-            title: menuItems[i].name,
-            isFav: menuItems[i].isFav,
-            isFree: menuItems[i].isFree,
-            id: menuItems[i].id,
-            color: AppUtils.stringToColor(
-              colorsStringList[i % colorsStringList.length],
-            ),
-            onClick: () {},
-            subMenu: subMenu,
-          );
-          break;
-        case MenuItemType.menu:
-        default:
-          print(
-            "KARA PARTNER : ${menuItems[i].reference} & PARTNER : ${menuItems[i].subMenu.length}",
-          );
-          if (menuItems[i].reference == "IP") {
-            // continue;
-          }
-          menuItem = MenuItemHolder(
-            annoncesTodayCount: menuItems[i].annoncesTodayCount,
-            reference: menuItems[i].reference,
-            menuItemType: MenuItemHolderType.normal,
-            title: menuItems[i].name,
-            id: menuItems[i].id,
-            isFav: menuItems[i].isFav,
-            isFree: menuItems[i].isFree,
-            color: AppUtils.stringToColor(
-              colorsStringList[i % colorsStringList.length],
-            ),
-            onClick: () {
-              _navigateScreenRoute(
-                context,
-                menuItems[i],
-                Menu(
-                  annonceSponsor: null,
-                  annoncePartner: null,
-                  id: menuItems[i].id,
-                  title: menuItems[i].name,
-                  menusChildList: [],
-                  isFavs: menuItems[i].isFav,
-                  isFree: menuItems[i].isFree,
-                  reference: menuItems[i].reference,
-                ),
-              );
-            },
-            iconPath: menuItems[i].iconPath,
-          );
-      }
-      if (i % 2 == 0) {
-        leftMenuItems.add(menuItem);
-      } else {
-        rigthMenuItems.add(menuItem);
-      }
-    }
-
-    for (int i = 0; i < max(leftMenuItems.length, rigthMenuItems.length); i++) {
-      if (i < leftMenuItems.length) {
-        allItems.add(leftMenuItems[i]);
-      }
-      if (i < rigthMenuItems.length) {
-        allItems.add(rigthMenuItems[i]);
-      }
-    }
-
-    double minItemHeight = 60;
-    return Container(
-      color: Colors.grey.shade200,
-      child: Padding(
-        // padding: const EdgeInsets.all(smallPadding),
-        padding: const EdgeInsets.all(0),
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Expanded(
-              child: Column(
-                children: leftMenuItems
-                    .map(
-                      (e) => Container(
-                        constraints: BoxConstraints(minHeight: minItemHeight),
-                        child: BaseContentItem(menuItem: e),
-                      ),
-                    )
-                    .toList(),
-              ),
-            ),
-            Expanded(
-              child: Column(
-                children: rigthMenuItems
-                    .map(
-                      (e) => Container(
-                        constraints: BoxConstraints(minHeight: minItemHeight),
-                        child: BaseContentItem(menuItem: e),
-                      ),
-                    )
-                    .toList(),
-              ),
-            ),
-          ],
-        ),
-      ),
-    );
   }
 
   Widget _buildMenuMain(BuildContext context, List<MenuItem> menuItems) {
